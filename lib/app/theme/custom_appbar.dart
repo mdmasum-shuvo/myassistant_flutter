@@ -1,5 +1,5 @@
 
-import 'package:dine_n_deals/app/theme/text_theme.dart';
+import 'package:my_assistant/app/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

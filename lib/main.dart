@@ -1,25 +1,76 @@
-import 'package:dine_n_deals/app/theme/Colors.dart';
+import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
+import 'app/routes/app_pages.dart';
 import 'app/theme/theme.dart';
+import 'app/utils/constants.dart';
+import 'app/utils/utils.dart';
 
 
-String address = '';
-Future<void> main() async {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
+  Utils.configLoading();
+  var wi = WidgetsFlutterBinding.ensureInitialized();
 
+  FlutterNativeSplash.preserve(widgetsBinding: wi);
 
+  hasPreviousSession().then((value) {
+    runApp(MyApp(
+      route: value,
+    ));
+    FlutterNativeSplash.remove();
+  });
+
+  // runApp(
+  //     const MyApp(
+  //       route:  AppPages.INITIAL,
+  //     )
+  // );
 }
 
+Future<String> hasPreviousSession() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  var token = prefs.getString("token");
+  var userId = prefs.getString("userId");
+  if (token != null) {
+    if (token.isNotEmpty) {
+      Constants.token = "Bearer $token";
+      Constants.userID = userId!;
 
+      Constants.headers = {
+        "Accept": "application/json",
+        "Authorization": Constants.token
+      };
+      // DashboardView.name = "${prefs.getString("name")}";
+      // DashboardView.id = "${prefs.getString("id")}";
+      // DashboardView.dsc = "${prefs.getString("des")}";
+      // Constants.ROLEID = "${prefs.getString("roleID")}";
+
+      // TaskProvider provider = TaskProvider();
+      //
+      // provider.getDashboardTasks().then((value) =>
+      // {
+      //   DashboardView.dashboardTaskList.value = value,
+      //   // EasyLoading.showToast("Task Loaded"),
+      // });
+
+      // return Routes.HOME;
+    } else {
+      return Routes.LOGIN;
+      return Routes.LOGIN;
+    }
+  }
+  return Routes.LOGIN;
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key, required this.route}) : super(key: key);
@@ -39,14 +90,16 @@ class MyApp extends StatelessWidget {
           //You can use the library anywhere in the app even in theme
           theme: theme(),
           home: child,
+          builder: EasyLoading.init(),
           initialRoute: route,
           debugShowCheckedModeBanner: false,
-
+          getPages: AppPages.routes,
         );
       },
     );
   }
 }
+
 
 
 // Future<void> getLocation() async {

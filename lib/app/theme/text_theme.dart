@@ -1,6 +1,6 @@
 
 
-import 'package:dine_n_deals/app/theme/theme.dart';
+import 'package:my_assistant/app/theme/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

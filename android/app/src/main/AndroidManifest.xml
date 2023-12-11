@@ -6,13 +6,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:label="dine_n_deals"
+        android:label="My Assistant"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCTpleKngVN2zgwjwQdBjd5XjeHd-NFvjo"/>
 
         <activity
             android:name=".MainActivity"
