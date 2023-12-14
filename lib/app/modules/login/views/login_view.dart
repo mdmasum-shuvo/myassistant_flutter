@@ -42,7 +42,7 @@ class LoginView extends GetView<LoginController> {
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: controller.showPassword.value,
                   suffix: Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding:  EdgeInsets.all(15.r),
                     child: GestureDetector(
                       onTap: () {
                         controller.showPassword.value =
@@ -70,14 +70,14 @@ class LoginView extends GetView<LoginController> {
                   text: TextSpan(
                       text: "Don’t have an account? ",
                       style: GoogleFonts.inter(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xFF5E6165)),
                       children: [
                         TextSpan(
                           text: "Register",
                           style: GoogleFonts.inter(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w600,
                               color: Colors.black),
                           recognizer: TapGestureRecognizer()
