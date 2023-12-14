@@ -2,6 +2,4 @@
 class Assets {
   Assets._();
 
-
-
 }

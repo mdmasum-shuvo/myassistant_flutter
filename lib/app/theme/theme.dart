@@ -9,7 +9,7 @@ ThemeData theme() {
   return ThemeData(
     primaryColor: primaryColor,
     secondaryHeaderColor: primaryColor,
-    scaffoldBackgroundColor: secondaryColor,
+    scaffoldBackgroundColor: white,
     inputDecorationTheme: inputDecorationTheme(), appBarTheme: const AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: primaryColor))
 
   );
@@ -23,21 +23,26 @@ InputDecorationTheme inputDecorationTheme() {
       bottom: 13.5.h, // HERE THE IMPORTANT PART
       top: 13.5.h, // HERE THE IMPORTANT PART
     ),
-
-    hintStyle:  TextStyle(color: Color(0xff666666),fontSize: 14.sp),
+    // prefixIconColor: Colors.black,
+    //TextStyle(color: const Color(0xff666666),fontSize: 14.sp)
+    hintStyle:  GoogleFonts.poppins(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w500,
+      color: Colors.black,
+    ),
     //background: #8BC53F40;
 
 
-    fillColor: gray,
+    fillColor: white,
 
     filled: true,
     floatingLabelBehavior: FloatingLabelBehavior.always,
     enabledBorder: const OutlineInputBorder(
-      borderSide: BorderSide(width: 1, color: gray),
+      borderSide: BorderSide(width: 1, color: secondaryColor1),
       borderRadius: BorderRadius.all(Radius.circular(4)),
     ),
     focusedBorder: const OutlineInputBorder(
-      borderSide: BorderSide(width: 1, color:primaryColor),
+      borderSide: BorderSide(width: 1, color: primaryColor),
       borderRadius: BorderRadius.all(Radius.circular(4)),
     ),
   );
@@ -80,6 +85,51 @@ final TextTheme textTheme1 = TextTheme(
       color: textColor),
 
   bodySmall: GoogleFonts.poppins(
+      fontSize: 10.sp,
+      color: textColor),
+
+);
+final TextTheme textTheme2 = TextTheme(
+  displayLarge: GoogleFonts.inter(
+      fontSize: 26.sp,
+      fontWeight: FontWeight.w500,
+      color: textColor),
+  displayMedium: GoogleFonts.inter(
+      fontSize: 24.sp,
+      fontWeight: FontWeight.w800,
+      color: textColor),
+  headlineLarge: GoogleFonts.inter(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.w800,
+      color: textColor),
+  headlineMedium: GoogleFonts.inter(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w700,
+      color: textColor),
+  headlineSmall:
+  GoogleFonts.inter(fontSize: 16.sp, fontWeight: FontWeight.w400,color: primaryDarkColor),
+
+  titleLarge: GoogleFonts.inter(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w600,
+      color: textColor),
+  titleMedium: GoogleFonts.inter(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.normal,
+      color: textColor),
+  titleSmall: GoogleFonts.inter(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w400,
+      color: textColor),
+  bodyLarge: GoogleFonts.inter(
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w400,
+      color: textColor),
+  bodyMedium: GoogleFonts.inter(
+      fontSize: 10.sp,
+      color: textColor),
+
+  bodySmall: GoogleFonts.inter(
       fontSize: 10.sp,
       color: textColor),
 

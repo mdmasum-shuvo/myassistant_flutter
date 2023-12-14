@@ -1,4 +1,8 @@
 import 'package:get/get.dart';
+import 'package:my_assistant/app/modules/register/binding/register_binding.dart';
+import 'package:my_assistant/app/modules/register/view/register_view.dart';
+import 'package:my_assistant/app/modules/welcome_screen/bindings/welcome_binding.dart';
+import 'package:my_assistant/app/modules/welcome_screen/views/welcome_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -22,6 +26,17 @@ class AppPages {
       name: _Paths.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.WELCOME,
+      page: () => const WelcomeView(),
+      binding: WelcomeBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.REGISTER,
+      page: () => const RegisterView(),
+      binding: RegisterBinding(),
     ),
   ];
 }
