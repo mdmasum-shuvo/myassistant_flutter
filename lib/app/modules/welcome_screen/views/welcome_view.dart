@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import 'package:my_assistant/app/modules/welcome_screen/component/footer_registration.dart';
 import 'package:my_assistant/app/modules/welcome_screen/component/header.dart';
 import 'package:my_assistant/app/modules/welcome_screen/component/login_decesion_button.dart';
-
-import '../../../theme/auth_appbar.dart';
 import '../controllers/welcome_controller.dart';
 
 class WelcomeView extends GetView<WelcomeController> {
