@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_assistant/app/modules/welcome_screen/component/footer_registration.dart';
 import 'package:my_assistant/app/theme/auth_appbar.dart';
 import 'package:my_assistant/app/theme/button_theme.dart';
 import 'package:my_assistant/app/theme/colors.dart';
@@ -27,9 +28,10 @@ class LoginView extends GetView<LoginController> {
             padding: EdgeInsets.all(24.0.r),
             children: [
               text_26_500_inter("Login to app"),
+
               text_16_400_inter(
                   "Welcome to DoorTrack! Elevate your customer and member management experience.",
-                  const Color(0xFF5E6165)),
+                  greyText),
               height25(47),
               textField(
                 "Email",
@@ -59,35 +61,13 @@ class LoginView extends GetView<LoginController> {
                 children: [
                   TextButton(
                       onPressed: () {},
-                      child: text_14_500("Forget Password?", tertiaryColor))
+                      child: text_14_500("Forget Password?", greyText))
                 ],
               ),
               height25(73),
-              primaryButton("Login", () {}),
+              primaryButton("Login", () {},textBlack,white),
               height25(Get.height * 0.2),
-              RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                      text: "Don’t have an account? ",
-                      style: GoogleFonts.inter(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w400,
-                          color: const Color(0xFF5E6165)),
-                      children: [
-                        TextSpan(
-                          text: "Register",
-                          style: GoogleFonts.inter(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Get.toNamed(Routes.REGISTER);
-
-                              print("Register tapped");
-                            },
-                        )
-                      ]))
+             footerRegistration()
             ],
           ),
         ));

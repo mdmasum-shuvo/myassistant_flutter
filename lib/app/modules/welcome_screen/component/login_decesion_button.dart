@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:my_assistant/app/theme/Colors.dart';
 
 import '../../../routes/app_pages.dart';
 import '../../../theme/button_theme.dart';
@@ -21,28 +22,28 @@ Widget loginDecisionButton(
         () {
           Get.toNamed(Routes.LOGIN);
         },
-        Colors.black,
+        white,
       ),
       Gap(52.h),
       Row(
         children: [
-          const Expanded(child: Divider()),
+          const Expanded(child: Divider(color: white,)),
           Gap(4.w),
           text_16_500("or"),
           Gap(4.w),
-          const Expanded(child: Divider()),
+          const Expanded(child: Divider(color: white,)),
         ],
       ),
       Gap(50.h),
       buttonWithLeftLogo(
         Assets.google,
-        "Login with google",
+        "Continue with google",
         () {},
-        Colors.black,
+       white,
       ),
       height25(),
       buttonWithLeftLogo(Assets.facebook, "Continue with Facebook", () {},
-          Colors.white, const Color(0xFF1877F2)),
+          Colors.white,primaryColor),
     ],
   );
 }

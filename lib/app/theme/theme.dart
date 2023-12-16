@@ -9,8 +9,8 @@ ThemeData theme() {
   return ThemeData(
     primaryColor: primaryColor,
     secondaryHeaderColor: primaryColor,
-    scaffoldBackgroundColor: white,
-    inputDecorationTheme: inputDecorationTheme(), appBarTheme: const AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: primaryColor))
+    scaffoldBackgroundColor: primaryDarkColor,
+    inputDecorationTheme: inputDecorationTheme(), appBarTheme: const AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: primaryDarkColor))
 
   );
 }
@@ -25,66 +25,66 @@ InputDecorationTheme inputDecorationTheme() {
     ),
     // prefixIconColor: Colors.black,
     //TextStyle(color: const Color(0xff666666),fontSize: 14.sp)
-    hintStyle:  GoogleFonts.poppins(
+    hintStyle:  GoogleFonts.inter(
       fontSize: 16.sp,
       fontWeight: FontWeight.w500,
-      color: Colors.black,
+      color: white,
     ),
     //background: #8BC53F40;
 
 
-    fillColor: white,
+    fillColor: primaryColor,
 
     filled: true,
     floatingLabelBehavior: FloatingLabelBehavior.always,
     enabledBorder: const OutlineInputBorder(
-      borderSide: BorderSide(width: 1, color: secondaryColor1),
-      borderRadius: BorderRadius.all(Radius.circular(4)),
+      borderSide: BorderSide(width: 1, color: primaryColor),
+      borderRadius: BorderRadius.all(Radius.circular(8)),
     ),
     focusedBorder: const OutlineInputBorder(
-      borderSide: BorderSide(width: 1, color: primaryColor),
-      borderRadius: BorderRadius.all(Radius.circular(4)),
+      borderSide: BorderSide(width: 1, color: white),
+      borderRadius: BorderRadius.all(Radius.circular(8)),
     ),
   );
 }
 
 final TextTheme textTheme1 = TextTheme(
-  displayLarge: GoogleFonts.poppins(
+  displayLarge: GoogleFonts.inter(
       fontSize: 24.sp,
       fontWeight: FontWeight.w800,
       color: textColor),
-  headlineLarge: GoogleFonts.poppins(
+  headlineLarge: GoogleFonts.inter(
       fontSize: 18.sp,
       fontWeight: FontWeight.w800,
       color: textColor),
-  headlineMedium: GoogleFonts.poppins(
+  headlineMedium: GoogleFonts.inter(
       fontSize: 16.sp,
       fontWeight: FontWeight.w700,
       color: textColor),
   headlineSmall:
-  GoogleFonts.poppins(fontSize: 16.sp, fontWeight: FontWeight.w400,color: primaryDarkColor),
+  GoogleFonts.inter(fontSize: 16.sp, fontWeight: FontWeight.w400,color: primaryDarkColor),
 
-  titleLarge: GoogleFonts.poppins(
+  titleLarge: GoogleFonts.inter(
       fontSize: 16.sp,
       fontWeight: FontWeight.w600,
       color: textColor),
-  titleMedium: GoogleFonts.poppins(
+  titleMedium: GoogleFonts.inter(
       fontSize: 14.sp,
       fontWeight: FontWeight.normal,
       color: textColor),
-  titleSmall: GoogleFonts.poppins(
+  titleSmall: GoogleFonts.inter(
       fontSize: 16.sp,
       fontWeight: FontWeight.w400,
       color: textColor),
-  bodyLarge: GoogleFonts.poppins(
+  bodyLarge: GoogleFonts.inter(
       fontSize: 12.sp,
       fontWeight: FontWeight.w400,
       color: textColor),
-  bodyMedium: GoogleFonts.poppins(
+  bodyMedium: GoogleFonts.inter(
       fontSize: 10.sp,
       color: textColor),
 
-  bodySmall: GoogleFonts.poppins(
+  bodySmall: GoogleFonts.inter(
       fontSize: 10.sp,
       color: textColor),
 

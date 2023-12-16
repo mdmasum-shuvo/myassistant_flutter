@@ -4,13 +4,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 
-Widget primaryButton(String text, Function() onPressed,[Color color = Colors.white]) {
+Widget primaryButton(String text, Function() onPressed,[Color color = white,backgroundColor=primaryColor]) {
   return SizedBox(
     height: 56.h,
     width: double.infinity,
     child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: primaryColor,
+            backgroundColor: backgroundColor,
             elevation: 0,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.r),
@@ -24,7 +24,7 @@ Widget primaryButton(String text, Function() onPressed,[Color color = Colors.whi
 }
 
 
-Widget buttonWithLeftLogo(String svg, String text, Function() onPressed,[Color color = Colors.black, Color backgroundColor = Colors.white]) {
+Widget buttonWithLeftLogo(String svg, String text, Function() onPressed,[Color color =white, Color backgroundColor =primaryColor]) {
   return SizedBox(
     height: 56.h,
     width: double.infinity,
@@ -35,7 +35,7 @@ Widget buttonWithLeftLogo(String svg, String text, Function() onPressed,[Color c
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.r),
-              side: const BorderSide(color: Color(0xFFEEEEEE)),
+              side: const BorderSide(color: primaryColor),
             )),
         onPressed: () {
           onPressed();
