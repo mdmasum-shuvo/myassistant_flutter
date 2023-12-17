@@ -1,6 +1,13 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:my_assistant/app/theme/Colors.dart';
+import 'package:my_assistant/app/theme/button_theme.dart';
+import 'package:my_assistant/app/theme/const_sizing.dart';
+import 'package:my_assistant/app/theme/text_theme.dart';
+import 'package:my_assistant/app/utils/assets.dart';
 
 import '../routes/app_pages.dart';
 
@@ -16,4 +23,25 @@ Future<void> showMyDialog(BuildContext context, String message) async {
       Get.offAllNamed(Routes.HOME);
     },
   ).show();
+}
+
+
+successDialogue(String title, String body, String buttonText, VoidCallback onTap,[bool barrierDismissible = false]){
+
+  Get.defaultDialog(
+    title: "",
+    barrierDismissible: barrierDismissible,
+    contentPadding: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 25.h),
+    backgroundColor: primaryColor,
+    content: Column(
+      children: [
+        SvgPicture.asset(Assets.success, height: 101.h, width: 101.w,),
+        height25(30),
+        text_26_500_inter(title),
+        text_16_400_inter(body,greyText,TextAlign.center),
+        height25(59),
+        primaryButton(buttonText, onTap, primaryColor, white ),
+      ],
+    )
+  );
 }

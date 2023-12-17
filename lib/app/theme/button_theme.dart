@@ -29,7 +29,7 @@ Widget buttonWithLeftLogo(String svg, String text, Function() onPressed,[Color c
     height: 56.h,
     width: double.infinity,
     child: ElevatedButton.icon(
-      icon: SvgPicture.asset(svg),
+      icon: SvgPicture.asset(svg, ),
         style: ElevatedButton.styleFrom(
             backgroundColor: backgroundColor,
             elevation: 0,

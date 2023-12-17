@@ -1,6 +1,12 @@
 import 'package:get/get.dart';
+import 'package:my_assistant/app/modules/forget_password/binding/forget_password_binding.dart';
+import 'package:my_assistant/app/modules/forget_password/view/forget_password_view.dart';
 import 'package:my_assistant/app/modules/register/binding/register_binding.dart';
 import 'package:my_assistant/app/modules/register/view/register_view.dart';
+import 'package:my_assistant/app/modules/reset_password/binding/reset_password_binding.dart';
+import 'package:my_assistant/app/modules/reset_password/view/reset_password_view.dart';
+import 'package:my_assistant/app/modules/verification/binding/verification_binding.dart';
+import 'package:my_assistant/app/modules/verification/view/verification_view.dart';
 import 'package:my_assistant/app/modules/welcome_screen/bindings/welcome_binding.dart';
 import 'package:my_assistant/app/modules/welcome_screen/views/welcome_view.dart';
 
@@ -37,6 +43,24 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => const RegisterView(),
       binding: RegisterBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.FORGETPASSWORD,
+      page: () => const ForgetPasswordView(),
+      binding: ForgetPasswordBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.RESETPASSWORD,
+      page: () => const ResetPasswordView(),
+      binding: ResetPasswordBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.VERIFICATION,
+      page: () => const VerificationView(),
+      binding: VerificationBinding(),
     ),
   ];
 }

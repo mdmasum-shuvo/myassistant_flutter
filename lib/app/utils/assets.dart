@@ -14,5 +14,7 @@ class Assets {
 
   static const String date = 'assets/icon/date.svg';
 
+  static const String success = 'assets/icon/success.svg';
+
 
 }

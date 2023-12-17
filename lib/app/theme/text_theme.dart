@@ -79,8 +79,8 @@ Widget text_12_700_inter(String? value,[Color color = white]){
 Widget text_16_500_inter(String? value,[Color color = white]){
   return Text("$value",style:textTheme2.headlineSmall?.copyWith(color: color));
 }
-Widget text_16_400_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.titleSmall?.copyWith(color: color, ));
+Widget text_16_400_inter(String? value,[Color color = white, TextAlign? textAlign]){
+  return Text("$value",style:textTheme2.titleSmall?.copyWith(color: color, ), textAlign: textAlign,);
 }
 
 Widget text_16_600_inter(String? value,[Color color = white]){

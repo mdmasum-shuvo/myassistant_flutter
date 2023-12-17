@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:my_assistant/app/modules/login/controllers/login_controller.dart';
+import 'package:my_assistant/app/routes/app_pages.dart';
 
 import '../../../theme/Colors.dart';
 import '../../../theme/button_theme.dart';
@@ -41,7 +43,9 @@ Widget loginFields(LoginController controller){
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(Routes.FORGETPASSWORD);
+              },
               child: text_14_500("Forget Password?", greyText))
         ],
       ),

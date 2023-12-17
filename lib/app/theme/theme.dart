@@ -24,14 +24,14 @@ InputDecorationTheme inputDecorationTheme() {
       top: 13.5.h, // HERE THE IMPORTANT PART
     ),
     // prefixIconColor: Colors.black,
-    //TextStyle(color: const Color(0xff666666),fontSize: 14.sp)
+
+    // TextStyle(color: const Color(0xff666666),fontSize: 14.sp)
     hintStyle:  GoogleFonts.inter(
       fontSize: 16.sp,
       fontWeight: FontWeight.w500,
       color: white,
     ),
     //background: #8BC53F40;
-
 
     fillColor: primaryColor,
 
