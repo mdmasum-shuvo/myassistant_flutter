@@ -1,10 +1,18 @@
 import 'package:get/get.dart';
+import 'package:my_assistant/app/modules/contacts/binding/contacts_binding.dart';
+import 'package:my_assistant/app/modules/contacts/view/contacts_view.dart';
+import 'package:my_assistant/app/modules/dashboard/binding/dashboard_binding.dart';
+import 'package:my_assistant/app/modules/dashboard/view/dashboard_view.dart';
 import 'package:my_assistant/app/modules/forget_password/binding/forget_password_binding.dart';
 import 'package:my_assistant/app/modules/forget_password/view/forget_password_view.dart';
+import 'package:my_assistant/app/modules/leads/binding/leads_binding.dart';
+import 'package:my_assistant/app/modules/leads/view/leads_view.dart';
 import 'package:my_assistant/app/modules/register/binding/register_binding.dart';
 import 'package:my_assistant/app/modules/register/view/register_view.dart';
 import 'package:my_assistant/app/modules/reset_password/binding/reset_password_binding.dart';
 import 'package:my_assistant/app/modules/reset_password/view/reset_password_view.dart';
+import 'package:my_assistant/app/modules/task/binding/task_binding.dart';
+import 'package:my_assistant/app/modules/task/view/task_view.dart';
 import 'package:my_assistant/app/modules/verification/binding/verification_binding.dart';
 import 'package:my_assistant/app/modules/verification/view/verification_view.dart';
 import 'package:my_assistant/app/modules/welcome_screen/bindings/welcome_binding.dart';
@@ -62,5 +70,35 @@ class AppPages {
       page: () => const VerificationView(),
       binding: VerificationBinding(),
     ),
+
+    GetPage(
+      name: _Paths.DASHBOARD,
+      page: () =>  const DashboardView(),
+      binding: DashboardBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.CONTACTS,
+      page: () => const ContactsView(),
+      binding: ContactsBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.LEADS,
+      page: () => const LeadsView(),
+      binding: LeadsBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.TASK,
+      page: () => const TaskView(),
+      binding: TaskBinding(),
+    ),
+
+    // GetPage(
+    //   name: _Paths.VERIFICATION,
+    //   page: () => const VerificationView(),
+    //   binding: VerificationBinding(),
+    // ),
   ];
 }

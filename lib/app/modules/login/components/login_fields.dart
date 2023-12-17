@@ -50,7 +50,9 @@ Widget loginFields(LoginController controller){
         ],
       ),
       height25(73),
-      primaryButton("Login", () {},textBlack,white),
+      primaryButton("Login", () {
+        Get.offAllNamed(Routes.DASHBOARD);
+      },textBlack,white),
     ],
   );
 }

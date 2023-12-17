@@ -10,6 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_assistant/app/modules/register/controller/register_controller.dart';
 import 'package:my_assistant/app/theme/theme.dart';
 
+import '../../../routes/app_pages.dart';
 import '../../../theme/Colors.dart';
 import '../../../theme/button_theme.dart';
 import '../../../theme/const_sizing.dart';
@@ -116,7 +117,10 @@ Widget registerFields(RegisterController controller){
         ],
       ),
       height25(),
-      primaryButton("Register", () {},textBlack,white),
+      primaryButton("Register", () {
+        Get.offAllNamed(Routes.DASHBOARD);
+
+      },textBlack,white),
     ],
   );
 }

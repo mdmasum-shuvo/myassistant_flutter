@@ -10,6 +10,10 @@ abstract class Routes {
   static const FORGETPASSWORD = _Paths.FORGETPASSWORD;
   static const RESETPASSWORD = _Paths.RESETPASSWORD;
   static const VERIFICATION = _Paths.VERIFICATION;
+  static const DASHBOARD = _Paths.DASHBOARD;
+  static const TASK = _Paths.TASK;
+  static const CONTACTS = _Paths.CONTACTS;
+  static const LEADS = _Paths.LEADS;
 }
 
 abstract class _Paths {
@@ -21,4 +25,15 @@ abstract class _Paths {
   static const FORGETPASSWORD = '/forget-password';
   static const RESETPASSWORD = '/reset-password';
   static const VERIFICATION = '/verification';
+
+  /// dashboard
+  static const DASHBOARD = '/dashboard';
+
+  /// bottom navigation pages
+
+  static const TASK = '/task';
+  static const CONTACTS = '/contacts';
+  static const LEADS = '/leads';
+
+
 }
