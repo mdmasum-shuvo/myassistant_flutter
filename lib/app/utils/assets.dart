@@ -29,6 +29,7 @@ class Assets {
   /// ----
 
   static const String menu = 'assets/icon/menu.svg';
+  static const String menuDrawer = 'assets/icon/menu_drawer.svg';
 
   /// drawer icon
 

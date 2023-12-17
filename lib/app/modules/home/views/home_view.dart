@@ -8,6 +8,7 @@ import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:my_assistant/app/utils/assets.dart';
 
 import '../../../theme/button_theme.dart';
+import '../../../theme/custom_appbar.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -15,8 +16,7 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-
+      appBar: mainAppBar("Good Morning","Good Morning",true),
     );
   }
 }

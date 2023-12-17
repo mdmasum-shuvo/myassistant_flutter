@@ -37,6 +37,9 @@ Widget text_16_600(String? value,[Color color = white]){
 Widget text_14_400(String? value,[Color color = white]){
   return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color));
 }
+Widget text_18_400(String? value,[Color color = white]){
+  return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color,fontSize: 18.sp));
+}
 Widget text_14_500(String? value,[Color color = white]){
   return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color,fontWeight: FontWeight.w500));
 }
@@ -63,6 +66,10 @@ Widget text_18_800_inter(String? value,[Color color = white]){
 
 Widget text_26_500_inter(String? value,[Color color = white]){
   return Text("$value",style:textTheme2.displayLarge?.copyWith(color: color));
+}
+
+Widget text_20_500_inter(String? value,[Color color = white]){
+  return Text("$value",style:textTheme2.displayLarge?.copyWith(color: color,fontSize: 20.sp));
 }
 
 Widget text_24_800_inter(String? value,[Color color =white]){

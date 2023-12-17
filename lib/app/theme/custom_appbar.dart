@@ -1,60 +1,78 @@
-
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:my_assistant/app/utils/assets.dart';
 
 import 'Colors.dart';
 
-AppBar mainAppBar(String title,
-    [bool isSearchVisible = true, bool isHome = false]) {
+AppBar mainAppBar(String title, String subTitle, [bool isHome = false]) {
   return AppBar(
     // Set this height
+    systemOverlayStyle: SystemUiOverlayStyle(
+      // Status bar color
+      statusBarColor: primaryColor,
+
+      // Status bar brightness (optional)
+      statusBarIconBrightness: Brightness.light, // For Android (dark icons)
+      statusBarBrightness: Brightness.light, // For iOS (dark icons)
+    ),
     elevation: 0,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+      bottom: Radius.circular(30.r),
+    )),
     backgroundColor: primaryColor,
     leading: Padding(
-      padding: EdgeInsets.only(left: 16.w),
-      child: IconButton(
-        icon: const Icon(
-          Icons.arrow_back,
-          color: secondaryColor,
-        ),
-        onPressed: () {
-          Get.back();
-        },
-      ),
+      padding: EdgeInsets.only(left: 24.w, bottom: 12.h),
+      child: isHome
+          ? SvgPicture.asset(Assets.menuDrawer)
+          : IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: white,
+              ),
+              onPressed: () {
+                Get.back();
+              },
+            ),
     ),
     flexibleSpace: SafeArea(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              text_16_700(title, Colors.white)
-            ],
-          ),
-          if (isSearchVisible)
-            Padding(
-              padding: EdgeInsets.only(right: 20.w),
-              child:  Row(children: [
-                Spacer(),
-                GestureDetector(
-                  onTap: (){
-                   // Get.toNamed(Routes.SEARCH_CONTACT);
-
-                  },
-                  child: Icon(
-                    Icons.search,
-                    color: Colors.white,
-                  ),
-                )
-              ]),
-            ),
-        ],
-      ),
+      child: isHome ? isHomeAppBar(title, subTitle) : isNotHomeAppBar(title),
     ),
+  );
+}
+
+Widget isHomeAppBar(String title, String subTitle) {
+  return Stack(
+    alignment: Alignment.centerLeft,
+    children: [
+      Padding(
+        padding: EdgeInsets.only(left: 80.w),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            text_14_400(title, Colors.white),
+            text_20_500_inter(subTitle, Colors.white)
+          ],
+        ),
+      ),
+    ],
+  );
+}
+
+Widget isNotHomeAppBar(String title) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Padding(
+        padding: EdgeInsets.only(top: 8.h),
+        child: text_20_500_inter(title),
+      ),
+    ],
   );
 }
