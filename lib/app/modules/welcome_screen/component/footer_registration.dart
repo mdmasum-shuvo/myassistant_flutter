@@ -28,7 +28,6 @@ Widget footerRegistration() {
           recognizer: TapGestureRecognizer()
             ..onTap = () {
               Get.toNamed(Routes.REGISTER);
-              print("Register tapped");
             },
         )
       ]
