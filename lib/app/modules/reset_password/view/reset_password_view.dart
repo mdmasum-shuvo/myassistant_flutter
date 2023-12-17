@@ -9,7 +9,7 @@ import '../../../routes/app_pages.dart';
 import '../../../theme/Colors.dart';
 import '../../../theme/button_theme.dart';
 import '../../../theme/const_sizing.dart';
-import '../components/header.dart';
+import '../../common/header.dart';
 import '../components/reseat_password_fields.dart';
 
 class ResetPasswordView extends GetView<ResetPasswordController> {
@@ -33,7 +33,7 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
         padding: EdgeInsets.all(24.r),
         child: Column(
           children: [
-            header(),
+            header("Reset password","Confirm your new password to get started!"),
             height25(143),
             Expanded(child: reseatPasswordFields(controller)),
 

@@ -18,7 +18,7 @@ import '../../../theme/textfield.dart';
 import '../../../utils/assets.dart';
 
 Widget registerFields(RegisterController controller){
-  return ListView(
+  return Column(
     children: [
       textField("First Name", controller.firstNameController, Assets.person, keyboardType: TextInputType.name),
       height25(),
@@ -80,7 +80,7 @@ Widget registerFields(RegisterController controller){
                     style: GoogleFonts.inter(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w400,
-                        color: secondaryColor
+                        color: white
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
@@ -102,7 +102,7 @@ Widget registerFields(RegisterController controller){
                     style: GoogleFonts.inter(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w400,
-                        color: secondaryColor
+                        color: white
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
@@ -116,7 +116,7 @@ Widget registerFields(RegisterController controller){
           )
         ],
       ),
-      height25(),
+      height25(64),
       primaryButton("Register", () {
         Get.offAllNamed(Routes.DASHBOARD);
 

@@ -11,7 +11,6 @@ class OtpTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 58.h,
       width: 80.w,
       child: Card(
         elevation: 5,

@@ -4,21 +4,15 @@ import 'package:my_assistant/app/modules/verification/controller/verification_co
 import 'otp_text_field.dart';
 
 Widget otpTextFields(VerificationController controller){
-  return ListView(
-    children: [
-      Form(
-          key: controller.otpFormKey.value,
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              OtpTextField(),
-              OtpTextField(),
-              OtpTextField(),
-              OtpTextField(unFocusTextField: true,),
-
-
-            ],
-          )),
-    ],
-  );
+  return Form(
+      key: controller.otpFormKey.value,
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          OtpTextField(),
+          OtpTextField(),
+          OtpTextField(),
+          OtpTextField(unFocusTextField: true,),
+        ],
+      ));
 }

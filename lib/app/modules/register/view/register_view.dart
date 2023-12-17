@@ -28,13 +28,16 @@ class RegisterView extends GetView<RegisterController> {
       appBar: authAppbar(),
       body: Padding(
         padding: EdgeInsets.all(24.r),
-        child: Column(
-          children: [
-            header(),
-           height25(47),
-            Expanded(child: registerFields(controller)),
-           footerLogin()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              header(),
+              height25(47),
+              registerFields(controller),
+              height25(20),
+              footerLogin()
+            ],
+          ),
         ),
       ),
     );

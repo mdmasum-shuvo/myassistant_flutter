@@ -22,7 +22,7 @@ Widget loginFields(LoginController controller){
         Assets.email,
         keyboardType: TextInputType.emailAddress,
       ),
-      height25(47),
+      height25(25),
       textField("Password", controller.passwordController, Assets.lock,
           keyboardType: TextInputType.visiblePassword,
           obscureText: controller.showPassword.value,
