@@ -70,7 +70,7 @@ final TextTheme textTheme1 = TextTheme(
       color: textColor),
   titleMedium: GoogleFonts.inter(
       fontSize: 14.sp,
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.w500,
       color: textColor),
   titleSmall: GoogleFonts.inter(
       fontSize: 16.sp,

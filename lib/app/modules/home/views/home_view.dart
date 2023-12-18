@@ -21,7 +21,7 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: mainAppBar("Good Morning","Good Morning",true),
+      appBar: mainAppBar("Good Morning","Masum Talukder",true),
       floatingActionButton: InkWell(
           onTap: () {
 
@@ -29,7 +29,7 @@ class HomeView extends GetView<HomeController> {
           child: SvgPicture.asset(Assets.add, height: 70.h, width: 70.w, fit: BoxFit.fill,)),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 29.0.w, vertical: 22.h),
+          padding: EdgeInsets.symmetric(horizontal: 24.0.w, vertical: 22.h),
           child: Column(
             children: [
               leadPipeLine(),

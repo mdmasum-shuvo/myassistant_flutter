@@ -23,10 +23,13 @@ Widget documents(){
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.r)
           ),
-          child: ListTile(
-            leading: SvgPicture.asset(Assets.document, height: 60.h, width: 60.w, fit: BoxFit.fill,),
-            title: text_18_500_inter("Sales Presentation.pdf"),
-            subtitle: text_16_400_inter("3.10 MB", const Color(0xB2FFFFFF)),
+          child: Padding(
+            padding:  EdgeInsets.all(4.r),
+            child: ListTile(
+              leading: SvgPicture.asset(Assets.document, height: 60.h, width: 60.w, fit: BoxFit.fill,),
+              title: text_18_500_inter("Sales Presentation.pdf"),
+              subtitle: text_16_400_inter("3.10 MB", const Color(0xB2FFFFFF)),
+            ),
           ),
         );
       },),
