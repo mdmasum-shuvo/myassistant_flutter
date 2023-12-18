@@ -79,7 +79,7 @@ class AppPages {
 
     GetPage(
       name: _Paths.CONTACTS,
-      page: () => const ContactsView(),
+      page: () => ContactsView(),
       binding: ContactsBinding(),
     ),
 
