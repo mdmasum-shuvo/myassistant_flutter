@@ -83,6 +83,8 @@ class Assets {
 
   static const String security = 'assets/icon/security.svg';
 
+  static const String upArrow = 'assets/icon/up_arrow.svg';
+
 
 
 
