@@ -14,6 +14,7 @@ import 'package:my_assistant/app/utils/assets.dart';
 
 import '../../../theme/button_theme.dart';
 import '../../../theme/custom_appbar.dart';
+import '../../../theme/drawer.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -22,9 +23,10 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: mainAppBar("Good Morning","Masum Talukder",true),
+      drawer: MainDrawer(),
       floatingActionButton: InkWell(
           onTap: () {
-
+            Scaffold.of(context).openDrawer();
           },
           child: SvgPicture.asset(Assets.add, height: 70.h, width: 70.w, fit: BoxFit.fill,)),
       body: SingleChildScrollView(

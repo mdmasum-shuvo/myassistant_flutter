@@ -14,6 +14,8 @@ abstract class Routes {
   static const TASK = _Paths.TASK;
   static const CONTACTS = _Paths.CONTACTS;
   static const LEADS = _Paths.LEADS;
+  static const CREATE_LEAD = _Paths.CREATE_LEAD;
+  static const CREATE_TASK = _Paths.CREATE_TASK;
 }
 
 abstract class _Paths {
@@ -34,6 +36,6 @@ abstract class _Paths {
   static const TASK = '/task';
   static const CONTACTS = '/contacts';
   static const LEADS = '/leads';
-
-
+  static const CREATE_LEAD = '/create-lead';
+  static const CREATE_TASK = '/create-task';
 }

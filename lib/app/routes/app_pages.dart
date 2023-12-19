@@ -1,27 +1,31 @@
 import 'package:get/get.dart';
-import 'package:my_assistant/app/modules/contacts/binding/contacts_binding.dart';
-import 'package:my_assistant/app/modules/contacts/view/contacts_view.dart';
-import 'package:my_assistant/app/modules/dashboard/binding/dashboard_binding.dart';
-import 'package:my_assistant/app/modules/dashboard/view/dashboard_view.dart';
-import 'package:my_assistant/app/modules/forget_password/binding/forget_password_binding.dart';
-import 'package:my_assistant/app/modules/forget_password/view/forget_password_view.dart';
-import 'package:my_assistant/app/modules/leads/binding/leads_binding.dart';
-import 'package:my_assistant/app/modules/leads/view/leads_view.dart';
-import 'package:my_assistant/app/modules/register/binding/register_binding.dart';
-import 'package:my_assistant/app/modules/register/view/register_view.dart';
-import 'package:my_assistant/app/modules/reset_password/binding/reset_password_binding.dart';
-import 'package:my_assistant/app/modules/reset_password/view/reset_password_view.dart';
-import 'package:my_assistant/app/modules/task/binding/task_binding.dart';
-import 'package:my_assistant/app/modules/task/view/task_view.dart';
-import 'package:my_assistant/app/modules/verification/binding/verification_binding.dart';
-import 'package:my_assistant/app/modules/verification/view/verification_view.dart';
-import 'package:my_assistant/app/modules/welcome_screen/bindings/welcome_binding.dart';
-import 'package:my_assistant/app/modules/welcome_screen/views/welcome_view.dart';
 
+import '../modules/contacts/binding/contacts_binding.dart';
+import '../modules/contacts/view/contacts_view.dart';
+import '../modules/create_lead/bindings/create_lead_binding.dart';
+import '../modules/create_lead/views/create_lead_view.dart';
+import '../modules/create_task/bindings/create_task_binding.dart';
+import '../modules/create_task/views/create_task_view.dart';
+import '../modules/dashboard/binding/dashboard_binding.dart';
+import '../modules/dashboard/view/dashboard_view.dart';
+import '../modules/forget_password/binding/forget_password_binding.dart';
+import '../modules/forget_password/view/forget_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/leads/binding/leads_binding.dart';
+import '../modules/leads/view/leads_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/register/binding/register_binding.dart';
+import '../modules/register/view/register_view.dart';
+import '../modules/reset_password/binding/reset_password_binding.dart';
+import '../modules/reset_password/view/reset_password_view.dart';
+import '../modules/task/binding/task_binding.dart';
+import '../modules/task/view/task_view.dart';
+import '../modules/verification/binding/verification_binding.dart';
+import '../modules/verification/view/verification_view.dart';
+import '../modules/welcome_screen/bindings/welcome_binding.dart';
+import '../modules/welcome_screen/views/welcome_view.dart';
 
 part 'app_routes.dart';
 
@@ -73,7 +77,7 @@ class AppPages {
 
     GetPage(
       name: _Paths.DASHBOARD,
-      page: () =>  const DashboardView(),
+      page: () => const DashboardView(),
       binding: DashboardBinding(),
     ),
 
@@ -100,5 +104,15 @@ class AppPages {
     //   page: () => const VerificationView(),
     //   binding: VerificationBinding(),
     // ),
+    GetPage(
+      name: _Paths.CREATE_LEAD,
+      page: () => const CreateLeadView(),
+      binding: CreateLeadBinding(),
+    ),
+    GetPage(
+      name: _Paths.CREATE_TASK,
+      page: () => const CreateTaskView(),
+      binding: CreateTaskBinding(),
+    ),
   ];
 }

@@ -26,20 +26,25 @@ AppBar mainAppBar(String title, String subTitle, [bool isHome = false]) {
       bottom: Radius.circular(30.r),
     )),
     backgroundColor: primaryColor,
-    leading: Padding(
-      padding: EdgeInsets.only(left: 24.w, bottom: 12.h),
-      child: isHome
-          ? SvgPicture.asset(Assets.menuDrawer)
-          : IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: white,
-              ),
-              onPressed: () {
-                Get.back();
-              },
-            ),
-    ),
+    leading: Builder(
+        builder: (context) => Padding(
+              padding: EdgeInsets.only(left: 24.w, bottom: 12.h),
+              child: isHome
+                  ? GestureDetector(
+                      onTap: () {
+                        Scaffold.of(context).openDrawer();
+                      },
+                      child: SvgPicture.asset(Assets.menuDrawer))
+                  : IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: white,
+                      ),
+                      onPressed: () {
+                        Get.back();
+                      },
+                    ),
+            )),
     flexibleSpace: SafeArea(
       child: isHome ? isHomeAppBar(title, subTitle) : isNotHomeAppBar(title),
     ),
