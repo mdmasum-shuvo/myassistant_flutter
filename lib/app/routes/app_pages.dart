@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/contact_detail/bindings/contact_detail_binding.dart';
+import '../modules/contact_detail/views/contact_detail_view.dart';
 import '../modules/contacts/binding/contacts_binding.dart';
 import '../modules/contacts/view/contacts_view.dart';
 import '../modules/create_lead/bindings/create_lead_binding.dart';
@@ -12,6 +14,8 @@ import '../modules/forget_password/binding/forget_password_binding.dart';
 import '../modules/forget_password/view/forget_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/lead_detail/bindings/lead_detail_binding.dart';
+import '../modules/lead_detail/views/lead_detail_view.dart';
 import '../modules/leads/binding/leads_binding.dart';
 import '../modules/leads/view/leads_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -24,6 +28,8 @@ import '../modules/reset_password/binding/reset_password_binding.dart';
 import '../modules/reset_password/view/reset_password_view.dart';
 import '../modules/task/binding/task_binding.dart';
 import '../modules/task/view/task_view.dart';
+import '../modules/task_detail/bindings/task_detail_binding.dart';
+import '../modules/task_detail/views/task_detail_view.dart';
 import '../modules/verification/binding/verification_binding.dart';
 import '../modules/verification/view/verification_view.dart';
 import '../modules/welcome_screen/bindings/welcome_binding.dart';
@@ -120,6 +126,21 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.LEAD_DETAIL,
+      page: () => const LeadDetailView(),
+      binding: LeadDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.TASK_DETAIL,
+      page: () => const TaskDetailView(),
+      binding: TaskDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.CONTACT_DETAIL,
+      page: () => const ContactDetailView(),
+      binding: ContactDetailBinding(),
     ),
   ];
 }
