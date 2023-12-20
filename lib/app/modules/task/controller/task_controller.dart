@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:my_assistant/app/modules/task/components/buttons.dart';
 
@@ -14,9 +15,14 @@ class TaskController extends GetxController{
     for(var i = 0; i < horizontalButtonList.length; i++){
       if(i == index){
         horizontalButtonList[i].isSelected = true;
+        debugPrint("${horizontalButtonList[i].name} ${horizontalButtonList[i].isSelected}");
+
       }else{
         horizontalButtonList[i].isSelected = false;
+        debugPrint("${horizontalButtonList[i].name} ${horizontalButtonList[i].isSelected}");
+
       }
     }
+    debugPrint("");
   }
 }

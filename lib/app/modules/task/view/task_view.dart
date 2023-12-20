@@ -37,7 +37,7 @@ class TaskView extends GetView<TaskController> {
               height25(30),
               SizedBox(
                   height: 50.h,
-                  child: horizontalListButtons( controller)),
+                  child: horizontalListButtons( controller)), //TODO: onTap list is not updating
               height25(40),
               weekDay(),
               height25(20),
