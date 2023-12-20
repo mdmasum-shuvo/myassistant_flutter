@@ -87,7 +87,7 @@ class Assets {
 
   static const String logoWhite = 'assets/images/logo_white.svg';
 
-  static const String edit = 'assets/images/edit.svg';
+  static const String edit = 'assets/icon/edit.svg';
 
 
 

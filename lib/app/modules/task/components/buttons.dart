@@ -1,5 +1,7 @@
+import 'package:get/get.dart';
+
 class Buttons{
   String name;
-  bool isSelected;
-  Buttons({required this.name, this.isSelected = false});
+  RxBool isSelected;
+  Buttons({required this.name, required this.isSelected});
 }

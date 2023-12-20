@@ -9,7 +9,7 @@ Widget horizontalListButtons( TaskController controller){
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
         // Buttons b = controller.horizontalButtonList[index];
-        return Obx(() => buttonWithTwoStates(controller.horizontalButtonList[index].isSelected, controller.horizontalButtonList[index].name, () => controller.changeItems(index),));
+        return Obx(() => buttonWithTwoStates(controller.horizontalButtonList[index].isSelected.value, controller.horizontalButtonList[index].name, () => controller.changeItems(index),));
       },);
 }
 
