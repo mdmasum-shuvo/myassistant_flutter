@@ -89,7 +89,7 @@ class AppPages {
 
     GetPage(
       name: _Paths.LEADS,
-      page: () => const LeadsView(),
+      page: () => LeadsView(),
       binding: LeadsBinding(),
     ),
 
