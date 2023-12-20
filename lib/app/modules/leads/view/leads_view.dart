@@ -27,7 +27,7 @@ class LeadsView extends GetView<LeadsController> {
             },
             child: SvgPicture.asset(Assets.add, height: 70.h, width: 70.w, fit: BoxFit.fill,)),
       body: Obx(() => Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0.w, vertical: 30.h),
+        padding: EdgeInsets.only(top: 30.h),
         child: Column(
             children: [
               searchTextField(TextEditingController(), "Search leads"),

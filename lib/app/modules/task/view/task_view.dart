@@ -19,34 +19,54 @@ class TaskView extends GetView<TaskController> {
 
   @override
   final controller = Get.put(TaskController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: mainAppBar("Task","",false),
+        appBar: mainAppBar("Task", "", false),
         floatingActionButton: InkWell(
             onTap: () {
               Scaffold.of(context).openDrawer();
             },
-            child: SvgPicture.asset(Assets.add, height: 70.h, width: 70.w, fit: BoxFit.fill,)),
-        body: Obx(() => Padding(
-          padding: EdgeInsets.symmetric(vertical: 30.0.w),
-          child: Column(
-            // padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 30.h),
-            children: [
-              searchTextField(TextEditingController(), "Search Task"),
-              height25(30),
-              SizedBox(
-                  height: 50.h,
-                  child: horizontalListButtons( controller)), //TODO: onTap list is not updating
-              height25(40),
-              weekDay(),
-              height25(20),
-              Expanded(child: taskItemList(context))
+            child: SvgPicture.asset(
+              Assets.add,
+              height: 70.h,
+              width: 70.w,
+              fit: BoxFit.fill,
+            )),
+        body: Obx(
+          () => Padding(
+            padding: EdgeInsets.only(top: 30.h),
+            child: Column(
+              // padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 30.h),
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
+                  child:
+                      searchTextField(TextEditingController(), "Search Task"),
+                ),
+                height25(30),
+                Padding(
+                  padding:  EdgeInsets.only(left: 24.w),
+                  child: SizedBox(
+                      height: 50.h, child: horizontalListButtons(controller)),
+                ),
+                //TODO: onTap list is not updating
 
-
-            ],
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
+                  child: Column(
+                    children: [
+                      height25(40),
+                      weekDay(),
+                      height25(20),
+                    ],
+                  ),
+                ),
+                Expanded(child: taskItemList(context))
+              ],
+            ),
           ),
-        ),)
-    );
+        ));
   }
 }

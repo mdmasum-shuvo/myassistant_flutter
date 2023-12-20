@@ -13,7 +13,7 @@ Widget weekDay(){
         child: CalendarWeek(
           backgroundColor: primaryDarkColor,
           controller: CalendarWeekController(),
-          height: 130,
+          height: 130.h,
           showMonth: true,
           // minDate: DateTime.now(),
           minDate: DateTime.now().add(
@@ -39,11 +39,11 @@ Widget weekDay(){
             ),
           ),
           dateStyle: GoogleFonts.poppins(fontSize: 15.sp, fontWeight: FontWeight.w500, color: white),
-          weekendsStyle: GoogleFonts.poppins(fontSize: 15.sp, fontWeight: FontWeight.w500, color: white),
-          dayOfWeekStyle: GoogleFonts.poppins(fontSize: 15.sp, fontWeight: FontWeight.w500, color: white),
-          marginDayOfWeek: EdgeInsets.only(top: 30.h),
+          weekendsStyle: GoogleFonts.poppins(fontSize: 15.sp, fontWeight: FontWeight.w500, color: greyText),
+          dayOfWeekStyle: GoogleFonts.poppins(fontSize: 15.sp, fontWeight: FontWeight.w500, color: greyText),
+          marginDayOfWeek: EdgeInsets.only(top: 16.h),
           pressedDateStyle: GoogleFonts.poppins(fontSize: 18.sp, fontWeight: FontWeight.w500, color: white, ),
-          pressedDateBackgroundColor: Colors.black,
+          pressedDateBackgroundColor: primaryColor,
           marginMonth: EdgeInsets.zero,
         ),
       )
