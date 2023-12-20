@@ -11,6 +11,7 @@ class LeadsController extends GetxController{
     Buttons(name: "Confirmed", isSelected: false.obs),
     Buttons(name: "Inactive", isSelected: false.obs),
   ].obs;
+  RxBool isVisibleCalender = true.obs;
 
   changeItems(int index,){
     for(var i = 0; i < horizontalButtonList.length; i++){

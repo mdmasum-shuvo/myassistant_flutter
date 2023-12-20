@@ -5,6 +5,7 @@ const Color primaryColor =Color(0xFF343434);
 const Color primaryDarkColor = Color(0xFF161616);
 const Color secondaryColor = Color(0xff000000);
 const Color white = Color(0xffffffff);
+const Color drawerItemColor =Color(0x1AFFFFFF);
 const Color secondaryColor1 = Color(0xffB0B0B0);
 const Color gray = Color(0xffF3F3F3);
 const Color textColor = Color(0xff212427);

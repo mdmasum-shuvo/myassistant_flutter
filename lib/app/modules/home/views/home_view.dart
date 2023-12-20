@@ -14,7 +14,7 @@ import 'package:my_assistant/app/utils/assets.dart';
 
 import '../../../theme/button_theme.dart';
 import '../../../theme/custom_appbar.dart';
-import '../../../theme/drawer.dart';
+import '../../../drawer/drawer.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {

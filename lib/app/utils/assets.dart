@@ -11,6 +11,7 @@ class Assets {
   static const String visibilityOff = 'assets/icon/visibilityOff.svg';
 
   static const String person = 'assets/icon/person.svg';
+  static const String profileIcon = 'assets/icon/profile_icon.svg';
 
   static const String date = 'assets/icon/date.svg';
 

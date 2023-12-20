@@ -9,7 +9,8 @@ import 'package:my_assistant/app/utils/assets.dart';
 
 import 'Colors.dart';
 
-AppBar mainAppBar(String title, String subTitle, [bool isHome = false]) {
+AppBar mainAppBar(String title, String subTitle,
+    [bool isHome = false, bool isCalender = false,Function()? onCalenderClick]) {
   return AppBar(
     // Set this height
     systemOverlayStyle: SystemUiOverlayStyle(
@@ -46,7 +47,7 @@ AppBar mainAppBar(String title, String subTitle, [bool isHome = false]) {
                     ),
             )),
     flexibleSpace: SafeArea(
-      child: isHome ? isHomeAppBar(title, subTitle) : isNotHomeAppBar(title),
+      child: isHome ? isHomeAppBar(title, subTitle) : isNotHomeAppBar(title,isCalender,(){onCalenderClick!();}),
     ),
   );
 }
@@ -70,14 +71,32 @@ Widget isHomeAppBar(String title, String subTitle) {
   );
 }
 
-Widget isNotHomeAppBar(String title) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Padding(
-        padding: EdgeInsets.only(top: 8.h),
-        child: text_20_500_inter(title),
-      ),
-    ],
+Widget isNotHomeAppBar(String title,bool isCalender,Function() onCalClick) {
+  return Padding(
+    padding:  EdgeInsets.only(top:8),
+    child: Stack(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            text_20_500_inter(title),
+          ],
+        ),
+        isCalender?
+        Positioned(
+          right: 0,
+          child: GestureDetector(
+            onTap: (){onCalClick();},
+            child: Padding(
+              padding:  EdgeInsets.only(right: 24.w),
+              child: SvgPicture.asset(
+                Assets.dateWhite,
+                alignment: Alignment.centerRight,
+              ),
+            ),
+          ),
+        ):Container()
+      ],
+    ),
   );
 }

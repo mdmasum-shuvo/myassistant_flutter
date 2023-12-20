@@ -16,6 +16,8 @@ import '../modules/leads/binding/leads_binding.dart';
 import '../modules/leads/view/leads_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/profile/bindings/profile_binding.dart';
+import '../modules/profile/views/profile_view.dart';
 import '../modules/register/binding/register_binding.dart';
 import '../modules/register/view/register_view.dart';
 import '../modules/reset_password/binding/reset_password_binding.dart';
@@ -113,6 +115,11 @@ class AppPages {
       name: _Paths.CREATE_TASK,
       page: () => const CreateTaskView(),
       binding: CreateTaskBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
     ),
   ];
 }

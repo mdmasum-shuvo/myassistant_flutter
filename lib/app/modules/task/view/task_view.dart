@@ -23,7 +23,10 @@ class TaskView extends GetView<TaskController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: mainAppBar("Task", "", false),
+        appBar: mainAppBar("Task", "", false, true, () {
+          controller.isVisibleCalender.value =
+              !controller.isVisibleCalender.value;
+        }),
         floatingActionButton: InkWell(
             onTap: () {
               Scaffold.of(context).openDrawer();
@@ -47,7 +50,7 @@ class TaskView extends GetView<TaskController> {
                 ),
                 height25(30),
                 Padding(
-                  padding:  EdgeInsets.only(left: 24.w),
+                  padding: EdgeInsets.only(left: 24.w),
                   child: SizedBox(
                       height: 50.h, child: horizontalListButtons(controller)),
                 ),
@@ -58,7 +61,8 @@ class TaskView extends GetView<TaskController> {
                   child: Column(
                     children: [
                       height25(40),
-                      weekDay(),
+                      controller.isVisibleCalender.value?
+                      weekDay():Container(),
                       height25(20),
                     ],
                   ),

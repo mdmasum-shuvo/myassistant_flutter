@@ -10,6 +10,7 @@ import '../../../theme/const_sizing.dart';
 import '../../../theme/custom_appbar.dart';
 import '../../../utils/assets.dart';
 import '../../contacts/components/search_text_field.dart';
+import '../../task/components/weekday.dart';
 import '../components/horizontal_list.dart';
 
 class LeadsView extends GetView<LeadsController> {
@@ -20,7 +21,10 @@ class LeadsView extends GetView<LeadsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: mainAppBar("Lead","",false),
+      appBar: mainAppBar("Lead","",false,true,(){
+        controller.isVisibleCalender.value =
+        !controller.isVisibleCalender.value;
+      }),
         floatingActionButton: InkWell(
             onTap: () {
               Scaffold.of(context).openDrawer();
@@ -36,6 +40,8 @@ class LeadsView extends GetView<LeadsController> {
                   height: 50.h,
                   child: horizontalListButtons( controller)), //TODO: onTap list is not updating
               height25(40),
+              controller.isVisibleCalender.value?
+              weekDay():Container(),
               Expanded(child: leadItemList()),
             ]
         ),
