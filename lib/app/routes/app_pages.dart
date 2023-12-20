@@ -95,7 +95,7 @@ class AppPages {
 
     GetPage(
       name: _Paths.TASK,
-      page: () => const TaskView(),
+      page: () => TaskView(),
       binding: TaskBinding(),
     ),
 

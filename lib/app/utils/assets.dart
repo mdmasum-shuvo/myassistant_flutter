@@ -84,7 +84,10 @@ class Assets {
   static const String security = 'assets/icon/security.svg';
 
   static const String upArrow = 'assets/icon/up_arrow.svg';
+
   static const String logoWhite = 'assets/images/logo_white.svg';
+
+  static const String edit = 'assets/images/edit.png';
 
 
 
