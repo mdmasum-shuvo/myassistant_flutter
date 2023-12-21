@@ -80,6 +80,10 @@ Widget text_20_500_inter(String? value,[Color color = white]){
   return Text("$value",style:textTheme2.displayLarge?.copyWith(color: color,fontSize: 20.sp));
 }
 
+Widget text_32_500_inter(String? value,[Color color = white]){
+  return Text("$value",style:textTheme2.displayLarge?.copyWith(color: color,fontSize: 32.sp));
+}
+
 Widget text_24_800_inter(String? value,[Color color =white]){
   return Text("$value",style:textTheme2.displayMedium?.copyWith(color: color));
 }
