@@ -4,17 +4,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 
-Widget primaryButton(String text, Function() onPressed,[Color color = white,backgroundColor=primaryColor]) {
+Widget primaryButton(String text, Function() onPressed,[Color color = white,backgroundColor=primaryColor, double? width = double.infinity, double radius = 10, Color borderColor = Colors.transparent]) {
   return SizedBox(
     height: 56.h,
-    width: double.infinity,
+    width: width,
     child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: backgroundColor,
             elevation: 0,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.r),
-                // side: const BorderSide(color: primaryDarkColor),
+                borderRadius: BorderRadius.circular(radius.r),
+                side:  BorderSide(color: borderColor),
             )),
         onPressed: () {
           onPressed();

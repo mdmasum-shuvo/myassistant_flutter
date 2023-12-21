@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gap/gap.dart';
 import 'package:my_assistant/app/global/three_dot_vert.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 import 'package:flutter/material.dart';
@@ -105,7 +106,7 @@ Widget isNotHomeAppBar(String title,bool isCalender,Function() onCalClick) {
 AppBar secondaryAppBar(BuildContext context, String title, Function(String) onTap){
   return AppBar(
     // Set this height
-    systemOverlayStyle: SystemUiOverlayStyle(
+    systemOverlayStyle: const SystemUiOverlayStyle(
       // Status bar color
       statusBarColor: primaryDarkColor,
 
@@ -121,7 +122,8 @@ AppBar secondaryAppBar(BuildContext context, String title, Function(String) onTa
       CircleAvatar(
         backgroundColor: primaryColor,
         child: threeDotVert(context, onTap),
-      )
+      ),
+      Gap(20.w),
     ],
   );
 }

@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 class LeadDetailController extends GetxController {
   //TODO: Implement LeadDetailController
 
+  var isTimeLineView = true.obs;
+
   final count = 0.obs;
   @override
   void onInit() {

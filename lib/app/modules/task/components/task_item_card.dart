@@ -86,14 +86,14 @@ Widget taskItemCard(BuildContext context, VoidCallback onTap){
 
 
 
-Widget iconTextButton(String svg, String title, VoidCallback onTap){
+Widget iconTextButton(String svg, String title, VoidCallback? onTap, [Color color = white]){
   return InkWell(
     onTap: onTap,
     child: Row(
       children: [
         SvgPicture.asset(svg, height: 16.h, width: 16.w, fit: BoxFit.fill,),
         Gap(15.w),
-        text_14_400_inter(title),
+        text_14_400_inter(title, color),
       ],
     ),
   );

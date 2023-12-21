@@ -90,6 +90,8 @@ class Assets {
 
   static const String edit = 'assets/icon/edit.svg';
 
+  static const String profileCircle = 'assets/icon/profile_circle.svg';
+
 
 
 

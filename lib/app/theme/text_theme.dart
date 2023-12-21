@@ -111,6 +111,10 @@ Widget text_16_400_inter(String? value,[Color color = white, TextAlign? textAlig
   return Text("$value",style:textTheme2.titleSmall?.copyWith(color: color, ), textAlign: textAlign,);
 }
 
+Widget text_16_300_inter(String? value,[Color color = greyText, TextAlign? textAlign]){
+  return Text("$value",style:textTheme2.titleSmall?.copyWith(color: color, fontWeight: FontWeight.w300), textAlign: textAlign,);
+}
+
 Widget text_16_600_inter(String? value,[Color color = white]){
   return Text("$value",style:textTheme2.titleLarge?.copyWith(color: color));
 }
