@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 
-void showPopupMenu(BuildContext context, Offset position) {
+Future<String?> showPopupMenu(BuildContext context, Offset position) async{
   // final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
   // final double screenWidth = overlay.size.width;
   // final RelativeRect position = RelativeRect.fromLTRB(
@@ -18,7 +17,7 @@ void showPopupMenu(BuildContext context, Offset position) {
     Offset.zero & overlay.size,
   );
 
-  showMenu<String>(
+  return await showMenu<String>(
     context: context,
     position: positions,
     color: const Color(0x1AFFFFFF),
@@ -43,11 +42,11 @@ void showPopupMenu(BuildContext context, Offset position) {
     if (value != null) {
       // Handle the selected option
       if (value == 'Call') {
-
+        return "Call";
       } else if (value == 'Delete') {
-
+        return "Delete";
       }else if (value == 'Edit') {
-
+        return "Edit";
       }
     }
   });

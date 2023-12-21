@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_assistant/app/global/three_dot_vert.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -98,5 +99,29 @@ Widget isNotHomeAppBar(String title,bool isCalender,Function() onCalClick) {
         ):Container()
       ],
     ),
+  );
+}
+
+AppBar secondaryAppBar(BuildContext context, String title, Function(String) onTap){
+  return AppBar(
+    // Set this height
+    systemOverlayStyle: SystemUiOverlayStyle(
+      // Status bar color
+      statusBarColor: primaryDarkColor,
+
+      // Status bar brightness (optional)
+      statusBarIconBrightness: Brightness.light, // For Android (dark icons)
+      statusBarBrightness: Brightness.light, // For iOS (dark icons)
+    ),
+    elevation: 0,
+    backgroundColor: primaryDarkColor,
+    title: text_26_500_inter(title),
+    centerTitle: true,
+    actions: [
+      CircleAvatar(
+        backgroundColor: primaryColor,
+        child: threeDotVert(context, onTap),
+      )
+    ],
   );
 }

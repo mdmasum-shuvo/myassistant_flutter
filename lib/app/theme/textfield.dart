@@ -63,29 +63,42 @@ Widget textField(String hint, TextEditingController controller,String prefixSvg,
 }
 
 Widget textFieldAgenda(
-    String title, String hint, TextEditingController controller) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      text_14_700(title),
-      const SizedBox(
-        height: 4,
-      ),
-      TextFormField(
-        minLines: 8,
-        maxLines: null,
-        maxLength: 1000,
-        keyboardType: TextInputType.multiline,
-        controller: controller,
-        decoration: InputDecoration(
-          hintText: hint,
-        ),
-      ),
-      const SizedBox(
-        height: 12,
-      )
-    ],
+    String hint, TextEditingController controller,[bool readOnly = false]) {
+  return TextFormField(
+    minLines: 8,
+    maxLines: null,
+    maxLength: 1000,
+    readOnly: readOnly,
+    keyboardType: TextInputType.multiline,
+    controller: controller,
+    style: GoogleFonts.inter(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w300,
+      color: const Color(0xB2FFFFFF)
+    ),
+    decoration: InputDecoration(
+      hintText: hint,
+    ),
   );
+  // return Column(
+  //   crossAxisAlignment: CrossAxisAlignment.start,
+  //   children: [
+  //
+  //     TextFormField(
+  //       minLines: 8,
+  //       maxLines: null,
+  //       maxLength: 1000,
+  //       keyboardType: TextInputType.multiline,
+  //       controller: controller,
+  //       decoration: InputDecoration(
+  //         hintText: hint,
+  //       ),
+  //     ),
+  //     const SizedBox(
+  //       height: 12,
+  //     )
+  //   ],
+  // );
 }
 
 Widget dateField( String hint, RxString date, Function onPress) {
