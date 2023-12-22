@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
 
+import '../../../global/sucess_alert.dart';
 import '../../../theme/Colors.dart';
 import '../../../theme/button_theme.dart';
 import '../../../theme/custom_appbar.dart';
@@ -48,7 +49,8 @@ class CreateTaskView extends GetView<CreateTaskController> {
                 height25(20),
                 reminderField(),
                 height25(100),
-                primaryButton("Change Password", () => null, textBlack, white),
+                primaryButton("Save",
+                    () => {showCustomDialog(context)}, textBlack, white),
               ],
             ),
           ),

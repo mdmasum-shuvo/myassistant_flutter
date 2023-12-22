@@ -58,7 +58,7 @@ class TaskView extends GetView<TaskController> {
                 //TODO: onTap list is not updating
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24.w),
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(
                     children: [
                       height25(40),

@@ -48,7 +48,9 @@ class MainDrawer extends StatelessWidget {
                       : primaryDarkColor,
                   Assets.callWhite,
                   "Contacts", () {
-                Get.toNamed(Routes.PROFILE);
+                Scaffold.of(context).closeDrawer();
+
+                Get.toNamed(Routes.CONTACTS);
               }),
               drawerItem(
                   Get.currentRoute == Routes.LEADS
@@ -56,7 +58,9 @@ class MainDrawer extends StatelessWidget {
                       : primaryDarkColor,
                   Assets.allLeads,
                   "Leads", () {
-                Get.toNamed(Routes.PROFILE);
+                Scaffold.of(context).closeDrawer();
+
+                Get.toNamed(Routes.LEADS);
               }),
               drawerItem(
                   Get.currentRoute == Routes.PROFILE
@@ -64,7 +68,9 @@ class MainDrawer extends StatelessWidget {
                       : primaryDarkColor,
                   Assets.logout,
                   "Log out", () {
-                Get.toNamed(Routes.PROFILE);
+                Scaffold.of(context).closeDrawer();
+
+                Get.offAllNamed(Routes.WELCOME);
               }),
             ],
           )

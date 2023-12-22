@@ -26,8 +26,8 @@ Widget text_12_700(String? value,[Color color = white]){
 Widget text_16_500(String? value,[Color color = white]){
   return Text("$value",style:textTheme1.headlineSmall?.copyWith(color: color));
 }
-Widget text_16_400(String? value,[Color color = white]){
-  return Text("$value",style:textTheme1.titleSmall?.copyWith(color: color, ));
+Widget text_16_400(String? value,[Color color = white,TextAlign textAlign=TextAlign.start]){
+  return Text("$value",style:textTheme1.titleSmall?.copyWith(color: color, ),textAlign: textAlign,);
 }
 
 Widget text_16_600(String? value,[Color color = white]){

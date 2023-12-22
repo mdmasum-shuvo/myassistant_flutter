@@ -62,7 +62,7 @@ class CreateLeadView extends GetView<CreateLeadController> {
                 dropdownField(controller.text, "Add new Project",
                     "App Development ", Icons.keyboard_arrow_down_outlined),
                 height25(50),
-                primaryButton("Change Password", () => null, textBlack, white),
+                primaryButton("Save", () => null, textBlack, white),
               ],
             ),
           ),

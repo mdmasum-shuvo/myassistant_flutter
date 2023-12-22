@@ -41,12 +41,21 @@ class LeadsView extends GetView<LeadsController> {
           () => Padding(
             padding: EdgeInsets.only(top: 30.h),
             child: Column(children: [
-              searchTextField(TextEditingController(), "Search leads"),
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 24.w),
+                child: searchTextField(TextEditingController(), "Search leads"),
+              ),
               height25(30),
-              SizedBox(height: 50.h, child: horizontalListButtons(controller)),
+              Padding(
+                padding:  EdgeInsets.only(left: 24.w),
+                child: SizedBox(height: 50.h, child: horizontalListButtons(controller)),
+              ),
               //TODO: onTap list is not updating
               height25(40),
-              controller.isVisibleCalender.value ? weekDay() : Container(),
+              controller.isVisibleCalender.value ? Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                child: weekDay(),
+              ) : Container(),
               Expanded(child: leadItemList()),
             ]),
           ),

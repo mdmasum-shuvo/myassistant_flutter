@@ -12,7 +12,9 @@ import 'package:my_assistant/app/utils/assets.dart';
 import 'Colors.dart';
 
 AppBar mainAppBar(String title, String subTitle,
-    [bool isHome = false, bool isCalender = false,Function()? onCalenderClick]) {
+    [bool isHome = false,
+    bool isCalender = false,
+    Function()? onCalenderClick]) {
   return AppBar(
     // Set this height
     systemOverlayStyle: SystemUiOverlayStyle(
@@ -38,18 +40,27 @@ AppBar mainAppBar(String title, String subTitle,
                         Scaffold.of(context).openDrawer();
                       },
                       child: SvgPicture.asset(Assets.menuDrawer))
-                  : IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: white,
-                      ),
-                      onPressed: () {
+                  : GestureDetector(
+                      onTap: () {
                         Get.back();
                       },
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: white,
+                        ),
+                        onPressed: () {
+                          Get.back();
+                        },
+                      ),
                     ),
             )),
     flexibleSpace: SafeArea(
-      child: isHome ? isHomeAppBar(title, subTitle) : isNotHomeAppBar(title,isCalender,(){onCalenderClick!();}),
+      child: isHome
+          ? isHomeAppBar(title, subTitle)
+          : isNotHomeAppBar(title, isCalender, () {
+              onCalenderClick!();
+            }),
     ),
   );
 }
@@ -73,9 +84,9 @@ Widget isHomeAppBar(String title, String subTitle) {
   );
 }
 
-Widget isNotHomeAppBar(String title,bool isCalender,Function() onCalClick) {
+Widget isNotHomeAppBar(String title, bool isCalender, Function() onCalClick) {
   return Padding(
-    padding:  EdgeInsets.only(top:8),
+    padding: EdgeInsets.only(top: 8),
     child: Stack(
       children: [
         Row(
@@ -84,26 +95,30 @@ Widget isNotHomeAppBar(String title,bool isCalender,Function() onCalClick) {
             text_20_500_inter(title),
           ],
         ),
-        isCalender?
-        Positioned(
-          right: 0,
-          child: GestureDetector(
-            onTap: (){onCalClick();},
-            child: Padding(
-              padding:  EdgeInsets.only(right: 24.w),
-              child: SvgPicture.asset(
-                Assets.dateWhite,
-                alignment: Alignment.centerRight,
-              ),
-            ),
-          ),
-        ):Container()
+        isCalender
+            ? Positioned(
+                right: 0,
+                child: GestureDetector(
+                  onTap: () {
+                    onCalClick();
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 24.w),
+                    child: SvgPicture.asset(
+                      Assets.dateWhite,
+                      alignment: Alignment.centerRight,
+                    ),
+                  ),
+                ),
+              )
+            : Container()
       ],
     ),
   );
 }
 
-AppBar secondaryAppBar(BuildContext context, String title, Function(String) onTap){
+AppBar secondaryAppBar(
+    BuildContext context, String title, Function(String) onTap) {
   return AppBar(
     // Set this height
     systemOverlayStyle: const SystemUiOverlayStyle(
