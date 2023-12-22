@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:my_assistant/app/modules/leads/components/lead_item_card.dart';
 import 'package:my_assistant/app/modules/leads/components/lead_item_list.dart';
 import 'package:my_assistant/app/modules/leads/controller/leads_controller.dart';
+import 'package:my_assistant/app/routes/app_pages.dart';
 
 import '../../../theme/const_sizing.dart';
 import '../../../theme/custom_appbar.dart';
@@ -27,7 +28,7 @@ class LeadsView extends GetView<LeadsController> {
       }),
         floatingActionButton: InkWell(
             onTap: () {
-              Scaffold.of(context).openDrawer();
+             Get.toNamed(Routes.CREATE_LEAD);
             },
             child: SvgPicture.asset(Assets.add, height: 70.h, width: 70.w, fit: BoxFit.fill,)),
       body: Obx(() => Padding(

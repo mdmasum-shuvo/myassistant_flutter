@@ -11,6 +11,7 @@ import 'package:my_assistant/app/modules/task/controller/task_controller.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 import 'package:my_assistant/app/utils/assets.dart';
+import '../../../routes/app_pages.dart';
 import '../../../theme/custom_appbar.dart';
 import '../components/task_item_list.dart';
 
@@ -29,7 +30,7 @@ class TaskView extends GetView<TaskController> {
         }),
         floatingActionButton: InkWell(
             onTap: () {
-              Scaffold.of(context).openDrawer();
+              Get.toNamed(Routes.CREATE_TASK);
             },
             child: SvgPicture.asset(
               Assets.add,
@@ -61,8 +62,9 @@ class TaskView extends GetView<TaskController> {
                   child: Column(
                     children: [
                       height25(40),
-                      controller.isVisibleCalender.value?
-                      weekDay():Container(),
+                      controller.isVisibleCalender.value
+                          ? weekDay()
+                          : Container(),
                       height25(20),
                     ],
                   ),
