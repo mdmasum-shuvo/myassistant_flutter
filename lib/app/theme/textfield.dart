@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -46,6 +48,82 @@ Widget textField(String hint, TextEditingController controller,String prefixSvg,
       // icon: prefix,
 
     ),
+  );
+  // return Column(
+  //   crossAxisAlignment: CrossAxisAlignment.start,
+  //   children: [
+  //     text_14_700(title),
+  //     const SizedBox(
+  //       height: 4,
+  //     ),
+  //
+  //     const SizedBox(
+  //       height: 12,
+  //     )
+  //   ],
+  // );
+}
+
+Widget textFieldNoIcon(String hint, TextEditingController controller,
+
+    {TextInputType keyboardType = TextInputType.text,
+      bool isExpandText=false,
+      String? Function(String?)? validator,
+      void Function(String)? onChanged,
+      bool obscureText = false,
+      bool enabled = true,
+      VoidCallback? onTap,
+
+    }) {
+  return TextFormField(
+    enabled: enabled,
+    keyboardType: keyboardType,
+    controller: controller,
+    validator: validator,
+    onChanged: onChanged,
+    onTap: onTap,
+    obscureText: obscureText,
+
+    style: GoogleFonts.poppins(
+      fontSize: 16.sp,
+      color: Colors.white,
+      fontWeight: FontWeight.w500
+    ),
+
+    decoration: InputDecoration(
+        hintText: hint,
+
+      // icon: prefix,
+      contentPadding: EdgeInsets.only(
+        left: 24.w,
+        right: 16,
+        bottom: 13.5.h, // HERE THE IMPORTANT PART
+        top: 13.5.h, // HERE THE IMPORTANT PART
+      ),
+      // prefixIconColor: Colors.black,
+
+      // TextStyle(color: const Color(0xff666666),fontSize: 14.sp)
+      hintStyle:  GoogleFonts.inter(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w500,
+        color: white,
+      ),
+      //background: #8BC53F40;
+
+      fillColor: primaryColor,
+
+      filled: true,
+      floatingLabelBehavior: FloatingLabelBehavior.always,
+      enabledBorder: const OutlineInputBorder(
+        borderSide: BorderSide(width: 1, color: primaryColor),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+      ),
+      focusedBorder: const OutlineInputBorder(
+        borderSide: BorderSide(width: 1, color: primaryColor),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+      ),
+    ),
+    maxLines:isExpandText ?5 :1,
   );
   // return Column(
   //   crossAxisAlignment: CrossAxisAlignment.start,

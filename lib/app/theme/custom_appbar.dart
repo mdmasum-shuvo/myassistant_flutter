@@ -114,6 +114,19 @@ AppBar secondaryAppBar(BuildContext context, String title, Function(String) onTa
       statusBarIconBrightness: Brightness.light, // For Android (dark icons)
       statusBarBrightness: Brightness.light, // For iOS (dark icons)
     ),
+    leading: Padding(
+      padding: EdgeInsets.only(left: 16.w),
+      child: IconButton(
+        icon: const Icon(
+          Icons.arrow_back,
+          color: white,
+        ),
+        onPressed: () {
+          Get.back();
+        },
+      ),
+    ),
+
     elevation: 0,
     backgroundColor: primaryDarkColor,
     title: text_26_500_inter(title),

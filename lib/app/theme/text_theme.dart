@@ -37,6 +37,10 @@ Widget text_16_600(String? value,[Color color = white]){
 Widget text_14_400(String? value,[Color color = white]){
   return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color));
 }
+
+Widget text_16_300(String? value,[Color color = white]){
+  return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color,fontWeight: FontWeight.w300));
+}
 Widget text_18_400(String? value,[Color color = white]){
   return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color,fontSize: 18.sp));
 }
