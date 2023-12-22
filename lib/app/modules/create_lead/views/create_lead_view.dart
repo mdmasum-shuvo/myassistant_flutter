@@ -21,7 +21,7 @@ class CreateLeadView extends GetView<CreateLeadController> {
     return Scaffold(
         appBar: secondaryAppBar(context, "Create Lead", (v) => debugPrint(v)),
         body: Padding(
-          padding:  EdgeInsets.all(24.r),
+          padding: EdgeInsets.all(24.r),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,24 +47,22 @@ class CreateLeadView extends GetView<CreateLeadController> {
                 textfieldWithTitle(
                     controller.textController, "Mobile", "+9 123 456 789"),
                 height25(20),
-                textfieldWithTitle(
-                    controller.textController, "Email", "calebanderson@gmail.com"),
+                textfieldWithTitle(controller.textController, "Email",
+                    "calebanderson@gmail.com"),
                 height25(40),
-                dropdownField(controller.text, "Assign Executive", "Albert Flores",
-                    Icons.keyboard_arrow_down_outlined),
+                dropdownField(controller.text, "Assign Executive",
+                    "Albert Flores", Icons.keyboard_arrow_down_outlined),
                 height25(20),
                 dropdownField(controller.text, "Source", "Albert Flores",
                     Icons.keyboard_arrow_down_outlined),
                 height25(20),
-                dropdownField(controller.text, "Channel Partner", "Albert Flores",
-                    Icons.keyboard_arrow_down_outlined),
+                dropdownField(controller.text, "Channel Partner",
+                    "Albert Flores", Icons.keyboard_arrow_down_outlined),
                 height25(20),
-                dropdownField(controller.text, "Add new Project", "App Development ",
-                    Icons.keyboard_arrow_down_outlined),
-
+                dropdownField(controller.text, "Add new Project",
+                    "App Development ", Icons.keyboard_arrow_down_outlined),
                 height25(50),
-
-                primaryButton("Change Password", () => null, textBlack,white),
+                primaryButton("Change Password", () => null, textBlack, white),
               ],
             ),
           ),

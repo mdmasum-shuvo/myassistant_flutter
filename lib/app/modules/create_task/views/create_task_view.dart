@@ -48,9 +48,7 @@ class CreateTaskView extends GetView<CreateTaskController> {
                 height25(20),
                 reminderField(),
                 height25(100),
-
-                primaryButton("Change Password", () => null, textBlack,white),
-
+                primaryButton("Change Password", () => null, textBlack, white),
               ],
             ),
           ),

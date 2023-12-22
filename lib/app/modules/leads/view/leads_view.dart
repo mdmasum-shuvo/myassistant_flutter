@@ -19,34 +19,37 @@ class LeadsView extends GetView<LeadsController> {
 
   @override
   final controller = Get.put(LeadsController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: mainAppBar("Lead","",false,true,(){
-        controller.isVisibleCalender.value =
-        !controller.isVisibleCalender.value;
-      }),
+        appBar: mainAppBar("Lead", "", false, true, () {
+          controller.isVisibleCalender.value =
+              !controller.isVisibleCalender.value;
+        }),
         floatingActionButton: InkWell(
             onTap: () {
-             Get.toNamed(Routes.CREATE_LEAD);
+              Get.toNamed(Routes.CREATE_LEAD);
             },
-            child: SvgPicture.asset(Assets.add, height: 70.h, width: 70.w, fit: BoxFit.fill,)),
-      body: Obx(() => Padding(
-        padding: EdgeInsets.only(top: 30.h),
-        child: Column(
-            children: [
+            child: SvgPicture.asset(
+              Assets.add,
+              height: 70.h,
+              width: 70.w,
+              fit: BoxFit.fill,
+            )),
+        body: Obx(
+          () => Padding(
+            padding: EdgeInsets.only(top: 30.h),
+            child: Column(children: [
               searchTextField(TextEditingController(), "Search leads"),
               height25(30),
-              SizedBox(
-                  height: 50.h,
-                  child: horizontalListButtons( controller)), //TODO: onTap list is not updating
+              SizedBox(height: 50.h, child: horizontalListButtons(controller)),
+              //TODO: onTap list is not updating
               height25(40),
-              controller.isVisibleCalender.value?
-              weekDay():Container(),
+              controller.isVisibleCalender.value ? weekDay() : Container(),
               Expanded(child: leadItemList()),
-            ]
-        ),
-      ),)
-    );
+            ]),
+          ),
+        ));
   }
 }

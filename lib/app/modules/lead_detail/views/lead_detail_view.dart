@@ -16,36 +16,57 @@ import '../controllers/lead_detail_controller.dart';
 
 class LeadDetailView extends GetView<LeadDetailController> {
   const LeadDetailView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: secondaryAppBar(context, "Lead Details", (v) => debugPrint(v)),
-      body: Obx(() => Padding(
-        padding: EdgeInsets.only(top: 43.0.h, left: 24.w, right: 24.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            leadDetailHeader(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+        appBar: secondaryAppBar(context, "Lead Details", (v) => debugPrint(v)),
+        body: Obx(
+          () => Padding(
+            padding: EdgeInsets.only(top: 43.0.h, left: 24.w, right: 24.w),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                primaryButton("Timeline", () => controller.isTimeLineView.value = true, controller.isTimeLineView.value ? textBlack : white, controller.isTimeLineView.value ? white : textBlack , null, 50, controller.isTimeLineView.value ? Colors.transparent : primaryColor),
-                Gap(10.w),
-                primaryButton("Details", () => controller.isTimeLineView.value = false, controller.isTimeLineView.value ? white : textBlack, controller.isTimeLineView.value ? textBlack : white, null, 50, controller.isTimeLineView.value ? primaryColor : Colors.transparent),
+                leadDetailHeader(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    primaryButton(
+                        "Timeline",
+                        () => controller.isTimeLineView.value = true,
+                        controller.isTimeLineView.value ? textBlack : white,
+                        controller.isTimeLineView.value ? white : textBlack,
+                        null,
+                        50,
+                        controller.isTimeLineView.value
+                            ? Colors.transparent
+                            : primaryColor),
+                    Gap(10.w),
+                    primaryButton(
+                        "Details",
+                        () => controller.isTimeLineView.value = false,
+                        controller.isTimeLineView.value ? white : textBlack,
+                        controller.isTimeLineView.value ? textBlack : white,
+                        null,
+                        50,
+                        controller.isTimeLineView.value
+                            ? primaryColor
+                            : Colors.transparent),
+                  ],
+                ),
+                height25(43),
+                getView(controller.isTimeLineView.value),
               ],
             ),
-            height25(43),
-            getView(controller.isTimeLineView.value),
-          ],
-        ),
-      ),)
-    );
+          ),
+        ));
   }
-  Widget getView(bool v){
-    if(v){
+
+  Widget getView(bool v) {
+    if (v) {
       return Expanded(child: timeline());
-    }else{
+    } else {
       return Card();
     }
   }

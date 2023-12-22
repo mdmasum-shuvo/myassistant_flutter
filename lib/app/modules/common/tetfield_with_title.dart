@@ -7,7 +7,9 @@ import 'package:my_assistant/app/theme/text_theme.dart';
 import '../../theme/Colors.dart';
 import '../../theme/textfield.dart';
 
-Widget textfieldWithTitle(TextEditingController controller,String title, String hint,{bool isExpandText=false}) {
+Widget textfieldWithTitle(
+    TextEditingController controller, String title, String hint,
+    {bool isExpandText = false}) {
   return Card(
     color: primaryColor,
     shape: RoundedRectangleBorder(
@@ -18,13 +20,12 @@ Widget textfieldWithTitle(TextEditingController controller,String title, String 
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         height25(14),
-
         Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 24.w),
-          child: text_16_300(title,greyText),
+          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          child: text_16_300(title, greyText),
         ),
         textFieldNoIcon(hint, controller,
-            keyboardType: TextInputType.name,isExpandText:isExpandText),
+            keyboardType: TextInputType.name, isExpandText: isExpandText),
       ],
     ),
   );
