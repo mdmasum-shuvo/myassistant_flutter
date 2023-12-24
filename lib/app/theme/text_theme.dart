@@ -72,6 +72,10 @@ Widget text_18_400_inter(String? value,[Color color = const Color(0xB2FFFFFF)]){
   return Text("$value", textAlign: TextAlign.right, style:textTheme2.titleSmall?.copyWith(color: color, fontSize: 18.sp, fontWeight: FontWeight.w400,));
 }
 
+Widget text_18_300_inter(String? value,[Color color = greyText]){
+  return Text("$value", textAlign: TextAlign.right, style:textTheme2.titleSmall?.copyWith(color: color, fontSize: 18.sp, fontWeight: FontWeight.w300,));
+}
+
 Widget text_18_500_inter(String? value,[Color color = white, TextAlign textAlign = TextAlign.left]){
   return Text("$value", textAlign: textAlign, style:textTheme2.titleMedium?.copyWith(color: color, fontSize: 18.sp, fontWeight: FontWeight.w500,));
 }
@@ -82,6 +86,10 @@ Widget text_26_500_inter(String? value,[Color color = white]){
 
 Widget text_20_500_inter(String? value,[Color color = white]){
   return Text("$value",style:textTheme2.displayLarge?.copyWith(color: color,fontSize: 20.sp));
+}
+
+Widget text_20_300_inter(String? value,[Color color = greyText]){
+  return Text("$value",style:textTheme2.displayLarge?.copyWith(color: color,fontSize: 20.sp, fontWeight: FontWeight.w300));
 }
 
 Widget text_32_500_inter(String? value,[Color color = white]){

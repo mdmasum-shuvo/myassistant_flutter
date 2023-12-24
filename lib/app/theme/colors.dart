@@ -16,3 +16,4 @@ const Color midPrimaryColor = Color(0xFFFFDB3);
 const Color earth = Color(0xFF6B5C19);
 const Color tertiaryColor = Color(0xFF5E6165);
 const Color greyText =  Color(0xB2FFFFFF);
+// const Color cardLightColor =  Color(0xFF505050);

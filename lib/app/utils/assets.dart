@@ -92,6 +92,8 @@ class Assets {
 
   static const String profileCircle = 'assets/icon/profile_circle.svg';
 
+  static const String whatsApp = 'assets/icon/whatsApp.svg';
+
 
 
 
