@@ -11,6 +11,7 @@ import 'package:my_assistant/app/modules/home/components/lead_pipeline.dart';
 import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
 import 'package:my_assistant/app/utils/assets.dart';
+import 'package:my_assistant/app/utils/success_pop_up.dart';
 
 import '../../../theme/button_theme.dart';
 import '../../../theme/custom_appbar.dart';
@@ -26,7 +27,8 @@ class HomeView extends GetView<HomeController> {
       drawer: MainDrawer(),
       floatingActionButton: InkWell(
           onTap: () {
-            Scaffold.of(context).openDrawer();
+            // Scaffold.of(context).openDrawer();
+            pickFileFormDialogue();
           },
           child: SvgPicture.asset(Assets.add, height: 70.h, width: 70.w, fit: BoxFit.fill,)),
       body: SingleChildScrollView(

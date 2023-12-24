@@ -1,7 +1,9 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:my_assistant/app/theme/button_theme.dart';
@@ -43,5 +45,60 @@ successDialogue(String title, String body, String buttonText, VoidCallback onTap
         primaryButton(buttonText, onTap, primaryColor, white ),
       ],
     )
+  );
+}
+
+pickFileFormDialogue( [bool barrierDismissible = true]){
+
+  Get.defaultDialog(
+      title: "",
+      barrierDismissible: barrierDismissible,
+      contentPadding: EdgeInsets.symmetric(horizontal: 20.w, ),
+      backgroundColor: primaryColor,
+      content: Column(
+        children: [
+          text_22_500_inter("File From"),
+
+          height25(30),
+
+          Row(
+            children: [
+              rowItem(Assets.file, "Files", (){}),
+              Gap(10.w),
+              rowItem(Assets.drive, "Google drive", (){}),
+              Gap(10.w),
+              rowItem(Assets.camera, "Camera", (){}),
+            ],
+          )
+        ],
+      )
+  );
+}
+
+
+
+Widget rowItem(String svg, String title, VoidCallback onTap){
+  return Expanded(
+    child: InkWell(
+      onTap: onTap,
+      child: Card(
+        margin: EdgeInsets.zero,
+
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.r)
+        ),
+        color: const Color(0x1AFFFFFF),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 9.w, vertical: 25.h),
+          child: Column(
+            children: [
+              SvgPicture.asset(svg, height: 20.h, width: 20.w,),
+              height25(10),
+              text_14_400_inter(title),
+            ],
+          ),
+        ),
+      ),
+    ),
   );
 }

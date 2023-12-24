@@ -132,7 +132,7 @@ Widget text_16_600_inter(String? value,[Color color = white]){
 }
 
 Widget text_14_400_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.titleMedium?.copyWith(color: color));
+  return Text("$value",style:textTheme2.titleMedium?.copyWith(color: color,));
 }
 Widget text_14_500_inter(String? value,[Color color = white]){
   return Text("$value",style:textTheme2.titleMedium?.copyWith(color: color,fontWeight: FontWeight.w500));
