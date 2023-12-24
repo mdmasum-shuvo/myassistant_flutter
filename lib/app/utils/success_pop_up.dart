@@ -53,7 +53,7 @@ pickFileFormDialogue( [bool barrierDismissible = true]){
   Get.defaultDialog(
       title: "",
       barrierDismissible: barrierDismissible,
-      contentPadding: EdgeInsets.symmetric(horizontal: 20.w, ),
+      contentPadding: EdgeInsets.symmetric(horizontal: 10.w, ),
       backgroundColor: primaryColor,
       content: Column(
         children: [
@@ -62,6 +62,7 @@ pickFileFormDialogue( [bool barrierDismissible = true]){
           height25(30),
 
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               rowItem(Assets.file, "Files", (){}),
               Gap(10.w),
@@ -83,13 +84,14 @@ Widget rowItem(String svg, String title, VoidCallback onTap){
       onTap: onTap,
       child: Card(
         margin: EdgeInsets.zero,
+        elevation: 0,
 
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.r)
         ),
-        color: const Color(0x1AFFFFFF),
+        color: drawerItemColor,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 9.w, vertical: 25.h),
+          padding: EdgeInsets.symmetric(vertical: 20.h),
           child: Column(
             children: [
               SvgPicture.asset(svg, height: 20.h, width: 20.w,),
