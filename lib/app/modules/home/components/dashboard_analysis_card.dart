@@ -13,7 +13,7 @@ Widget dashAnalysisCard(String title, String total, String svgIcon){
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(20.r)
     ),
-    child: Padding(padding: EdgeInsets.all(16.r),
+    child: Padding(padding: EdgeInsets.only(left:16.w,top: 16.h,bottom: 16.h),
     child: Stack(
       children: [
         Column(
@@ -22,7 +22,7 @@ Widget dashAnalysisCard(String title, String total, String svgIcon){
           children: [
             SvgPicture.asset(svgIcon, height: 50.h, width: 50.w, fit: BoxFit.fill,),
             height25(10),
-            text_18_500_inter(title),
+            text_18_500_inter(title,white,TextAlign.start),
             text_24_500_inter(total),
             height25(20)
           ],
