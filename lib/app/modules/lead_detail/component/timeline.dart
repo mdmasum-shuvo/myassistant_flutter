@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_assistant/app/modules/lead_detail/component/timeline_card.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
@@ -11,7 +12,8 @@ Widget timeline(){
     children: [
       text_24_500_inter("Upcoming"),
       height25(20),
-      Expanded(
+      SizedBox(
+        height: Get.height * 0.3 - 30,
         child: ListView.builder(
           itemCount: 7,
           itemBuilder: (context, index) {
@@ -21,7 +23,8 @@ Widget timeline(){
       height25(20),
       text_24_500_inter("Past"),
       height25(20),
-      Expanded(
+      SizedBox(
+        height: Get.height * 0.3 - 30,
         child: ListView.builder(
           itemCount: 7,
           itemBuilder: (context, index) {

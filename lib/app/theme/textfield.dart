@@ -156,6 +156,9 @@ Widget textFieldAgenda(
     ),
     decoration: InputDecoration(
       hintText: hint,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20.r)
+      ),
     ),
   );
   // return Column(
