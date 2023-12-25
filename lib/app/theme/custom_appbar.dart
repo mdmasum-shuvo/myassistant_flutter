@@ -155,3 +155,36 @@ AppBar secondaryAppBar(
     ],
   );
 }
+
+AppBar secondaryAppBarDialer(
+    BuildContext context, String title, Function(String) onTap) {
+  return AppBar(
+    // Set this height
+    systemOverlayStyle: const SystemUiOverlayStyle(
+      // Status bar color
+      statusBarColor: primaryColor,
+
+      // Status bar brightness (optional)
+      statusBarIconBrightness: Brightness.light, // For Android (dark icons)
+      statusBarBrightness: Brightness.light, // For iOS (dark icons)
+    ),
+    leading: Padding(
+      padding: EdgeInsets.only(left: 16.w),
+      child: IconButton(
+        icon: const Icon(
+          Icons.arrow_back,
+          color: white,
+        ),
+        onPressed: () {
+          Get.back();
+        },
+      ),
+    ),
+
+    elevation: 0,
+    backgroundColor: primaryColor,
+    title: text_26_500_inter(title),
+    centerTitle: true,
+
+  );
+}

@@ -20,6 +20,7 @@ abstract class Routes {
   static const LEAD_DETAIL = _Paths.LEAD_DETAIL;
   static const TASK_DETAIL = _Paths.TASK_DETAIL;
   static const CONTACT_DETAIL = _Paths.CONTACT_DETAIL;
+  static const DIALER = _Paths.DIALER;
 }
 
 abstract class _Paths {
@@ -46,4 +47,5 @@ abstract class _Paths {
   static const LEAD_DETAIL = '/lead-detail';
   static const TASK_DETAIL = '/task-detail';
   static const CONTACT_DETAIL = '/contact-detail';
+  static const DIALER = '/dialer';
 }
