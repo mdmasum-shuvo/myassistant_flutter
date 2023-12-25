@@ -23,7 +23,7 @@ Widget contactsCard(String title){
         return InkWell(
           onTap: () => Get.toNamed(Routes.CONTACT_DETAIL, arguments: title),
           child: Padding(
-            padding: const EdgeInsets.only(bottom: 8.0),
+            padding:  EdgeInsets.only(bottom: 24.h),
             child: Row(
               children: [
                 CircleAvatar(
@@ -32,15 +32,15 @@ Widget contactsCard(String title){
                   child: text_16_500_inter(title),
                 ),
                 Gap(20.w),
-                Expanded(child: text_18_500_inter("Aaron Mitchell")),
+                Expanded(child: text_18_400_inter("Aaron Mitchell")),
               ],
             ),
           ),
         );
       },),
       height25(30),
-      const Divider(color: Colors.white,),
-      height25(10)
+      const Divider(color: Color(0x33FFFFFF),height: .5,),
+      height25(16)
     ],
   );
 }

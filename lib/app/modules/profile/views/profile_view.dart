@@ -20,9 +20,9 @@ class ProfileView extends GetView<ProfileController> {
         child: Column(
           children: [
             Flexible(flex: 1, child: Container()),
-            Flexible(flex: 4, child: profileHeader()),
+            Flexible(flex: 6, child: profileHeader()),
             Flexible(flex: 1, child: Container()),
-            Flexible(flex: 5, child: profileDetail()),
+            Flexible(flex: 7, child: profileDetail()),
             Flexible(flex: 3, child: Container()),
             // Flexible(flex: 1, child: ),
             const Spacer(),

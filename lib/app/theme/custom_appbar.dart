@@ -31,6 +31,7 @@ AppBar mainAppBar(String title, String subTitle,
       bottom: Radius.circular(30.r),
     )),
     backgroundColor: primaryColor,
+    surfaceTintColor: primaryColor,
     leading: Builder(
         builder: (context) => Padding(
               padding: EdgeInsets.only(left: 24.w, bottom: 12.h),
@@ -119,8 +120,11 @@ Widget isNotHomeAppBar(String title, bool isCalender, Function() onCalClick) {
 
 AppBar secondaryAppBar(
     BuildContext context, String title, Function(String) onTap) {
+  RxBool isCircle = false.obs;
   return AppBar(
     // Set this height
+    surfaceTintColor: primaryColor,
+
     systemOverlayStyle: const SystemUiOverlayStyle(
       // Status bar color
       statusBarColor: primaryDarkColor,
@@ -147,10 +151,13 @@ AppBar secondaryAppBar(
     title: text_26_500_inter(title),
     centerTitle: true,
     actions: [
-      CircleAvatar(
-        backgroundColor: primaryColor,
-        child: threeDotVert(context, onTap),
-      ),
+      Obx(() => isCircle.value
+          ? CircleAvatar(
+              backgroundColor: primaryColor,
+              child: threeDotVert(
+                  context, (v) => {isCircle.value = !isCircle.value}),
+            )
+          : threeDotVert(context, (v) => {isCircle.value = !isCircle.value})),
       Gap(20.w),
     ],
   );
@@ -160,6 +167,8 @@ AppBar secondaryAppBarDialer(
     BuildContext context, String title, Function(String) onTap) {
   return AppBar(
     // Set this height
+    surfaceTintColor: primaryColor,
+
     systemOverlayStyle: const SystemUiOverlayStyle(
       // Status bar color
       statusBarColor: primaryColor,
@@ -185,6 +194,5 @@ AppBar secondaryAppBarDialer(
     backgroundColor: primaryColor,
     title: text_26_500_inter(title),
     centerTitle: true,
-
   );
 }

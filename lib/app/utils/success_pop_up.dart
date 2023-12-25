@@ -13,7 +13,6 @@ import 'package:my_assistant/app/utils/assets.dart';
 
 import '../routes/app_pages.dart';
 
-
 Future<void> showMyDialog(BuildContext context, String message) async {
   AwesomeDialog(
     context: context,
@@ -27,74 +26,171 @@ Future<void> showMyDialog(BuildContext context, String message) async {
   ).show();
 }
 
-
-successDialogue(String title, String body, String buttonText, VoidCallback onTap,[bool barrierDismissible = false]){
-
-  Get.defaultDialog(
-    title: "",
-    barrierDismissible: barrierDismissible,
-    contentPadding: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 25.h),
-    backgroundColor: primaryColor,
-    content: Column(
-      children: [
-        SvgPicture.asset(Assets.success, height: 101.h, width: 101.w,),
-        height25(30),
-        text_26_500_inter(title),
-        text_16_400_inter(body,greyText,TextAlign.center),
-        height25(59),
-        primaryButton(buttonText, onTap, primaryColor, white ),
-      ],
-    )
-  );
+void openDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          backgroundColor: primaryColor,
+          surfaceTintColor: primaryColor,
+          shape: RoundedRectangleBorder(
+              borderRadius:
+              BorderRadius.circular(20.0)), //this right here
+          child:  Container(
+            height: 200.h,
+            width: 500.w,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: primaryColor,
+                )
+            ),
+            child: Padding(
+              padding:  EdgeInsets.only(top: 20.h),
+              child: Column(
+                children: [
+                  text_22_500_inter("File From"),
+                  height25(20),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        rowItem(Assets.file, "Files", () {}),
+                        Gap(10.w),
+                        rowItem(Assets.drive, "Google drive", () {}),
+                        Gap(10.w),
+                        rowItem(Assets.camera, "Camera", () {}),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+      });
 }
 
-pickFileFormDialogue( [bool barrierDismissible = true]){
+void successDialog(BuildContext context,  String title, String body, String buttonText, VoidCallback onTap) {
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          backgroundColor: primaryColor,
+          surfaceTintColor: primaryColor,
+          shape: RoundedRectangleBorder(
+              borderRadius:
+              BorderRadius.circular(20.0)), //this right here
+          child:  Container(
+            width: 500.w,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: primaryColor,
+                )
+            ),
+            child:  Padding(
+              padding:  EdgeInsets.only(left: 24.w,right: 24.w,top: 50.h,bottom: 24.h),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
 
+                children: [
+                  SvgPicture.asset(
+                    Assets.success,
+                    height: 101.h,
+                    width: 101.w,
+                  ),
+                  height25(30),
+                  text_26_500_inter(title),
+                  text_16_400_inter(body, greyText, TextAlign.center),
+                  height25(59),
+                  primaryButton(buttonText, onTap, primaryColor, white),
+                ],
+              ),
+            )),
+
+        );
+      });
+}
+
+successDialogue(
+    String title, String body, String buttonText, VoidCallback onTap,
+    [bool barrierDismissible = false]) {
   Get.defaultDialog(
       title: "",
       barrierDismissible: barrierDismissible,
-      contentPadding: EdgeInsets.symmetric(horizontal: 10.w, ),
+      contentPadding: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 25.h),
       backgroundColor: primaryColor,
-      content: Column(
-        children: [
-          text_22_500_inter("File From"),
-
-          height25(30),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              rowItem(Assets.file, "Files", (){}),
-              Gap(10.w),
-              rowItem(Assets.drive, "Google drive", (){}),
-              Gap(10.w),
-              rowItem(Assets.camera, "Camera", (){}),
-            ],
-          )
-        ],
-      )
-  );
+      content: Container(
+        color: primaryColor,
+        child: Column(
+          children: [
+            SvgPicture.asset(
+              Assets.success,
+              height: 101.h,
+              width: 101.w,
+            ),
+            height25(30),
+            text_26_500_inter(title),
+            text_16_400_inter(body, greyText, TextAlign.center),
+            height25(59),
+            primaryButton(buttonText, onTap, primaryColor, white),
+          ],
+        ),
+      ));
 }
 
 
+pickFileFormDialogue([bool barrierDismissible = true]) {
+  Get.defaultDialog(
+      title: "",
+      barrierDismissible: barrierDismissible,
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: 0.w,
+      ),
+      backgroundColor: primaryColor,
+      buttonColor: primaryColor,
+      content: Container(
+        color: primaryColor,
+        child: Column(
+          children: [
+            text_22_500_inter("File From"),
+            height25(30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                rowItem(Assets.file, "Files", () {}),
+                Gap(10.w),
+                rowItem(Assets.drive, "Google drive", () {}),
+                Gap(10.w),
+                rowItem(Assets.camera, "Camera", () {}),
+              ],
+            )
+          ],
+        ),
+      ));
+}
 
-Widget rowItem(String svg, String title, VoidCallback onTap){
+Widget rowItem(String svg, String title, VoidCallback onTap) {
   return Expanded(
     child: InkWell(
       onTap: onTap,
       child: Card(
         margin: EdgeInsets.zero,
         elevation: 0,
-
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.r)
-        ),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
         color: drawerItemColor,
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 20.h),
           child: Column(
             children: [
-              SvgPicture.asset(svg, height: 20.h, width: 20.w,),
+              SvgPicture.asset(
+                svg,
+                height: 20.h,
+                width: 20.w,
+              ),
               height25(10),
               text_14_400_inter(title),
             ],

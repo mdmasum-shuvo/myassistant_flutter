@@ -11,7 +11,7 @@ Widget textfieldWithTitle(
     TextEditingController controller, String title, String hint,
     {bool isExpandText = false}) {
   return Card(
-    color: primaryColor,
+    color: primaryColor,surfaceTintColor: primaryColor,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(20.r),
     ),

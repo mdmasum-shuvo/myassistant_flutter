@@ -22,7 +22,7 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
       floatingActionButton: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0.w),
         child: primaryButton("Update", () {
-          successDialogue("Password Changed", "Password has changed successfully, login to your account.", "login", () {
+          successDialog(context,"Password Changed", "Password has changed successfully, login to your account.", "login", () {
             Get.offAllNamed(Routes.LOGIN);
           });
           // Get.toNamed(Routes.RESETPASSWORD);

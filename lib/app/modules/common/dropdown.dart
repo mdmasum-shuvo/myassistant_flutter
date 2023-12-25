@@ -11,6 +11,7 @@ import '../../theme/Colors.dart';
 Widget dropdownField(RxString text,String title, String hint,IconData asset) {
   return Card(
     color: primaryColor,
+    surfaceTintColor: primaryColor,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(20.r),
     ),

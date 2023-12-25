@@ -34,8 +34,8 @@ class TaskView extends GetView<TaskController> {
             },
             child: SvgPicture.asset(
               Assets.add,
-              height: 70.h,
-              width: 70.w,
+              height: 80.h,
+              width: 80.w,
               fit: BoxFit.fill,
             )),
         body: Obx(
@@ -57,17 +57,14 @@ class TaskView extends GetView<TaskController> {
                 ),
                 //TODO: onTap list is not updating
 
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  child: Column(
-                    children: [
-                      height25(40),
-                      controller.isVisibleCalender.value
-                          ? weekDay()
-                          : Container(),
-                      height25(20),
-                    ],
-                  ),
+                Column(
+                  children: [
+                    height25(40),
+                    controller.isVisibleCalender.value
+                        ? weekDay()
+                        : Container(),
+                    height25(20),
+                  ],
                 ),
                 Expanded(child: taskItemList(context))
               ],

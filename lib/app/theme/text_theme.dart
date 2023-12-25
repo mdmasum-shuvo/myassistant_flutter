@@ -132,7 +132,7 @@ Widget text_16_600_inter(String? value,[Color color = white]){
 }
 
 Widget text_14_400_inter(String? value,[Color color = white]){
-  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 14.sp));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 14.sp),maxLines: 1,);
 }
 Widget text_14_500_inter(String? value,[Color color = white]){
   return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w500,fontSize: 14.sp));

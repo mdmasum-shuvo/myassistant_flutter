@@ -10,6 +10,8 @@ Widget verticalItem(String svg, String title, String sub ){
       borderRadius: BorderRadius.circular(20.r),
     ),
     color: primaryColor,
+    surfaceTintColor: primaryColor,
+
     child: Padding(
       padding: EdgeInsets.all(15.0.r),
       child: ListTile(

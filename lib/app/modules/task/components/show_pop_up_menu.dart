@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 
 Future<String?> showPopupMenu(BuildContext context, Offset position) async{
@@ -20,9 +21,10 @@ Future<String?> showPopupMenu(BuildContext context, Offset position) async{
   return await showMenu<String>(
     context: context,
     position: positions,
-    color: const Color(0x1AFFFFFF),
+    color: primaryColor,
+    surfaceTintColor: primaryColor,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(15.r)
+      borderRadius: BorderRadius.circular(15.r),
     ),
     items: <PopupMenuEntry<String>>[
        PopupMenuItem<String>(

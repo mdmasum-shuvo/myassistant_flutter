@@ -7,6 +7,7 @@ import 'package:my_assistant/app/theme/text_theme.dart';
 Widget leadPipelineCard(String t1, String t2, ){
   return Card(
     color: primaryColor,
+    surfaceTintColor: primaryColor,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(15.r),
     ),

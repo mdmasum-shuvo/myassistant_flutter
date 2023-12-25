@@ -8,6 +8,7 @@ class ContactDetailController extends GetxController {
   var selectedOption = "".obs;
   var onlnMtng = 'Online meeting'.obs;
   var bokApnmnt = 'Book an appointment'.obs;
+  RxBool isCircle=false.obs;
 
   final count = 0.obs;
   @override
