@@ -1,22 +1,13 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:my_assistant/app/modules/login/components/header.dart';
 import 'package:my_assistant/app/modules/login/components/login_fields.dart';
 import 'package:my_assistant/app/modules/welcome_screen/component/footer_registration.dart';
 import 'package:my_assistant/app/theme/auth_appbar.dart';
-import 'package:my_assistant/app/theme/button_theme.dart';
-import 'package:my_assistant/app/theme/colors.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
-import 'package:my_assistant/app/theme/textfield.dart';
-import 'package:my_assistant/app/utils/assets.dart';
 
-import '../../../routes/app_pages.dart';
-import '../../../theme/text_theme.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
