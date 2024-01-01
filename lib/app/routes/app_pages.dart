@@ -10,6 +10,8 @@ import '../modules/create_task/bindings/create_task_binding.dart';
 import '../modules/create_task/views/create_task_view.dart';
 import '../modules/dashboard/binding/dashboard_binding.dart';
 import '../modules/dashboard/view/dashboard_view.dart';
+import '../modules/dialer/bindings/dialer_binding.dart';
+import '../modules/dialer/views/dialer_view.dart';
 import '../modules/forget_password/binding/forget_password_binding.dart';
 import '../modules/forget_password/view/forget_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -141,6 +143,11 @@ class AppPages {
       name: _Paths.CONTACT_DETAIL,
       page: () => const ContactDetailView(),
       binding: ContactDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.DIALER,
+      page: () => const DialerView(),
+      binding: DialerBinding(),
     ),
   ];
 }

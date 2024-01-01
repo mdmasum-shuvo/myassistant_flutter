@@ -24,40 +24,40 @@ Widget text_12_700(String? value,[Color color = white]){
 }
 
 Widget text_16_500(String? value,[Color color = white]){
-  return Text("$value",style:textTheme1.headlineSmall?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w500,fontSize: 16.sp));
 }
 Widget text_16_400(String? value,[Color color = white,TextAlign textAlign=TextAlign.start]){
-  return Text("$value",style:textTheme1.titleSmall?.copyWith(color: color, ),textAlign: textAlign,);
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 16.sp));
 }
 
 Widget text_16_600(String? value,[Color color = white]){
-  return Text("$value",style:textTheme1.titleLarge?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w600,fontSize: 16.sp));
 }
 
 Widget text_14_400(String? value,[Color color = white]){
-  return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 14.sp));
 }
 
 Widget text_16_300(String? value,[Color color = white]){
-  return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color,fontWeight: FontWeight.w300));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w300,fontSize: 16.sp));
 }
 Widget text_18_400(String? value,[Color color = white]){
-  return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color,fontSize: 18.sp));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 18.sp));
 }
 Widget text_14_500(String? value,[Color color = white]){
-  return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color,fontWeight: FontWeight.w500));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w500,fontSize: 14.sp));
 }
 
 Widget text_12_400(String? value,[Color color = white]){
-  return Text("$value",style:textTheme1.bodyLarge?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 12.sp));
 }
 
 Widget text_14_700(String? value,[Color color = textColor]){
-  return Text("$value",style:textTheme1.headlineMedium?.copyWith(color: color,fontSize: 14.sp));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w700,fontSize: 14.sp));
 }
 
 Widget text_10_400(String? value,[Color color = white]){
-  return Text("$value",style:textTheme1.bodyMedium?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 10.sp));
 }
 
 
@@ -65,87 +65,87 @@ Widget text_10_400(String? value,[Color color = white]){
 
 
 Widget text_18_800_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.headlineLarge?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w800,fontSize: 18.sp));
 }
 
-Widget text_18_400_inter(String? value,[Color color = const Color(0xB2FFFFFF)]){
-  return Text("$value", textAlign: TextAlign.right, style:textTheme2.titleSmall?.copyWith(color: color, fontSize: 18.sp, fontWeight: FontWeight.w400,));
+Widget text_18_400_inter(String? value,[Color color =white,TextAlign textAlign=TextAlign.start]){
+  return Text("$value", textAlign: textAlign, style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 18.sp));
 }
 
 Widget text_18_300_inter(String? value,[Color color = greyText]){
-  return Text("$value", textAlign: TextAlign.right, style:textTheme2.titleSmall?.copyWith(color: color, fontSize: 18.sp, fontWeight: FontWeight.w300,));
+  return Text("$value", textAlign: TextAlign.right, style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w300,fontSize: 18.sp));
 }
 
 Widget text_18_500_inter(String? value,[Color color = white, TextAlign textAlign = TextAlign.left]){
-  return Text("$value", textAlign: textAlign, style:textTheme2.titleMedium?.copyWith(color: color, fontSize: 18.sp, fontWeight: FontWeight.w500,));
+  return Text("$value", textAlign: textAlign, style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w500,fontSize: 18.sp));
 }
 
 Widget text_26_500_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.displayLarge?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w500,fontSize: 26.sp));
 }
 
 Widget text_20_500_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.displayLarge?.copyWith(color: color,fontSize: 20.sp));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w500,fontSize: 20.sp));
 }
 
 Widget text_20_300_inter(String? value,[Color color = greyText]){
-  return Text("$value",style:textTheme2.displayLarge?.copyWith(color: color,fontSize: 20.sp, fontWeight: FontWeight.w300));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w300,fontSize: 20.sp));
 }
 
 Widget text_32_500_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.displayLarge?.copyWith(color: color,fontSize: 32.sp));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w500,fontSize: 32.sp));
 }
 
 Widget text_24_800_inter(String? value,[Color color =white]){
-  return Text("$value",style:textTheme2.displayMedium?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w800,fontSize: 24.sp));
 }
 
 Widget text_24_500_inter(String? value,[Color color =white]){
-  return Text("$value", textAlign: TextAlign.left, style:textTheme2.titleMedium?.copyWith(color: color, fontSize: 24.sp, fontWeight: FontWeight.w500));
+  return Text("$value", textAlign: TextAlign.left, style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w500,fontSize: 24.sp));
 }
 
 Widget text_22_500_inter(String? value,[Color color =white]){
-  return Text("$value",style:textTheme2.titleMedium?.copyWith(color: color, fontSize: 22.sp, fontWeight: FontWeight.w500));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w500,fontSize: 22.sp));
 }
 
 Widget text_16_700_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.headlineMedium?.copyWith(color: color),textAlign: TextAlign.start,);
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w700,fontSize: 16.sp),textAlign: TextAlign.start,);
 }
 
 Widget text_12_700_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.bodyLarge?.copyWith(color: color,fontWeight: FontWeight.w700),textAlign: TextAlign.start,);
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w700,fontSize: 12.sp),textAlign: TextAlign.start,);
 }
 
 Widget text_16_500_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.headlineSmall?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w500,fontSize: 16.sp));
 }
 Widget text_16_400_inter(String? value,[Color color = white, TextAlign? textAlign]){
-  return Text("$value",style:textTheme2.titleSmall?.copyWith(color: color, ), textAlign: textAlign,);
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 16.sp), textAlign: textAlign,);
 }
 
 Widget text_16_300_inter(String? value,[Color color = greyText, TextAlign? textAlign]){
-  return Text("$value",style:textTheme2.titleSmall?.copyWith(color: color, fontWeight: FontWeight.w300), textAlign: textAlign,);
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w300,fontSize: 16.sp), textAlign: textAlign,);
 }
 
 Widget text_16_600_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.titleLarge?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w600,fontSize: 16.sp));
 }
 
 Widget text_14_400_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.titleMedium?.copyWith(color: color,));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 14.sp));
 }
 Widget text_14_500_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.titleMedium?.copyWith(color: color,fontWeight: FontWeight.w500));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w500,fontSize: 14.sp));
 }
 
 Widget text_12_400_inter(String? value,[Color color = white]){
-  return Text("$value",style:textTheme2.bodyLarge?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 12.sp));
 }
 
 Widget text_14_700_inter(String? value,[Color color = textColor]){
-  return Text("$value",style:textTheme2.headlineMedium?.copyWith(color: color,fontSize: 14.sp));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w700,fontSize: 14.sp));
 }
 
 Widget text_10_400_inter(String? value,[Color color = Colors.black]){
-  return Text("$value",style:textTheme2.bodyMedium?.copyWith(color: color));
+  return Text("$value",style:GoogleFonts.inter(color: color,fontWeight: FontWeight.w400,fontSize: 10.sp));
 }
