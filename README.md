@@ -1,6 +1,6 @@
-TECHNICAL DOCUMENTATION FOR
-DOORTRACK
-Mobile App
+TECHNICAL DOCUMENTATION FOR\n
+DOORTRACK\n
+Mobile App\n
 
 Step 1: Install android studio if its not available in your Computer
 Download the android studio https://developer.android.com/studio from this official website of Google and install it in your pc 
