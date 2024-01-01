@@ -30,11 +30,6 @@ void main() async{
     FlutterNativeSplash.remove();
   });
 
-  // runApp(
-  //     const MyApp(
-  //       route:  AppPages.INITIAL,
-  //     )
-  // );
 }
 
 Future<String> hasPreviousSession() async {
@@ -100,66 +95,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
-// Future<void> getLocation() async {
-//   bool serviceEnabled;
-//   LocationPermission permission;
-//
-//   // Check if location services are enabled
-//   serviceEnabled = await Geolocator.isLocationServiceEnabled();
-//   if (!serviceEnabled) {
-//     // Handle the case where location services are not enabled
-//     return;
-//   }
-//
-//   // Request location permission
-//   permission = await Geolocator.checkPermission();
-//   if (permission == LocationPermission.denied) {
-//     permission = await Geolocator.requestPermission();
-//     if (permission == LocationPermission.denied) {
-//       // Handle the case where the user denies permission
-//       return;
-//     }
-//   }
-//
-//   if (permission == LocationPermission.deniedForever) {
-//     // Handle the case where the user has permanently denied permission
-//     return;
-//   }
-// }
-
-//
-// Future<void> getCurrentLocation() async {
-//   try {
-//     Position position = await Geolocator.getCurrentPosition(
-//       desiredAccuracy: LocationAccuracy.high,
-//     );
-//
-//     // Use position.latitude and position.longitude to get the coordinates
-//     // Now, call a function to get the location name using reverse geocoding
-//     getPlaceName(position.latitude, position.longitude);
-//   } catch (e) {
-//     // Handle the case where the location couldn't be obtained
-//     debugPrint(e.toString());
-//   }
-// }
-//
-//
-// Future<void> getPlaceName(double latitude, double longitude) async {
-//   try {
-//     List<Placemark> placeMarks = await placemarkFromCoordinates(latitude, longitude);
-//
-//     if (placeMarks != null && placeMarks.isNotEmpty) {
-//       Placemark placeMark = placeMarks.first;
-//       String locationName = placeMark.subLocality ?? '';
-//       address = locationName;
-//       debugPrint('Current Location: $locationName');
-//     } else {
-//       debugPrint('No location name available');
-//     }
-//   } catch (e) {
-//     // Handle the case where reverse geocoding fails
-//     debugPrint(e.toString());
-//   }
-// }

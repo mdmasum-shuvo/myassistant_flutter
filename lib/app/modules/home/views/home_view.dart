@@ -3,17 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:my_assistant/app/modules/home/components/custom_row_text.dart';
 import 'package:my_assistant/app/modules/home/components/dashboard_analysis.dart';
 import 'package:my_assistant/app/modules/home/components/documents.dart';
 import 'package:my_assistant/app/modules/home/components/lead_pipeline.dart';
-import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
 import 'package:my_assistant/app/utils/assets.dart';
 import 'package:my_assistant/app/utils/success_pop_up.dart';
 
-import '../../../theme/button_theme.dart';
 import '../../../theme/custom_appbar.dart';
 import '../../../drawer/drawer.dart';
 import '../controllers/home_controller.dart';
