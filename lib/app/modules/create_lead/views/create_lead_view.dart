@@ -10,7 +10,6 @@ import '../../../theme/const_sizing.dart';
 import '../../../theme/custom_appbar.dart';
 import '../../common/dropdown.dart';
 import '../../common/tetfield_with_title.dart';
-import '../../create_task/compoent/reminder.dart';
 import '../controllers/create_lead_controller.dart';
 
 class CreateLeadView extends GetView<CreateLeadController> {

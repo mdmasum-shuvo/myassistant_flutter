@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_assistant/app/modules/dashboard/controller/dashboard_controller.dart';
-import 'package:my_assistant/app/theme/custom_appbar.dart';
 
 import '../../../theme/Colors.dart';
 import '../../../utils/assets.dart';

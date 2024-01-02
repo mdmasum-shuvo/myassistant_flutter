@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import 'package:get/get.dart';
-import 'package:my_assistant/app/modules/forget_password/components/header.dart';
 import 'package:my_assistant/app/modules/lead_detail/component/header.dart';
 import 'package:my_assistant/app/modules/lead_detail/component/lead_details_information_card.dart';
 import 'package:my_assistant/app/modules/lead_detail/component/note.dart';
@@ -12,7 +11,6 @@ import 'package:my_assistant/app/theme/button_theme.dart';
 import 'package:my_assistant/app/theme/colors.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
 import 'package:my_assistant/app/theme/custom_appbar.dart';
-import 'package:my_assistant/app/theme/text_theme.dart';
 
 import '../controllers/lead_detail_controller.dart';
 
