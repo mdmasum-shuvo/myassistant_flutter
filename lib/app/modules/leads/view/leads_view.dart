@@ -33,8 +33,8 @@ class LeadsView extends GetView<LeadsController> {
             },
             child: SvgPicture.asset(
               Assets.add,
-              height: 70.h,
-              width: 70.w,
+              height: 80.h,
+              width: 80.w,
               fit: BoxFit.fill,
             )),
         body: Obx(
@@ -53,7 +53,7 @@ class LeadsView extends GetView<LeadsController> {
               //TODO: onTap list is not updating
               height25(40),
               controller.isVisibleCalender.value ? Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                padding:  EdgeInsets.symmetric(horizontal: 0.w),
                 child: weekDay(),
               ) : Container(),
               Expanded(child: leadItemList()),

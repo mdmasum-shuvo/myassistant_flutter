@@ -12,8 +12,9 @@ Widget rowItem(String svg, String title){
         borderRadius: BorderRadius.circular(15.r)
       ),
       color: primaryColor,
+      surfaceTintColor: primaryColor,
       child: Padding(
-        padding: EdgeInsets.all(11.r),
+        padding: EdgeInsets.symmetric(vertical:11.h),
         child: Column(
           children: [
             SvgPicture.asset(svg, height: 20.h, width: 20.w,),

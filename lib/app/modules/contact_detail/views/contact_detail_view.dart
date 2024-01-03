@@ -19,7 +19,7 @@ class ContactDetailView extends GetView<ContactDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: secondaryAppBar(context, "", (v) => null),
+      appBar: secondaryAppBar(context, "Contact", (v) => null),
       body: Obx(() => Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 23.h),
         child: SingleChildScrollView(

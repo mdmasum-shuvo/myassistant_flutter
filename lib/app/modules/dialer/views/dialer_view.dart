@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:my_assistant/app/modules/common/header.dart';
+import 'package:my_assistant/app/theme/const_sizing.dart';
 import 'package:my_assistant/app/theme/custom_appbar.dart';
 
 import '../../../theme/textfield.dart';
@@ -27,7 +28,18 @@ class DialerView extends GetView<DialerController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [header("Suggestion", ""), dialerItem(""),dialerItem(""),dialerItem(""),dialerItem(""),],
+                children: [
+                  header("Suggestion", ""),
+                  dialerItem("A"),
+                  height25(10),
+                  dialerItem("A"),
+                  height25(10),
+
+                  dialerItem("A"),
+                  height25(10),
+
+                  dialerItem("A"),
+                ],
               ),
             ),
           )

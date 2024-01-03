@@ -20,6 +20,8 @@ Widget invoice(ContactDetailController controller,){
             borderRadius: BorderRadius.circular(20.r)
         ),
         color: primaryColor,
+        surfaceTintColor: primaryColor,
+
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -47,6 +49,7 @@ Widget invoice(ContactDetailController controller,){
                     borderRadius: BorderRadius.circular(12.r)
                 ),
                 color: const Color(0xFF505050),
+                surfaceTintColor: const Color(0xFF505050),
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 17.h),
                   child: Column(

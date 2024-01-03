@@ -16,6 +16,8 @@ Widget noteItem(String title, String buttonText, VoidCallback onTap){
           borderRadius: BorderRadius.circular(20.r)
         ),
         color: primaryColor,
+        surfaceTintColor: primaryColor,
+
         child: Padding(padding: EdgeInsets.symmetric(vertical: 32.h),
         child: Center(child: InkWell(onTap: onTap, child: text_20_300_inter(buttonText)),),
         ),

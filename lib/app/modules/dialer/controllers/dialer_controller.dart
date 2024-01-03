@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class DialerController extends GetxController {
   //TODO: Implement DialerController
 
-  final textCOntroller=TextEditingController(text: "");
+  final textCOntroller=TextEditingController(text: "4077");
   final count = 0.obs;
   @override
   void onInit() {

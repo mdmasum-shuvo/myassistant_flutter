@@ -14,6 +14,7 @@ Widget timelineCard(){
     ),
     margin: EdgeInsets.only(bottom: 20.h),
     color: primaryColor,
+    surfaceTintColor: primaryColor,
     child: Padding(
       padding: EdgeInsets.all(20.0.r),
       child: Column(

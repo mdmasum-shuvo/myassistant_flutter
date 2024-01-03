@@ -18,6 +18,7 @@ Widget leadItemCard(){
         children: [
           Card(
             color: primaryColor,
+            surfaceTintColor: primaryColor,
             margin: EdgeInsets.only(bottom: 19.h),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.r),

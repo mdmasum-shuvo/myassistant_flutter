@@ -6,6 +6,7 @@ class CreateLeadController extends GetxController {
   final textController = TextEditingController(text: "");
   final count = 0.obs;
   final RxString text = "".obs;
+  RxBool isCircle=false.obs;
 
   @override
   void onInit() {

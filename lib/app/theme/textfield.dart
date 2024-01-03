@@ -25,6 +25,7 @@ Widget textField(String hint, TextEditingController controller,String prefixSvg,
     }) {
   return TextFormField(
     enabled: enabled,
+    cursorColor: Colors.white,
     keyboardType: keyboardType,
     controller: controller,
     validator: validator,
@@ -159,9 +160,10 @@ Widget textFieldDialer(String hint, TextEditingController controller,
     onChanged: onChanged,
     onTap: onTap,
     obscureText: obscureText,
+    cursorColor: Colors.white,
 
     style: GoogleFonts.inter(
-      fontSize: 16.sp,
+        fontSize: 30.sp,
       color: Colors.white,
       fontWeight: FontWeight.w500
     ),

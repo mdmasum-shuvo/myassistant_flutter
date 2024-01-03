@@ -20,6 +20,7 @@ Widget documents(){
         return Card(
           margin: EdgeInsets.only(bottom: 15.h),
           color: primaryColor,
+          surfaceTintColor: primaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.r)
           ),

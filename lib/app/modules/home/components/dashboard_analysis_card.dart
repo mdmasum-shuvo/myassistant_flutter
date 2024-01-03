@@ -10,6 +10,7 @@ import 'package:my_assistant/app/utils/assets.dart';
 Widget dashAnalysisCard(String title, String total, String svgIcon){
   return Card(
     color: primaryColor,
+    surfaceTintColor: primaryColor,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(20.r)
     ),
@@ -22,7 +23,7 @@ Widget dashAnalysisCard(String title, String total, String svgIcon){
           children: [
             SvgPicture.asset(svgIcon, height: 50.h, width: 50.w, fit: BoxFit.fill,),
             height25(10),
-            text_18_500_inter(title,white,TextAlign.start),
+            text_16_400_inter(title,white,TextAlign.start),
             text_24_500_inter(total),
             height25(20)
           ],

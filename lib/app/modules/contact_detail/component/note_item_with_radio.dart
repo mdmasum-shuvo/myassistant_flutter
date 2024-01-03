@@ -18,6 +18,8 @@ Widget taskCard(ContactDetailController controller, String title, String buttonT
             borderRadius: BorderRadius.circular(20.r)
         ),
         color: primaryColor,
+        surfaceTintColor: primaryColor,
+
         child: Padding(padding: EdgeInsets.symmetric(vertical: 32.h, horizontal: 25.w),
           child: Column(
             children: [

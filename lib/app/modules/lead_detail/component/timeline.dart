@@ -13,9 +13,11 @@ Widget timeline(){
       text_24_500_inter("Upcoming"),
       height25(20),
       SizedBox(
-        height: Get.height * 0.3 - 30,
+        height: Get.height *1,
         child: ListView.builder(
-          itemCount: 7,
+          itemCount: 10,
+          physics: NeverScrollableScrollPhysics(),
+
           itemBuilder: (context, index) {
             return timelineCard();
         },),
@@ -24,9 +26,10 @@ Widget timeline(){
       text_24_500_inter("Past"),
       height25(20),
       SizedBox(
-        height: Get.height * 0.3 - 30,
+        height: Get.height * 1 ,
         child: ListView.builder(
-          itemCount: 7,
+          itemCount: 10,
+          physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return timelineCard();
           },),

@@ -16,20 +16,26 @@ import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: mainAppBar("Good Morning","Masum Talukder",true),
+      appBar: mainAppBar("Good Morning", "Masum Talukder", true),
       drawer: MainDrawer(),
-      floatingActionButton: InkWell(
+      floatingActionButton: GestureDetector(
           onTap: () {
             // Scaffold.of(context).openDrawer();
-            pickFileFormDialogue();
+            openDialog(context);
           },
-          child: SvgPicture.asset(Assets.add, height: 70.h, width: 70.w, fit: BoxFit.fill,)),
+          child: SvgPicture.asset(
+            Assets.add,
+            height: 80.h,
+            width: 80.w,
+            fit: BoxFit.fill,
+          )),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0.w, vertical: 22.h),
+          padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 22.h),
           child: Column(
             children: [
               leadPipeLine(),

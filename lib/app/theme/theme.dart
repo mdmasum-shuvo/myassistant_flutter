@@ -4,19 +4,23 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
-
 ThemeData theme() {
   return ThemeData(
-    primaryColor: primaryColor,
-    secondaryHeaderColor: primaryColor,
-    scaffoldBackgroundColor: primaryDarkColor,
-    inputDecorationTheme: inputDecorationTheme(), appBarTheme: const AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: primaryDarkColor))
-
-  );
+      primaryColor: primaryColor,
+      secondaryHeaderColor: primaryColor,
+      canvasColor: primaryDarkColor,
+      cardColor: primaryColor,
+      scaffoldBackgroundColor: primaryDarkColor,
+      inputDecorationTheme: inputDecorationTheme(),
+      dialogBackgroundColor: primaryColor,
+      appBarTheme: const AppBarTheme(
+          systemOverlayStyle:
+              SystemUiOverlayStyle(statusBarColor: primaryDarkColor)));
 }
 
 InputDecorationTheme inputDecorationTheme() {
   return InputDecorationTheme(
+
     contentPadding: EdgeInsets.only(
       left: 16,
       right: 16,
@@ -25,11 +29,12 @@ InputDecorationTheme inputDecorationTheme() {
     ),
     // prefixIconColor: Colors.black,
 
+
     // TextStyle(color: const Color(0xff666666),fontSize: 14.sp)
-    hintStyle:  GoogleFonts.inter(
+    hintStyle: GoogleFonts.inter(
       fontSize: 16.sp,
       fontWeight: FontWeight.w500,
-      color: white,
+      color: greyText,
     ),
     //background: #8BC53F40;
 
@@ -50,88 +55,43 @@ InputDecorationTheme inputDecorationTheme() {
 
 final TextTheme textTheme1 = TextTheme(
   displayLarge: GoogleFonts.inter(
-      fontSize: 24.sp,
-      fontWeight: FontWeight.w800,
-      color: textColor),
+      fontSize: 24.sp, fontWeight: FontWeight.w800, color: textColor),
   headlineLarge: GoogleFonts.inter(
-      fontSize: 18.sp,
-      fontWeight: FontWeight.w800,
-      color: textColor),
+      fontSize: 18.sp, fontWeight: FontWeight.w800, color: textColor),
   headlineMedium: GoogleFonts.inter(
-      fontSize: 16.sp,
-      fontWeight: FontWeight.w700,
-      color: textColor),
-  headlineSmall:
-  GoogleFonts.inter(fontSize: 16.sp, fontWeight: FontWeight.w400,color: primaryDarkColor),
-
+      fontSize: 16.sp, fontWeight: FontWeight.w700, color: textColor),
+  headlineSmall: GoogleFonts.inter(
+      fontSize: 16.sp, fontWeight: FontWeight.w400, color: primaryDarkColor),
   titleLarge: GoogleFonts.inter(
-      fontSize: 16.sp,
-      fontWeight: FontWeight.w600,
-      color: textColor),
+      fontSize: 16.sp, fontWeight: FontWeight.w600, color: textColor),
   titleMedium: GoogleFonts.inter(
-      fontSize: 14.sp,
-      fontWeight: FontWeight.w500,
-      color: textColor),
+      fontSize: 14.sp, fontWeight: FontWeight.w500, color: textColor),
   titleSmall: GoogleFonts.inter(
-      fontSize: 16.sp,
-      fontWeight: FontWeight.w400,
-      color: textColor),
+      fontSize: 16.sp, fontWeight: FontWeight.w400, color: textColor),
   bodyLarge: GoogleFonts.inter(
-      fontSize: 12.sp,
-      fontWeight: FontWeight.w400,
-      color: textColor),
-  bodyMedium: GoogleFonts.inter(
-      fontSize: 10.sp,
-      color: textColor),
-
-  bodySmall: GoogleFonts.inter(
-      fontSize: 10.sp,
-      color: textColor),
-
+      fontSize: 12.sp, fontWeight: FontWeight.w400, color: textColor),
+  bodyMedium: GoogleFonts.inter(fontSize: 10.sp, color: textColor),
+  bodySmall: GoogleFonts.inter(fontSize: 10.sp, color: textColor),
 );
 final TextTheme textTheme2 = TextTheme(
   displayLarge: GoogleFonts.inter(
-      fontSize: 26.sp,
-      fontWeight: FontWeight.w500,
-      color: textColor),
+      fontSize: 26.sp, fontWeight: FontWeight.w500, color: textColor),
   displayMedium: GoogleFonts.inter(
-      fontSize: 24.sp,
-      fontWeight: FontWeight.w800,
-      color: textColor),
+      fontSize: 24.sp, fontWeight: FontWeight.w800, color: textColor),
   headlineLarge: GoogleFonts.inter(
-      fontSize: 18.sp,
-      fontWeight: FontWeight.w800,
-      color: textColor),
+      fontSize: 18.sp, fontWeight: FontWeight.w800, color: textColor),
   headlineMedium: GoogleFonts.inter(
-      fontSize: 16.sp,
-      fontWeight: FontWeight.w700,
-      color: textColor),
-  headlineSmall:
-  GoogleFonts.inter(fontSize: 16.sp, fontWeight: FontWeight.w400,color: primaryDarkColor),
-
+      fontSize: 16.sp, fontWeight: FontWeight.w700, color: textColor),
+  headlineSmall: GoogleFonts.inter(
+      fontSize: 16.sp, fontWeight: FontWeight.w400, color: primaryDarkColor),
   titleLarge: GoogleFonts.inter(
-      fontSize: 16.sp,
-      fontWeight: FontWeight.w600,
-      color: textColor),
+      fontSize: 16.sp, fontWeight: FontWeight.w600, color: textColor),
   titleMedium: GoogleFonts.inter(
-      fontSize: 14.sp,
-      fontWeight: FontWeight.normal,
-      color: textColor),
+      fontSize: 14.sp, fontWeight: FontWeight.normal, color: textColor),
   titleSmall: GoogleFonts.inter(
-      fontSize: 16.sp,
-      fontWeight: FontWeight.w400,
-      color: textColor),
+      fontSize: 16.sp, fontWeight: FontWeight.w400, color: textColor),
   bodyLarge: GoogleFonts.inter(
-      fontSize: 12.sp,
-      fontWeight: FontWeight.w400,
-      color: textColor),
-  bodyMedium: GoogleFonts.inter(
-      fontSize: 10.sp,
-      color: textColor),
-
-  bodySmall: GoogleFonts.inter(
-      fontSize: 10.sp,
-      color: textColor),
-
+      fontSize: 12.sp, fontWeight: FontWeight.w400, color: textColor),
+  bodyMedium: GoogleFonts.inter(fontSize: 10.sp, color: textColor),
+  bodySmall: GoogleFonts.inter(fontSize: 10.sp, color: textColor),
 );
-
