@@ -13,18 +13,18 @@ import '../theme/Colors.dart';
 class Utils {
   static void configLoading() {
     EasyLoading.instance
-      ..displayDuration = const Duration(milliseconds: 2000)
-      ..loadingStyle = EasyLoadingStyle.dark
+      ..displayDuration = const Duration(milliseconds: 1000)
+      ..loadingStyle = EasyLoadingStyle.light
       ..indicatorSize = 45.0
       ..radius = 10.0
-      ..progressColor = primaryDarkColor
-      ..backgroundColor = Colors.grey
+      ..progressColor = white
+      ..backgroundColor = primaryColor
       ..maskColor = Colors.blue.withOpacity(0.5)
       ..userInteractions = false
       ..dismissOnTap = false
       ..indicatorType = EasyLoadingIndicatorType.circle
       ..maskType = EasyLoadingMaskType.black
-      ..loadingStyle = EasyLoadingStyle.light;
+      ..loadingStyle = EasyLoadingStyle.dark;
   }
 
   static int calculateMinutes(String time) {
@@ -65,13 +65,13 @@ class Utils {
 
           SharedPreferences prefs = await SharedPreferences.getInstance();
           prefs.clear();
-          getxSnackbar("Ops !", "Session Expired!", red);
+          getxSnackbar("", "Session Expired!", red);
           Get.offAllNamed(Routes.LOGIN);
 
           break;
         default:
           {
-            getxSnackbar("Ops !", "$message!", red);
+            getxSnackbar("", "$message!", red);
           }
           break;
       }
@@ -92,7 +92,7 @@ class Utils {
 
   static void showControllerError(response) {
     EasyLoading.dismiss();
-    getxSnackbar("Ops !", "${response.message}", red);
+    getxSnackbar("", "${response.message}", red);
   }
 
   static String formatTime(int seconds) {
