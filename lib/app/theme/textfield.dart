@@ -268,6 +268,11 @@ Widget dateField( String hint, RxString date, Function onPress) {
     keyboardType: TextInputType.text,
     readOnly: true,
     controller: TextEditingController(text: date.value),
+    style: GoogleFonts.poppins(
+        fontSize: 16.sp,
+        color: Colors.white,
+        fontWeight: FontWeight.w500
+    ),
     decoration: InputDecoration(
         hintText: hint,
         prefixIcon: Padding(

@@ -6,13 +6,13 @@ import 'otp_text_field.dart';
 Widget otpTextFields(VerificationController controller){
   return Form(
       key: controller.otpFormKey.value,
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          OtpTextField(),
-          OtpTextField(),
-          OtpTextField(),
-          OtpTextField(unFocusTextField: true,),
+          OtpTextField(controller: controller.oneController,),
+          OtpTextField(controller: controller.twoController),
+          OtpTextField(controller: controller.threeController,),
+          OtpTextField(unFocusTextField: true, controller: controller.fourController),
         ],
       ));
 }

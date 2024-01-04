@@ -22,7 +22,7 @@ class RegisterView extends GetView<RegisterController> {
             children: [
               header(),
               height25(47),
-              registerFields(controller),
+              registerFields(controller, context),
               height25(20),
               footerLogin()
             ],
