@@ -23,7 +23,7 @@ class VerificationView extends GetView<VerificationController> {
         child: primaryButton("Submit", () {
           var v = controller.otpFormKey.value.currentState!.validate();
           if(v){
-            Get.toNamed(Routes.RESETPASSWORD);
+            controller.verifyOtp();
           }else{
 
           }

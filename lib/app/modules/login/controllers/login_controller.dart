@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 import '../../../provider/providers/login_provider.dart';
 import '../../../routes/app_pages.dart';
+import '../../../theme/Colors.dart';
 import '../../../utils/constants.dart';
+import '../../../utils/snackbar.dart';
 import '../../../utils/utils.dart';
 
 class LoginController extends GetxController {
@@ -50,9 +53,11 @@ class LoginController extends GetxController {
           "Accept": "application/json",
           "Authorization": Constants.token
         };
+        getxSnackbar("", "Login Successfully", Colors.green);
         Get.offAllNamed(Routes.DASHBOARD);
       }else{
         EasyLoading.dismiss();
+        getxSnackbar("", "No Data Found!", red);
 
         Utils.showControllerError(response);
       }

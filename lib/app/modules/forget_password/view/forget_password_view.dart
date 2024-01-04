@@ -22,7 +22,7 @@ class ForgetPasswordView extends GetView<ForgetPasswordController> {
       floatingActionButton: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0.w),
         child: primaryButton("Send", () {
-          Get.toNamed(Routes.VERIFICATION);
+          controller.sendOtp();
         },textBlack,white),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
