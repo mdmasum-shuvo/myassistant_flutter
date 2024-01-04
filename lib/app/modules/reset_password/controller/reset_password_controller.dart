@@ -32,7 +32,6 @@ class ResetPasswordController extends GetxController{
     _provider.changePassword(_formData).then((response) async {
       print(RxStatus.success().toString());
       if (response.status == 200) {
-        getxSnackbar("", response.message ?? "", Colors.green);
         EasyLoading.dismiss();
         successDialog(context,"Password Changed", "Password has changed successfully, login to your account.", "login", () {
           Get.offAllNamed(Routes.LOGIN);
@@ -40,7 +39,7 @@ class ResetPasswordController extends GetxController{
         //Get.back();
       } else {
         EasyLoading.dismiss();
-        getxSnackbar("", "No Data Found!", red);
+        getxSnackbar("", response.message ?? "", red);
       }
     });
   }

@@ -30,7 +30,7 @@ class ForgetPasswordController extends GetxController{
         //Get.back();
       } else {
         EasyLoading.dismiss();
-        getxSnackbar("", "No Data Found!", red);
+        getxSnackbar("", response.message??"", red);
       }
     });
   }

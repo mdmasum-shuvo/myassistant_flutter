@@ -16,6 +16,7 @@ class RegisterController extends GetxController{
   TextEditingController passwordController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
   var showPassword = false.obs;
+  var isChecked = false.obs;
   var date = ''.obs;
   var dateTime = DateTime(DateTime.now().year - 18).obs;
 
@@ -45,7 +46,7 @@ class RegisterController extends GetxController{
         //Get.back();
       } else {
         EasyLoading.dismiss();
-        getxSnackbar("", "No Data Found!", red);
+        getxSnackbar("", response.message ?? "", red);
       }
     });
   }

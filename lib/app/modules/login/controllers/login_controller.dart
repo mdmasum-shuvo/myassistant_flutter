@@ -57,7 +57,7 @@ class LoginController extends GetxController {
         Get.offAllNamed(Routes.DASHBOARD);
       }else{
         EasyLoading.dismiss();
-        getxSnackbar("", "No Data Found!", red);
+        getxSnackbar("", response.message ?? "", red);
 
         Utils.showControllerError(response);
       }
