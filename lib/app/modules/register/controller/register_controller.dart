@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
-import '../../../provider/providers/registration_provider.dart';
+import '../../../providers/registration_provider.dart';
 import '../../../routes/app_pages.dart';
 import '../../../theme/Colors.dart';
 import '../../../utils/snackbar.dart';
