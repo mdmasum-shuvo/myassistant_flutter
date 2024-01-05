@@ -23,7 +23,7 @@ Widget loginFields(LoginController controller){
         keyboardType: TextInputType.emailAddress,
       ),
       height25(25),
-      Obx(() =>   textField("Password", controller.passwordController, Assets.lock,
+      Obx(() =>  textField("Password", controller.passwordController, Assets.lock,
           keyboardType: TextInputType.visiblePassword,
           obscureText: controller.showPassword.value,
           suffix: Padding(

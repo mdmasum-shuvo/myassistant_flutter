@@ -14,8 +14,8 @@ class LoginController extends GetxController {
 
 
   final LoginProvider _provider = LoginProvider();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController(text: "");
+  TextEditingController passwordController = TextEditingController(text: "");
   var showPassword = false.obs;
   // final emailPhoneController = TextEditingController(text: "habiburrahman.developer@gmail.com");
 
@@ -39,7 +39,11 @@ class LoginController extends GetxController {
   }
 
   void login() async {
+    if(!isValid()) {
+      return;
+    }
     EasyLoading.show();
+
     _provider
         .login(emailController.text.toString(),
         passwordController.text.toString())
@@ -62,5 +66,16 @@ class LoginController extends GetxController {
         Utils.showControllerError(response);
       }
     });
+  }
+
+  bool isValid() {
+    if(emailController.text=="" || passwordController.text==""){
+      getxSnackbar("", "Please input email and password !", red);
+
+      return false;
+    }
+
+
+    return true;
   }
 }
