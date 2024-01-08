@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
-import '../../../provider/providers/registration_provider.dart';
+import '../../../providers/registration_provider.dart';
 import '../../../routes/app_pages.dart';
 import '../../../theme/Colors.dart';
 import '../../../utils/snackbar.dart';
@@ -16,6 +16,7 @@ class RegisterController extends GetxController{
   TextEditingController passwordController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
   var showPassword = false.obs;
+  var isChecked = false.obs;
   var date = ''.obs;
   var dateTime = DateTime(DateTime.now().year - 18).obs;
 
@@ -45,7 +46,7 @@ class RegisterController extends GetxController{
         //Get.back();
       } else {
         EasyLoading.dismiss();
-        getxSnackbar("", "No Data Found!", red);
+        getxSnackbar("", response.message ?? "", red);
       }
     });
   }

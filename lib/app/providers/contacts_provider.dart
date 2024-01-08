@@ -7,11 +7,12 @@ import 'package:my_assistant/app/models/contacts/contact_list_model.dart';
 import 'package:my_assistant/app/models/contacts/contact_note_list_model.dart';
 import 'package:my_assistant/app/utils/DefaultResponse.dart';
 
-import '../../models/LoginResponse.dart';
-import '../../models/contacts/invoice_list_model.dart';
-import '../../utils/constants.dart';
-import '../../utils/error/ErrorResponse.dart';
-import '../../utils/utils.dart';
+import '../models/contacts/invoice_list_model.dart';
+import '../utils/constants.dart';
+import '../utils/error/ErrorResponse.dart';
+import '../utils/utils.dart';
+
+
 
 class ContactsProvider extends GetConnect {
   @override

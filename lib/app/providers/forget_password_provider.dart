@@ -4,10 +4,11 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 
-import '../../utils/DefaultResponse.dart';
-import '../../utils/constants.dart';
-import '../../utils/error/ErrorResponse.dart';
-import '../../utils/utils.dart';
+import '../utils/DefaultResponse.dart';
+import '../utils/constants.dart';
+import '../utils/error/ErrorResponse.dart';
+import '../utils/utils.dart';
+
 
 class ForgetPasswordProvider extends GetConnect {
   @override

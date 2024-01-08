@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:my_assistant/app/models/contacts/contact_detail_model.dart';
-import 'package:my_assistant/app/models/contacts/contact_list_model.dart';
 
-import '../../../provider/providers/contacts_provider.dart';
+import '../../../providers/contacts_provider.dart';
 import '../../../theme/Colors.dart';
 import '../../../utils/snackbar.dart';
 import '../../../utils/utils.dart';

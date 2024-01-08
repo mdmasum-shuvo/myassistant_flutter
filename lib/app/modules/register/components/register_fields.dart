@@ -26,6 +26,9 @@ Widget registerFields(RegisterController controller, BuildContext context){
         textField("Last Name", controller.lastNameController, Assets.person, keyboardType: TextInputType.name),
         height25(),
         textField("Email", controller.emailController, Assets.email, keyboardType: TextInputType.emailAddress),
+        height25(),
+
+        textField("Phone number", controller.phoneNumberController, Assets.call, keyboardType: TextInputType.phone),
         // CountryCodePicker(
         // onChanged: print,
         // boxDecoration: BoxDecoration(
@@ -43,7 +46,7 @@ Widget registerFields(RegisterController controller, BuildContext context){
         // ),
         height25(),
         dateField("Date", controller.date.value.obs, ()async{
-          var date = await showDatePicker(context: context,initialDate: controller.dateTime.value, firstDate: DateTime(DateTime.now().year - 100), lastDate: DateTime.now());
+          var date = await showDatePicker(context: context,initialDate: controller.dateTime.value, firstDate: DateTime(DateTime.now().year - 100), lastDate: DateTime(DateTime.now().year +100),currentDate:DateTime.now() );
           if(date != null){
             controller.dateTime.value = date;
             controller.date.value = "${date.year}-${date.month}-${date.day}";
@@ -69,7 +72,8 @@ Widget registerFields(RegisterController controller, BuildContext context){
         height25(),
         Row(
           children: [
-            Checkbox(value: true, onChanged: (value) {
+            Checkbox(value: controller.isChecked.value, onChanged: (value) {
+              controller.isChecked.value=value!;
 
             },),
             Gap(6.w),

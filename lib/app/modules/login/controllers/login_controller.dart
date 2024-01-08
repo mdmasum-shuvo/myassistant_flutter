@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
-import '../../../provider/providers/login_provider.dart';
+import '../../../providers/login_provider.dart';
 import '../../../routes/app_pages.dart';
 import '../../../theme/Colors.dart';
 import '../../../utils/constants.dart';
@@ -14,8 +14,12 @@ class LoginController extends GetxController {
 
 
   final LoginProvider _provider = LoginProvider();
+
   TextEditingController emailController = TextEditingController(text: "srsagor010071@gmail.com");
   TextEditingController passwordController = TextEditingController(text: "12345678");
+
+  // TextEditingController emailController = TextEditingController(text: "");
+  // TextEditingController passwordController = TextEditingController(text: "");
   var showPassword = false.obs;
   // final emailPhoneController = TextEditingController(text: "habiburrahman.developer@gmail.com");
 
@@ -39,7 +43,11 @@ class LoginController extends GetxController {
   }
 
   void login() async {
+    if(!isValid()) {
+      return;
+    }
     EasyLoading.show();
+
     _provider
         .login(emailController.text.toString(),
         passwordController.text.toString())
@@ -57,10 +65,21 @@ class LoginController extends GetxController {
         Get.offAllNamed(Routes.DASHBOARD);
       }else{
         EasyLoading.dismiss();
-        getxSnackbar("", "No Data Found!", red);
+        getxSnackbar("", response.message ?? "", red);
 
         Utils.showControllerError(response);
       }
     });
+  }
+
+  bool isValid() {
+    if(emailController.text=="" || passwordController.text==""){
+      getxSnackbar("", "Please input email and password !", red);
+
+      return false;
+    }
+
+
+    return true;
   }
 }

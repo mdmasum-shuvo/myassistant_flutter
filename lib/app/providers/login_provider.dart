@@ -2,16 +2,15 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 
-import '../../models/LoginResponse.dart';
-import '../../utils/constants.dart';
-import '../../utils/error/ErrorResponse.dart';
-import '../../utils/utils.dart';
+import '../models/LoginResponse.dart';
+import '../utils/constants.dart';
+import '../utils/error/ErrorResponse.dart';
+import '../utils/utils.dart';
+
+
 
 class LoginProvider extends GetConnect {
-  @override
-  void onInit() {
-    httpClient.baseUrl = 'YOUR-API-URL';
-  }
+
 
   Future<LoginResponse> login(String userName,String password) async {
     var url = "${Constants.baseUrl}login";
@@ -41,5 +40,6 @@ class LoginProvider extends GetConnect {
       return LoginResponse.fromJson(jsonDecode(response.bodyString!));
     }
   }
+
 
 }
