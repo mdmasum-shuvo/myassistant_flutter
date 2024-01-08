@@ -12,15 +12,15 @@ Widget profileHeader(ContactDetailController controller){
       CircleAvatar(
         backgroundColor: primaryColor,
         radius: 35.r,
-        child: text_16_500_inter(controller.title.value),
+        child: text_16_500_inter(controller.contactDetail.value?.name?.toUpperCase()[0]),
       ),
       Gap(30.w),
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          text_22_500_inter("Aaron Mitchell"),
-          text_16_300_inter("2309450957"),
-          text_16_300_inter("Date of Birth : 13/08/1980"),
+          text_22_500_inter(controller.contactDetail.value?.name),
+          text_16_300_inter(controller.contactDetail.value?.userId.toString()),
+          text_16_300_inter("Date of Birth : ${controller.contactDetail.value?.dob}"),
         ],
       )
     ],

@@ -12,6 +12,7 @@ const Color textColor = Color(0xff212427);
 const Color textBlack = Color(0xFF161616);
 const Color lightGray = Color(0xffD9D9D9);
 const Color red = Colors.red;
+const Color green = Colors.green;
 const Color midPrimaryColor = Color(0xFFFFDB3);
 const Color earth = Color(0xFF6B5C19);
 const Color tertiaryColor = Color(0xFF5E6165);

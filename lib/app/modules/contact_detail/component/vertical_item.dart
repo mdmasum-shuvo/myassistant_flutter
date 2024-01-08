@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 
-Widget verticalItem(String svg, String title, String sub ){
+Widget verticalItem(String svg, String? title, String? sub ){
   return Card(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(20.r),

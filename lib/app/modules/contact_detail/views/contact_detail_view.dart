@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:my_assistant/app/global/communication.dart';
 import 'package:my_assistant/app/modules/contact_detail/component/invoice.dart';
 import 'package:my_assistant/app/modules/contact_detail/component/notes.dart';
 import 'package:my_assistant/app/modules/contact_detail/component/profile_header.dart';
@@ -32,19 +33,19 @@ class ContactDetailView extends GetView<ContactDetailController> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  rowItem(Assets.email, "Email"),
+                  rowItem(Assets.email, "Email", controller),
                   Gap(15.w),
-                  rowItem(Assets.callWhite, "Call"),
+                  rowItem(Assets.callWhite, "Call", controller),
                   Gap(15.w),
-                  rowItem(Assets.whatsApp, "WhatsApp"),
+                  rowItem(Assets.whatsApp, "WhatsApp", controller),
                 ],
               ),
               height25(20),
-              verticalItem(Assets.mobile, "Mobile", "+1 234 567 899"),
+              verticalItem(Assets.mobile, "Mobile", controller.contactDetail.value?.phoneNumber),
               height25(20),
-              verticalItem(Assets.location, "Location", "12, London, United Kingdom"),
+              verticalItem(Assets.location, "Location", controller.contactDetail.value?.address),
               height25(20),
-              verticalItem(Assets.security, "Security Number", "+1 234 567 899"),
+              verticalItem(Assets.security, "Security Number", controller.contactDetail.value?.securityNumber),
               height25(30),
               notes(controller),
               invoice(controller,)

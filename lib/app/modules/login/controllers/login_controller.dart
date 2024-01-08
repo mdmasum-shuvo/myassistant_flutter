@@ -14,8 +14,8 @@ class LoginController extends GetxController {
 
 
   final LoginProvider _provider = LoginProvider();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController(text: "srsagor010071@gmail.com");
+  TextEditingController passwordController = TextEditingController(text: "12345678");
   var showPassword = false.obs;
   // final emailPhoneController = TextEditingController(text: "habiburrahman.developer@gmail.com");
 
