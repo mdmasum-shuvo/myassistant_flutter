@@ -3,6 +3,6 @@ import 'package:my_assistant/app/modules/contacts/controller/contacts_controller
 import 'package:my_assistant/app/theme/textfield.dart';
 import 'package:my_assistant/app/utils/assets.dart';
 
-Widget searchTextField(TextEditingController controller, Function(String) onChange, [String hint = "Search contacts"]){
-  return textField(hint, controller, Assets.search, onChanged: onChange );
+Widget leadSearchTextField(TextEditingController controller,  [String hint = "Search contacts"]){
+  return textField(hint, controller, Assets.search, );
 }

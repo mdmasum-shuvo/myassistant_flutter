@@ -19,13 +19,16 @@ class ContactsController extends GetxController{
   final ContactsProvider _provider = ContactsProvider();
 
 
-  Future<void> getContactList() async {
+  RxBool isLoading = false.obs;
+
+  Future<void> getContactList(String s) async {
+    isLoading.value = true;
     sortedContactLists.clear();
     sortedContactLists.value = { for (var letter in List.generate(26, (index) => String.fromCharCode('A'.codeUnitAt(0) + index))) letter : <ContactData>[].obs };
 
     EasyLoading.show();
     _provider
-        .contactList("",)
+        .contactList(s)
         .then((response) async {
       print(RxStatus.success().toString());
       if (response.status == 200) {
@@ -35,15 +38,14 @@ class ContactsController extends GetxController{
             // Use addContact method to add and sort contacts
             addContact(contact);
           }
-          debugPrint("Success: data length: ${response.data!.length} ${sortedContactLists.values.length}");
         }else{
-          debugPrint("no data: ${response.toString()}");
         }
-
+        isLoading.value = false;
         // getxSnackbar("", "Successfully", Colors.green);
       }else{
         EasyLoading.dismiss();
         getxSnackbar("", "No Data Found!", red);
+        isLoading.value = false;
 
         Utils.showControllerError(response);
       }
@@ -57,7 +59,6 @@ class ContactsController extends GetxController{
   void addContact(ContactData contact) {
     String firstLetter = contact.name?.toUpperCase()[0] ?? '';
     sortedContactLists[firstLetter]?.add(contact);
-    debugPrint("Adding to the sorted list: Letter: $firstLetter  length: ${sortedContactLists.values.length}");
     // Sort the list alphabetically by name
     sortList(firstLetter);
   }
@@ -65,14 +66,12 @@ class ContactsController extends GetxController{
   // Method to sort the list alphabetically by name
   void sortList(String letter) {
     sortedContactLists[letter]?.sort((a, b) => a.name!.compareTo(b.name!));
-    debugPrint("after sorting length: ${sortedContactLists.values.length}");
-
   }
 
   @override
   void onInit() async{
     super.onInit();
-    await getContactList();
+    await getContactList("");
   }
 
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:my_assistant/app/modules/contacts/components/search_text_field.dart';
 import 'package:my_assistant/app/modules/task/components/horizontal_list_buttons.dart';
 import 'package:my_assistant/app/modules/task/components/weekday.dart';
 import 'package:my_assistant/app/modules/task/controller/task_controller.dart';
@@ -11,6 +10,7 @@ import 'package:my_assistant/app/utils/assets.dart';
 import '../../../routes/app_pages.dart';
 import '../../../theme/custom_appbar.dart';
 import '../components/task_item_list.dart';
+import '../components/task_search.dart';
 
 class TaskView extends GetView<TaskController> {
   TaskView({super.key});
@@ -44,7 +44,7 @@ class TaskView extends GetView<TaskController> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24.w),
                   child:
-                      searchTextField(TextEditingController(), "Search Task"),
+                      taskSearchTextField(TextEditingController(), "Search Task"),
                 ),
                 height25(30),
                 Padding(

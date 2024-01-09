@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:my_assistant/app/modules/leads/components/lead_item_card.dart';
 import 'package:my_assistant/app/modules/leads/components/lead_item_list.dart';
 import 'package:my_assistant/app/modules/leads/controller/leads_controller.dart';
 import 'package:my_assistant/app/routes/app_pages.dart';
@@ -10,9 +9,9 @@ import 'package:my_assistant/app/routes/app_pages.dart';
 import '../../../theme/const_sizing.dart';
 import '../../../theme/custom_appbar.dart';
 import '../../../utils/assets.dart';
-import '../../contacts/components/search_text_field.dart';
 import '../../task/components/weekday.dart';
 import '../components/horizontal_list.dart';
+import '../components/lead_search.dart';
 
 class LeadsView extends GetView<LeadsController> {
   LeadsView({super.key});
@@ -43,7 +42,7 @@ class LeadsView extends GetView<LeadsController> {
             child: Column(children: [
               Padding(
                 padding:  EdgeInsets.symmetric(horizontal: 24.w),
-                child: searchTextField(TextEditingController(), "Search leads"),
+                child: leadSearchTextField(TextEditingController(), "Search leads"),
               ),
               height25(30),
               Padding(

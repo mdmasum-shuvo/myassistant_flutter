@@ -6,8 +6,10 @@ import 'package:my_assistant/app/modules/contacts/components/contacts_body.dart'
 import 'package:my_assistant/app/modules/contacts/components/search_text_field.dart';
 import 'package:my_assistant/app/routes/app_pages.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
+import 'package:my_assistant/app/theme/text_theme.dart';
 import 'package:my_assistant/app/utils/assets.dart';
 
+import '../../../global/debouncher.dart';
 import '../../../theme/custom_appbar.dart';
 import '../controller/contacts_controller.dart';
 
@@ -18,10 +20,12 @@ class ContactsView extends GetView<ContactsController> {
   final controller = Get.put(ContactsController());
   @override
   Widget build(BuildContext context) {
+    final _debouncer = Debouncer<String>();
+
     return RefreshIndicator(
       onRefresh: () async{
 
-        await controller.getContactList();
+        await controller.getContactList("");
       },
       child: Scaffold(
         appBar: mainAppBar("Contact","",false),
@@ -35,9 +39,15 @@ class ContactsView extends GetView<ContactsController> {
           padding: EdgeInsets.symmetric(horizontal: 24.0.w, vertical: 30.h),
           child: Column(
             children: [
-              searchTextField(controller.searchController),
+              searchTextField(controller.searchController,  (v) {
+                // Debounce the text input
+                _debouncer.run(() {
+                  controller.getContactList(v);
+                  return "";
+                });
+              } ,),
               height25(40),
-              Obx(() => contactsBody(controller.sortedContactLists.value, controller.title.value)),
+              Obx(() => controller.isLoading.value ? text_18_800("Loading...") : contactsBody(controller.sortedContactLists.value, controller.title.value)),
 
             ],
           ),
