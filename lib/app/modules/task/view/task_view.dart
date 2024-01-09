@@ -44,26 +44,25 @@ class TaskView extends GetView<TaskController> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24.w),
                   child:
-                      taskSearchTextField(TextEditingController(), "Search Task"),
+                      taskSearchTextField(controller.searchTaskController, controller, "Search Task"),
                 ),
                 height25(30),
                 Padding(
                   padding: EdgeInsets.only(left: 24.w),
                   child: SizedBox(
-                      height: 50.h, child: horizontalListButtons(controller)),
+                      height: 50.h, child: horizontalListButtons(controller),),
                 ),
-                //TODO: onTap list is not updating
 
                 Column(
                   children: [
                     height25(40),
-                    controller.isVisibleCalender.value
-                        ? weekDay()
-                        : Container(),
+                    Obx(() => controller.isVisibleCalender.value
+                        ? weekDay(controller)
+                        : Container()),
                     height25(20),
                   ],
                 ),
-                Expanded(child: taskItemList(context))
+                Expanded(child: taskItemList(context, controller))
               ],
             ),
           ),

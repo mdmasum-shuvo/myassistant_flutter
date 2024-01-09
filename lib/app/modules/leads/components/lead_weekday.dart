@@ -6,11 +6,12 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:my_assistant/app/modules/leads/controller/leads_controller.dart';
 import 'package:my_assistant/app/modules/task/controller/task_controller.dart';
 import '../../../theme/Colors.dart';
 import '../../../theme/text_theme.dart';
 
-Widget weekDay(TaskController controller){
+Widget leadWeekDay(LeadsController controller){
   return Column(
     children: [
       CalendarWeek(
@@ -23,10 +24,11 @@ Widget weekDay(TaskController controller){
           Duration(days: -365),
         ),
         maxDate: DateTime.now().add(Duration(days: 365)),
+
         onDatePressed: (DateTime datetime) {
           // Do something
           debugPrint("Date: pressed: $datetime");
-          controller.searchAndFilterTasks(dateTime: datetime);
+          // controller.searchAndFilterTasks(dateTime: datetime);
         },
         onDateLongPressed: (DateTime datetime) {
           // Do something

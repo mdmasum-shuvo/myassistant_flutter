@@ -17,14 +17,14 @@ class TaskDetailView extends GetView<TaskDetailController> {
       appBar: secondaryAppBar(context, "Task Detail", (v) => debugPrint(v)),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 29.0.w),
-        child: Column(
+        child: Obx(() => Column(
           children: [
             height25(43),
-            taskHeader(),
+            taskHeader(controller.taskData, controller.s.value),
             height25(40),
             taskDescription(controller.taskDetailController),
           ],
-        ),
+        )),
       )
     );
   }

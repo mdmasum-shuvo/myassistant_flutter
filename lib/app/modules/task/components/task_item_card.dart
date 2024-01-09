@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:my_assistant/app/global/capitalize_string.dart';
+import 'package:my_assistant/app/global/convert_date_time.dart';
+import 'package:my_assistant/app/global/status.dart';
 import 'package:my_assistant/app/global/three_dot_vert.dart';
+import 'package:my_assistant/app/models/task/task_list_model.dart';
 import 'package:my_assistant/app/modules/task/components/show_pop_up_menu.dart';
+import 'package:my_assistant/app/modules/task/controller/task_controller.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
 
 import '../../../theme/Colors.dart';
 import '../../../theme/text_theme.dart';
 import '../../../utils/assets.dart';
 
-Widget taskItemCard(BuildContext context, VoidCallback onTap){
+Widget taskItemCard(BuildContext context, VoidCallback onTap, CurrentPageData data, Status status){
   return InkWell(
     onTap: onTap,
     child: Padding(
@@ -32,7 +37,7 @@ Widget taskItemCard(BuildContext context, VoidCallback onTap){
                 children: [
                   Row(
                     children: [
-                      Expanded(child: text_22_500_inter("Social App Design")),
+                      Expanded(child: text_22_500_inter(data.taskTitile)),
                       threeDotVert(context, (v) => debugPrint(v))
                     ],
                   ),
@@ -44,20 +49,24 @@ Widget taskItemCard(BuildContext context, VoidCallback onTap){
                         CircleAvatar(
                           radius: 20.r,
                           backgroundColor: const Color(0x1AFFFFFF),
-                          child: text_16_500_inter("A"),
+                          child: text_16_500_inter(data.firstName != null && data.firstName != "" ? data.firstName![0].toUpperCase() : ""),
                         ),
                         Gap(20.w),
-                        Expanded(child: text_18_500_inter("Aaron Mitchell")),
+                        Expanded(child: text_18_500_inter(capitalize("${data.firstName} ${data.lastName}"))),
                       ],
                     ),
                   ),
                   height25(15),
-                    iconTextButton(Assets.call, "call", () { }),
+                    iconTextButton(Assets.call, "call", () {
+
+                    }),
 
                   height25(15),
                   text_14_400_inter("Reminder", const Color(0xB2FFFFFF)),
                   height25(15),
-                  iconTextButton(Assets.date, "Tomorrow, 09:000", () { }),
+                  iconTextButton(Assets.date, formatDateTime(data.setRemainder), () {
+
+                  }),
                   height25(15),
                   iconTextButton(Assets.edit, "Details", () { }),
                 ],
@@ -68,14 +77,14 @@ Widget taskItemCard(BuildContext context, VoidCallback onTap){
             bottom: 35,
             right: 10,
             child: Card(
-              color: red,
+              color: status.color,
               margin: EdgeInsets.zero,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(53.r)
               ),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 7.h),
-                child: text_18_400_inter("Pending", white),
+                child: text_18_400_inter(status.name, white),
               ),
             ),
           )

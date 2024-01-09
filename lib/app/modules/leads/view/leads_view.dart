@@ -12,6 +12,7 @@ import '../../../utils/assets.dart';
 import '../../task/components/weekday.dart';
 import '../components/horizontal_list.dart';
 import '../components/lead_search.dart';
+import '../components/lead_weekday.dart';
 
 class LeadsView extends GetView<LeadsController> {
   LeadsView({super.key});
@@ -53,7 +54,7 @@ class LeadsView extends GetView<LeadsController> {
               height25(40),
               controller.isVisibleCalender.value ? Padding(
                 padding:  EdgeInsets.symmetric(horizontal: 0.w),
-                child: weekDay(),
+                child: leadWeekDay(controller),
               ) : Container(),
               Expanded(child: leadItemList()),
             ]),

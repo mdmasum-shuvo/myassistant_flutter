@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:my_assistant/app/global/convert_date_time.dart';
+import 'package:my_assistant/app/models/task/task_detail.dart';
 
 import '../../../theme/const_sizing.dart';
 import '../../../theme/text_theme.dart';
 import '../../profile/components/title_and_value_row.dart';
 
-Widget taskHeader(){
+Widget taskHeader(TaskData taskData, String status){
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisAlignment: MainAxisAlignment.start,
@@ -12,10 +14,10 @@ Widget taskHeader(){
     children: [
       Align( alignment: Alignment.centerLeft,child: text_22_500_inter("Social App Design",)),
       height25(40),
-      titleAndValueRow("Activity type", "Call"),
-      titleAndValueRow("Assign Task", "Albert Flores"),
-      titleAndValueRow("Task Title", "Development a dashboard"),
-      titleAndValueRow("Reminder", "December 5th 2023, 10:34"),
+      titleAndValueRow("Activity type", "${taskData.activityTypeId}"),
+      titleAndValueRow("Assign Task", taskData.assignName ?? ""),
+      titleAndValueRow("Task Title", taskData.taskTitile ?? ""),
+      titleAndValueRow("Reminder", formatDateTime(taskData.setRemainder)),
       titleAndValueRow("Status", "Completed"),
     ],
   );

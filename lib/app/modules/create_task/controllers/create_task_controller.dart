@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CreateTaskController extends GetxController {
-  //TODO: Implement CreateTaskController
+
   Rx<TimeOfDay> selectedStartTime = TimeOfDay.now().obs;
 
   final textController =TextEditingController(text: "");
