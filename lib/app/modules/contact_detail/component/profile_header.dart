@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:my_assistant/app/global/capitalize_string.dart';
 import 'package:my_assistant/app/modules/contact_detail/controllers/contact_detail_controller.dart';
 
 import '../../../theme/Colors.dart';
@@ -18,9 +19,9 @@ Widget profileHeader(ContactDetailController controller){
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          text_22_500_inter(controller.contactDetail.value?.name),
+          text_22_500_inter(capitalize(controller.contactDetail.value?.name)),
           text_16_300_inter(controller.contactDetail.value?.userId.toString()),
-          text_16_300_inter("Date of Birth : ${controller.contactDetail.value?.dob}"),
+          text_16_300_inter("Date of Birth : ${controller.contactDetail.value?.dob  ?? ""}"),
         ],
       )
     ],
