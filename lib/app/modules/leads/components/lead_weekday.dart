@@ -28,7 +28,7 @@ Widget leadWeekDay(LeadsController controller){
         onDatePressed: (DateTime datetime) {
           // Do something
           debugPrint("Date: pressed: $datetime");
-          // controller.searchAndFilterTasks(dateTime: datetime);
+          controller.searchAndFilterLead(dateTime: datetime);
         },
         onDateLongPressed: (DateTime datetime) {
           // Do something

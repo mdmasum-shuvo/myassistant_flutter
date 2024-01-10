@@ -43,7 +43,7 @@ class LeadsView extends GetView<LeadsController> {
             child: Column(children: [
               Padding(
                 padding:  EdgeInsets.symmetric(horizontal: 24.w),
-                child: leadSearchTextField(TextEditingController(), "Search leads"),
+                child: leadSearchTextField(controller.searchController, controller, "Search leads"),
               ),
               height25(30),
               Padding(
@@ -56,7 +56,7 @@ class LeadsView extends GetView<LeadsController> {
                 padding:  EdgeInsets.symmetric(horizontal: 0.w),
                 child: leadWeekDay(controller),
               ) : Container(),
-              Expanded(child: leadItemList()),
+              Expanded(child: leadItemList(controller)),
             ]),
           ),
         ));
