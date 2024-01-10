@@ -74,6 +74,7 @@ Widget textFieldNoIcon(String hint, TextEditingController controller,
       bool obscureText = false,
       bool enabled = true,
       VoidCallback? onTap,
+      bool readOnly = false,
 
     }) {
   return TextFormField(
@@ -84,6 +85,7 @@ Widget textFieldNoIcon(String hint, TextEditingController controller,
     onChanged: onChanged,
     onTap: onTap,
     obscureText: obscureText,
+    readOnly: readOnly,
 
     style: GoogleFonts.poppins(
       fontSize: 16.sp,

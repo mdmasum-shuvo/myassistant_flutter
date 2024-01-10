@@ -28,8 +28,8 @@ class LeadDetailView extends GetView<LeadDetailController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  leadDetailHeader(),
+                children: controller.isLoading.value ? [] : [
+                  leadDetailHeader(controller),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

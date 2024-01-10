@@ -9,7 +9,7 @@ import '../../theme/textfield.dart';
 
 Widget textfieldWithTitle(
     TextEditingController controller, String title, String hint,
-    {bool isExpandText = false}) {
+    {bool isExpandText = false, bool readOnly = false}) {
   return Card(
     color: primaryColor,surfaceTintColor: primaryColor,
     shape: RoundedRectangleBorder(
@@ -25,7 +25,7 @@ Widget textfieldWithTitle(
           child: text_16_300(title, greyText),
         ),
         textFieldNoIcon(hint, controller,
-            keyboardType: TextInputType.name, isExpandText: isExpandText),
+            keyboardType: TextInputType.name, isExpandText: isExpandText, readOnly: readOnly),
       ],
     ),
   );

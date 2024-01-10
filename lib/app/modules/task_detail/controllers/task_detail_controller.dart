@@ -16,8 +16,8 @@ class TaskDetailController extends GetxController {
   RxBool isLoading = false.obs;
 
   RxList<Status> statusList = <Status>[
-    Status(name: "Pending", id: "1", color: const Color(0xFFF44336)),
-    Status(name: "Upcoming", id: "2", color: const Color(0xFFFBAE10)),
+    Status(name: "Inactive", id: "2", color: const Color(0xFFF44336)),
+    Status(name: "New", id: "1", color: const Color(0xFFFBAE10)),
     Status(name: "Completed", id: "3", color: const Color(0xFF4CAF50)),
     Status(name: "N/A", id: "00", color: const Color(0xFFF44336)),
   ].obs;
