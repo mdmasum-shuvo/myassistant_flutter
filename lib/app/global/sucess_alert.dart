@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
@@ -9,7 +10,7 @@ import 'package:my_assistant/app/utils/assets.dart';
 
 import '../theme/button_theme.dart';
 
-void showCustomDialog(BuildContext context) {
+void showCustomDialog(BuildContext context, {String title = "Password changed", String body = "Password has changed successfully, login to your account.", String btnName = "Login"}) {
   showGeneralDialog(
     context: context,
     barrierLabel: "Barrier",
@@ -31,12 +32,12 @@ void showCustomDialog(BuildContext context) {
               SvgPicture.asset(Assets.success),
                 height25(12),
 
-                text_26_500_inter("Password changed"),
+                text_26_500_inter(title),
 
-                text_16_400("Password has changed successfully, login to your account.",greyText,TextAlign.center),
+                text_16_400(body,greyText,TextAlign.center),
             height25(),
-              primaryButton("Login",
-                      () => {showCustomDialog(context)}, textBlack, white)
+              primaryButton(btnName,
+                      () => {Get.back()}, textBlack, white)
             ],),
           )),
         ),

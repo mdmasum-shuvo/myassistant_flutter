@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:my_assistant/app/modules/create_task/compoent/contact_list_dropdown.dart';
+import 'package:my_assistant/app/modules/create_task/compoent/link_lead_dropdown.dart';
+import 'package:my_assistant/app/modules/create_task/compoent/status_dropdown.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
 
 import '../../../global/sucess_alert.dart';
@@ -23,26 +26,32 @@ class CreateTaskView extends GetView<CreateTaskController> {
         body: Padding(
           padding: EdgeInsets.all(24.r),
           child: SingleChildScrollView(
-            child: Column(
+            child: Obx(() => Column(
               children: [
                 dropdownField(controller.text, "Activity Type", "Call",
                     Icons.keyboard_arrow_down_outlined),
                 height25(20),
-                dropdownField(controller.text, "Assign Task to",
-                    "Albert Flores", Icons.keyboard_arrow_down_outlined),
+                dropdownField(controller.selectedContact?.value.name != null ? controller.selectedContact!.value.name!.obs : "".obs, "Assign Task to",
+                    "Albert Flores", Icons.keyboard_arrow_down_outlined, onTapDown: (v) {
+                  showContactListPopUp(context, v.globalPosition, controller);
+                    },),
                 height25(20),
-                dropdownField(controller.text, "Link Lead", "Albert Flores",
-                    Icons.keyboard_arrow_down_outlined),
+                dropdownField("${controller.selectedLead?.value.firstName ?? ""} ${controller.selectedLead?.value.lastName ?? ""}".obs, "Link Lead", "Albert Flores",
+                    Icons.keyboard_arrow_down_outlined, onTapDown: (v) {
+                      showLinkLeadPopUp(context, v.globalPosition, controller);
+                    },),
                 height25(20),
                 textfieldWithTitle(
-                    controller.textController, "Task Title", "Task Title"),
+                    controller.taskTitleController, "Task Title", "Task Title"),
                 height25(20),
-                textfieldWithTitle(controller.textController, "Description",
+                textfieldWithTitle(controller.taskDescriptionController, "Description",
                     "Write description here",
                     isExpandText: true),
                 height25(20),
-                dropdownField(controller.text, "Status", "Confirmed",
-                    Icons.keyboard_arrow_down_outlined),
+                dropdownField(controller.selectedTaskStatus.value.name.obs, "Status", "Confirmed",
+                  Icons.keyboard_arrow_down_outlined, onTapDown: (v) {
+                    showTaskStatusPopUp(context, v.globalPosition, controller);
+                  },),
                 height25(20),
                 dropdownField(controller.text, "Due Date", "Add Due Date",
                     Icons.add_outlined),
@@ -50,9 +59,11 @@ class CreateTaskView extends GetView<CreateTaskController> {
                 reminderField(),
                 height25(100),
                 primaryButton("Save",
-                    () => {showCustomDialog(context)}, textBlack, white),
+                        () {
+                          controller.create(context);
+                        }, textBlack, white),
               ],
-            ),
+            )),
           ),
         ));
   }

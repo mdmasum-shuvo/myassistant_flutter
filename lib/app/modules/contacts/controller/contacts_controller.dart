@@ -34,6 +34,7 @@ class ContactsController extends GetxController{
       if (response.status == 200) {
         EasyLoading.dismiss();
         if(response.data != null){
+          contactList.value = response.data!;
           for (var contact in response.data!) {
             // Use addContact method to add and sort contacts
             addContact(contact);

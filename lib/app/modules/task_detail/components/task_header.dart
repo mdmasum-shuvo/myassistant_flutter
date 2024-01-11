@@ -18,7 +18,7 @@ Widget taskHeader(TaskData taskData, String status){
       titleAndValueRow("Assign Task", taskData.assignName ?? ""),
       titleAndValueRow("Task Title", taskData.taskTitile ?? ""),
       titleAndValueRow("Reminder", formatDateTime(taskData.setRemainder)),
-      titleAndValueRow("Status", "Completed"),
+      titleAndValueRow("Status", taskData.taskStatus ?? ""),
     ],
   );
 }
