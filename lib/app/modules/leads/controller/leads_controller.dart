@@ -71,12 +71,12 @@ class LeadsController extends GetxController{
   var filteredList = <Lead>[].obs;
   final LeadProvider _provider = LeadProvider();
 
-  getLeadList(){
+  getLeadList({String searchName = "", String status = "1"}){
     isLoading.value = true;
     debugPrint("\n\n\n---------------->> Enter leadList");
     EasyLoading.show();
     _provider
-        .leadList(searchName: "s", status: "1")
+        .leadList(searchName: searchName, status: status)
         .then((response) async {
       print(RxStatus.success().toString());
       if (response.status == 200) {

@@ -22,43 +22,49 @@ class LeadsView extends GetView<LeadsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: mainAppBar("Lead", "", false, true, () {
-          controller.isVisibleCalender.value =
-              !controller.isVisibleCalender.value;
-        }),
-        floatingActionButton: InkWell(
-            onTap: () {
-              Get.toNamed(Routes.CREATE_LEAD);
-            },
-            child: SvgPicture.asset(
-              Assets.add,
-              height: 80.h,
-              width: 80.w,
-              fit: BoxFit.fill,
-            )),
-        body: Obx(
-          () => Padding(
-            padding: EdgeInsets.only(top: 30.h),
-            child: Column(children: [
-              Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 24.w),
-                child: leadSearchTextField(controller.searchController, controller, "Search leads"),
-              ),
-              height25(30),
-              Padding(
-                padding:  EdgeInsets.only(left: 24.w),
-                child: SizedBox(height: 50.h, child: horizontalListButtons(controller)),
-              ),
-              //TODO: onTap list is not updating
-              height25(40),
-              controller.isVisibleCalender.value ? Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 0.w),
-                child: leadWeekDay(controller),
-              ) : Container(),
-              Expanded(child: leadItemList(controller)),
-            ]),
-          ),
-        ));
+    return RefreshIndicator(
+      onRefresh: () async{
+
+        await controller.getLeadList(searchName: "");
+      },
+      child: Scaffold(
+          appBar: mainAppBar("Lead", "", false, true, () {
+            controller.isVisibleCalender.value =
+                !controller.isVisibleCalender.value;
+          }),
+          floatingActionButton: InkWell(
+              onTap: () {
+                Get.toNamed(Routes.CREATE_LEAD);
+              },
+              child: SvgPicture.asset(
+                Assets.add,
+                height: 80.h,
+                width: 80.w,
+                fit: BoxFit.fill,
+              )),
+          body: Obx(
+            () => Padding(
+              padding: EdgeInsets.only(top: 30.h),
+              child: Column(children: [
+                Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 24.w),
+                  child: leadSearchTextField(controller.searchController, controller, "Search leads"),
+                ),
+                height25(30),
+                Padding(
+                  padding:  EdgeInsets.only(left: 24.w),
+                  child: SizedBox(height: 50.h, child: horizontalListButtons(controller)),
+                ),
+                //TODO: onTap list is not updating
+                height25(40),
+                controller.isVisibleCalender.value ? Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 0.w),
+                  child: leadWeekDay(controller),
+                ) : Container(),
+                Expanded(child: leadItemList(controller)),
+              ]),
+            ),
+          )),
+    );
   }
 }
