@@ -31,14 +31,22 @@ class CreateTaskView extends GetView<CreateTaskController> {
                 dropdownField(controller.text, "Activity Type", "Call",
                     Icons.keyboard_arrow_down_outlined),
                 height25(20),
-                dropdownField(controller.selectedContact?.value.name != null ? controller.selectedContact!.value.name!.obs : "".obs, "Assign Task to",
+                dropdownField(controller.selectedContact.value.name != null ? controller.selectedContact.value.name!.obs : "".obs, "Assign Task to",
                     "Albert Flores", Icons.keyboard_arrow_down_outlined, onTapDown: (v) {
-                  showContactListPopUp(context, v.globalPosition, controller);
+                  showContactListPopUp(context, v.globalPosition, controller).then((value) {
+                    if(value != null){
+                      controller.selectedContact.value = value;
+                    }
+                  });
                     },),
                 height25(20),
-                dropdownField("${controller.selectedLead?.value.firstName ?? ""} ${controller.selectedLead?.value.lastName ?? ""}".obs, "Link Lead", "Albert Flores",
+                dropdownField("${controller.selectedLead.value.firstName ?? ""} ${controller.selectedLead.value.lastName ?? ""}".obs, "Link Lead", "Albert Flores",
                     Icons.keyboard_arrow_down_outlined, onTapDown: (v) {
-                      showLinkLeadPopUp(context, v.globalPosition, controller);
+                      showLinkLeadPopUp(context, v.globalPosition, controller).then((value) {
+                        if(value != null){
+                          controller.selectedLead.value = value;
+                        }
+                      });
                     },),
                 height25(20),
                 textfieldWithTitle(

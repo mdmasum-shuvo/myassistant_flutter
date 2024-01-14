@@ -10,7 +10,7 @@ import 'package:my_assistant/app/theme/text_theme.dart';
 
 
 
-Future<void> showContactListPopUp(BuildContext context, Offset position, CreateTaskController controller) async{
+Future<ContactData?> showContactListPopUp(BuildContext context, Offset position, CreateTaskController controller) async{
 
   final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
   final RelativeRect positions = RelativeRect.fromRect(
@@ -32,9 +32,9 @@ Future<void> showContactListPopUp(BuildContext context, Offset position, CreateT
     )).toList() ?? [],
   ).then((ContactData? value) {
     if (value != null) {
-      controller.selectedContact = value.obs;
-      debugPrint(controller.selectedContact?.value.name);
-
+      // controller.selectedContact = value.obs;
+      // debugPrint(controller.selectedContact?.value.name);
+      return value;
     }
   });
 }

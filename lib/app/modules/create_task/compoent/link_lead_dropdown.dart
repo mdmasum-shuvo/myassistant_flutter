@@ -10,7 +10,7 @@ import 'package:my_assistant/app/theme/text_theme.dart';
 
 
 
-Future<void> showLinkLeadPopUp(BuildContext context, Offset position, CreateTaskController controller) async{
+Future<Lead?> showLinkLeadPopUp(BuildContext context, Offset position, CreateTaskController controller) async{
 
   final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
   final RelativeRect positions = RelativeRect.fromRect(
@@ -32,9 +32,9 @@ Future<void> showLinkLeadPopUp(BuildContext context, Offset position, CreateTask
     )).toList() ?? [],
   ).then((Lead? value) {
     if (value != null) {
-      controller.selectedLead = value.obs;
-      debugPrint(controller.selectedLead?.value.firstName);
-
+      // controller.selectedLead = value.obs;
+      // debugPrint(controller.selectedLead?.value.firstName);
+      return value;
     }
   });
 }

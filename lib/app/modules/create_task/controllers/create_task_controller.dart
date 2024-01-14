@@ -34,11 +34,11 @@ class CreateTaskController extends GetxController {
   /// Lead list
   Rx<LeadsController>? leadController;
   // var leadList = <Lead>[].obs;
-  Rx<Lead>? selectedLead;
+  var selectedLead = Lead().obs;
 
   /// contact list
   Rx<ContactsController>? contactController;
-  Rx<ContactData>? selectedContact;
+  var selectedContact = ContactData().obs;
 
   @override
   void onInit() {
