@@ -19,6 +19,7 @@ class CreateLeadController extends GetxController {
   final lastNameController = TextEditingController(text: "");
   final mobileController = TextEditingController(text: "");
   final emailController = TextEditingController(text: "");
+  final newProjectController = TextEditingController(text: "");
   final count = 0.obs;
   final RxString text = "".obs;
   RxBool isCircle=false.obs;
@@ -48,6 +49,10 @@ class CreateLeadController extends GetxController {
     contactController = Get.find<ContactsController>().obs;
   }
 
+  Rx<ContactData>? selectedExecutive;
+  Rx<ContactData>? selectedSource;
+  Rx<ContactData>? selectedChannelPartner;
+
   final LeadProvider _provider = LeadProvider();
 
   create(BuildContext context){
@@ -58,10 +63,10 @@ class CreateLeadController extends GetxController {
 
       'email' : emailController.text,
       'phone_number' : mobileController.text,
-      'assign_executive_id' : '1',
-      'source_id' : '1',
-      'channel_partner_id' : '1',
-      'project_name' : '1',
+      'assign_executive_id' : selectedExecutive?.value.id.toString(),
+      'source_id' : selectedSource?.value.id.toString(),
+      'channel_partner_id' : selectedChannelPartner?.value.id.toString(),
+      'project_name' : newProjectController.text,
       'status' : selectedTaskStatus.value.id.toString(),
     };
     EasyLoading.show();

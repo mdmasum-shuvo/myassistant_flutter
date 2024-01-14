@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:my_assistant/app/modules/create_lead/component/channel_partner_dropdown.dart';
 import 'package:my_assistant/app/modules/create_lead/component/contact_list_dropdown.dart';
+import 'package:my_assistant/app/modules/create_lead/component/source_dropdown.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 
 import '../../../theme/Colors.dart';
@@ -11,7 +13,7 @@ import '../../../theme/const_sizing.dart';
 import '../../../theme/custom_appbar.dart';
 import '../../common/dropdown.dart';
 import '../../common/tetfield_with_title.dart';
-import '../../create_task/compoent/contact_list_dropdown.dart';
+import '../component/executive_dropdown.dart';
 import '../controllers/create_lead_controller.dart';
 
 class CreateLeadView extends GetView<CreateLeadController> {
@@ -57,17 +59,38 @@ class CreateLeadView extends GetView<CreateLeadController> {
                 textfieldWithTitle(controller.emailController, "Email",
                     "calebanderson@gmail.com", keyboardType: TextInputType.emailAddress),
                 height25(40),
-                dropdownField(controller.text, "Assign Executive",
-                    "Albert Flores", Icons.keyboard_arrow_down_outlined),
+                dropdownField(
+                  controller.selectedExecutive?.value.name != null ? controller.selectedExecutive!.value.name!.obs : "".obs,
+                  "Assign Executive",
+                  "Albert Flores", Icons.keyboard_arrow_down_outlined,
+                  onTapDown: (v) {
+                    showExecutiveDropdown(context, v.globalPosition, controller);
+                  },
+                ),
+                // dropdownField(controller.text, "Assign Executive",
+                //     "Albert Flores", Icons.keyboard_arrow_down_outlined),
                 height25(20),
-                dropdownField(controller.text, "Source", "Albert Flores",
+                dropdownField(
+                    controller.selectedSource?.value.name != null ? controller.selectedSource!.value.name!.obs : "".obs,
+                    "Source", "Albert Flores",
+                    onTapDown: (v) {
+                      showSourceDropdown(context, v.globalPosition, controller);
+                    },
                     Icons.keyboard_arrow_down_outlined),
                 height25(20),
-                dropdownField(controller.text, "Channel Partner",
-                    "Albert Flores", Icons.keyboard_arrow_down_outlined),
+                dropdownField(
+                    controller.selectedChannelPartner?.value.name != null ? controller.selectedChannelPartner!.value.name!.obs : "".obs,
+                    "Channel Partner",
+                    "Albert Flores",
+                    onTapDown: (v) {
+                      showChannelPartnerDropdown(context, v.globalPosition, controller);
+                    },
+                    Icons.keyboard_arrow_down_outlined),
                 height25(20),
-                dropdownField(controller.text, "Add new Project",
-                    "App Development ", Icons.keyboard_arrow_down_outlined),
+                textfieldWithTitle(controller.newProjectController, "Add new Project",
+                    "App Development ", keyboardType: TextInputType.name),
+                // dropdownField(controller.text, "Add new Project",
+                //     "App Development ", Icons.keyboard_arrow_down_outlined),
                 height25(50),
                 primaryButton("Save", () {
                   controller.create(context);
