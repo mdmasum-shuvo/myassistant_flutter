@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:my_assistant/app/modules/create_lead/component/channel_partner_dropdown.dart';
 import 'package:my_assistant/app/modules/create_lead/component/contact_list_dropdown.dart';
-import 'package:my_assistant/app/modules/create_lead/component/source_dropdown.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 
 import '../../../theme/Colors.dart';
@@ -13,7 +11,6 @@ import '../../../theme/const_sizing.dart';
 import '../../../theme/custom_appbar.dart';
 import '../../common/dropdown.dart';
 import '../../common/tetfield_with_title.dart';
-import '../component/executive_dropdown.dart';
 import '../controllers/create_lead_controller.dart';
 
 class CreateLeadView extends GetView<CreateLeadController> {
@@ -31,10 +28,15 @@ class CreateLeadView extends GetView<CreateLeadController> {
               children: [
                 // dropdownField(controller.text, "Pick from contact",
                 //     "Aaron Mitchell", Icons.keyboard_arrow_down_outlined),
-                dropdownField(controller.selectedContact?.value.name != null ? controller.selectedContact!.value.name!.obs : "".obs,
+                dropdownField(controller.selectedContact.value.name != null ? controller.selectedContact.value.name!.obs : "".obs,
                   "Pick from contact",
                   "Aaron Mitchell", Icons.keyboard_arrow_down_outlined, onTapDown: (v) {
-                    showContactListForLeadPopUp(context, v.globalPosition, controller);
+                    showContactListForLeadPopUp(context, v.globalPosition, controller).then((value) {
+                      if(value != null){
+                        controller.selectedContact.value = value;
+                        debugPrint(controller.selectedContact.value.name);
+                      }
+                    });
                   },),
                 height25(20),
                 // text_22_500_inter("Write Lead information"),
@@ -60,30 +62,45 @@ class CreateLeadView extends GetView<CreateLeadController> {
                     "calebanderson@gmail.com", keyboardType: TextInputType.emailAddress),
                 height25(40),
                 dropdownField(
-                  controller.selectedExecutive?.value.name != null ? controller.selectedExecutive!.value.name!.obs : "".obs,
+                  controller.selectedExecutive.value.name != null ? controller.selectedExecutive.value.name!.obs : "".obs,
                   "Assign Executive",
                   "Albert Flores", Icons.keyboard_arrow_down_outlined,
                   onTapDown: (v) {
-                    showExecutiveDropdown(context, v.globalPosition, controller);
+                    showContactListForLeadPopUp(context, v.globalPosition, controller).then((value) {
+                      if(value != null){
+                        controller.selectedExecutive.value = value;
+                        // debugPrint(controller.selectedContact.value.name);
+                      }
+                    });
                   },
                 ),
                 // dropdownField(controller.text, "Assign Executive",
                 //     "Albert Flores", Icons.keyboard_arrow_down_outlined),
                 height25(20),
                 dropdownField(
-                    controller.selectedSource?.value.name != null ? controller.selectedSource!.value.name!.obs : "".obs,
+                    controller.selectedSource.value.name != null ? controller.selectedSource.value.name!.obs : "".obs,
                     "Source", "Albert Flores",
                     onTapDown: (v) {
-                      showSourceDropdown(context, v.globalPosition, controller);
+                      showContactListForLeadPopUp(context, v.globalPosition, controller).then((value) {
+                        if(value != null){
+                          controller.selectedSource.value = value;
+                          // debugPrint(controller.selectedContact.value.name);
+                        }
+                      });
                     },
                     Icons.keyboard_arrow_down_outlined),
                 height25(20),
                 dropdownField(
-                    controller.selectedChannelPartner?.value.name != null ? controller.selectedChannelPartner!.value.name!.obs : "".obs,
+                    controller.selectedChannelPartner.value.name != null ? controller.selectedChannelPartner!.value.name!.obs : "".obs,
                     "Channel Partner",
                     "Albert Flores",
                     onTapDown: (v) {
-                      showChannelPartnerDropdown(context, v.globalPosition, controller);
+                      showContactListForLeadPopUp(context, v.globalPosition, controller).then((value) {
+                        if(value != null){
+                          controller.selectedChannelPartner.value = value;
+                          // debugPrint(controller.selectedContact.value.name);
+                        }
+                      });
                     },
                     Icons.keyboard_arrow_down_outlined),
                 height25(20),

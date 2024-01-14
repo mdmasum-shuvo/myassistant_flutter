@@ -40,7 +40,7 @@ class CreateLeadController extends GetxController {
 
   /// contact list
   Rx<ContactsController>? contactController;
-  Rx<ContactData>? selectedContact;
+  var selectedContact = ContactData().obs;
 
   @override
   void onInit() {
@@ -49,9 +49,9 @@ class CreateLeadController extends GetxController {
     contactController = Get.find<ContactsController>().obs;
   }
 
-  Rx<ContactData>? selectedExecutive;
-  Rx<ContactData>? selectedSource;
-  Rx<ContactData>? selectedChannelPartner;
+  var selectedExecutive = ContactData().obs;
+  var selectedSource = ContactData().obs;
+  var selectedChannelPartner = ContactData().obs;
 
   final LeadProvider _provider = LeadProvider();
 

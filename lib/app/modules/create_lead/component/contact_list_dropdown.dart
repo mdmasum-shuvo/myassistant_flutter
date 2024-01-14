@@ -10,7 +10,7 @@ import 'package:my_assistant/app/theme/text_theme.dart';
 
 
 
-Future<void> showContactListForLeadPopUp(BuildContext context, Offset position, CreateLeadController controller) async{
+Future<ContactData?> showContactListForLeadPopUp(BuildContext context, Offset position, CreateLeadController controller) async{
 
   final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
   final RelativeRect positions = RelativeRect.fromRect(
@@ -32,8 +32,8 @@ Future<void> showContactListForLeadPopUp(BuildContext context, Offset position, 
     )).toList() ?? [],
   ).then((ContactData? value) {
     if (value != null) {
-      controller.selectedContact = value.obs;
-      debugPrint(controller.selectedContact?.value.name);
+
+      return value;
 
     }
   });

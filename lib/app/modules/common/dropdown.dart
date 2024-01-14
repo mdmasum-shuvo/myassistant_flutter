@@ -8,7 +8,7 @@ import 'package:my_assistant/app/theme/text_theme.dart';
 
 import '../../theme/Colors.dart';
 
-Widget dropdownField(RxString text,String title, String hint,IconData asset,
+Widget dropdownField(RxString? text,String title, String hint,IconData asset,
     {Function(TapDownDetails)? onTapDown}) {
   return GestureDetector(
     onTapDown: onTapDown,
@@ -30,7 +30,7 @@ Widget dropdownField(RxString text,String title, String hint,IconData asset,
             children: [
               text_16_300(title,greyText),
               height25(8),
-              Obx(() => text_18_400(text.value.isNotEmpty ? text.value : hint))
+              Obx(() => text_18_400(text?.value != null && text!.value.isNotEmpty ? text.value : hint))
 
             ],
           ),
