@@ -20,52 +20,58 @@ class TaskView extends GetView<TaskController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: mainAppBar("Task", "", false, true, () {
-          controller.isVisibleCalender.value =
-              !controller.isVisibleCalender.value;
-        }),
-        floatingActionButton: InkWell(
-            onTap: () {
-              Get.toNamed(Routes.CREATE_TASK);
-            },
-            child: SvgPicture.asset(
-              Assets.add,
-              height: 80.h,
-              width: 80.w,
-              fit: BoxFit.fill,
-            )),
-        body: Obx(
-          () => Padding(
-            padding: EdgeInsets.only(top: 30.h),
-            child: Column(
-              // padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 30.h),
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24.w),
-                  child:
-                      taskSearchTextField(controller.searchTaskController, controller, "Search Task"),
-                ),
-                height25(30),
-                Padding(
-                  padding: EdgeInsets.only(left: 24.w),
-                  child: SizedBox(
-                      height: 50.h, child: horizontalListButtons(controller),),
-                ),
+    return RefreshIndicator(
+      onRefresh: () async{
 
-                Column(
-                  children: [
-                    height25(40),
-                    Obx(() => controller.isVisibleCalender.value
-                        ? weekDay(controller)
-                        : Container()),
-                    height25(20),
-                  ],
-                ),
-                Expanded(child: taskItemList(context, controller))
-              ],
+        await controller.getTaskList();
+      },
+      child: Scaffold(
+          appBar: mainAppBar("Task", "", false, true, () {
+            controller.isVisibleCalender.value =
+                !controller.isVisibleCalender.value;
+          }),
+          floatingActionButton: InkWell(
+              onTap: () {
+                Get.toNamed(Routes.CREATE_TASK);
+              },
+              child: SvgPicture.asset(
+                Assets.add,
+                height: 80.h,
+                width: 80.w,
+                fit: BoxFit.fill,
+              )),
+          body: Obx(
+            () => Padding(
+              padding: EdgeInsets.only(top: 30.h),
+              child: Column(
+                // padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 30.h),
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 24.w),
+                    child:
+                        taskSearchTextField(controller.searchTaskController, controller, "Search Task"),
+                  ),
+                  height25(30),
+                  Padding(
+                    padding: EdgeInsets.only(left: 24.w),
+                    child: SizedBox(
+                        height: 50.h, child: horizontalListButtons(controller),),
+                  ),
+
+                  Column(
+                    children: [
+                      height25(40),
+                      Obx(() => controller.isVisibleCalender.value
+                          ? weekDay(controller)
+                          : Container()),
+                      height25(20),
+                    ],
+                  ),
+                  Expanded(child: taskItemList(context, controller))
+                ],
+              ),
             ),
-          ),
-        ));
+          )),
+    );
   }
 }

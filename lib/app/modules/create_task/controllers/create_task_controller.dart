@@ -21,6 +21,7 @@ class CreateTaskController extends GetxController {
   final taskDescriptionController =TextEditingController(text: "");
   final count = 0.obs;
   final RxString text="".obs;
+  var title = "Task Title".obs;
   
   var taskStatusList = <TaskStatus>[
     TaskStatus(name: "Pending", id: "1"),

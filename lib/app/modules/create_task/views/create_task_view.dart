@@ -42,7 +42,7 @@ class CreateTaskView extends GetView<CreateTaskController> {
                     },),
                 height25(20),
                 textfieldWithTitle(
-                    controller.taskTitleController, "Task Title", "Task Title"),
+                    controller.taskTitleController, controller.title.value, "Task Title"),
                 height25(20),
                 textfieldWithTitle(controller.taskDescriptionController, "Description",
                     "Write description here",
