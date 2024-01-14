@@ -19,16 +19,42 @@ import '../../../utils/assets.dart';
 
 Widget registerFields(RegisterController controller, BuildContext context){
   return Obx(() => Form(
+    key: controller.fromKey,
     child: Column(
       children: [
-        textField("First Name", controller.firstNameController, Assets.person, keyboardType: TextInputType.name),
+        textField("First Name", controller.firstNameController, Assets.person,
+            validator: (v) {
+          if(v == null || v == "" ){
+            return "Enter Name";
+          }else{
+            return null;
+          }
+        }, keyboardType: TextInputType.name),
         height25(),
-        textField("Last Name", controller.lastNameController, Assets.person, keyboardType: TextInputType.name),
+        textField("Last Name", controller.lastNameController, Assets.person, validator: (v) {
+          if(v == null || v == "" ){
+            return "Enter Last Name";
+          }else{
+            return null;
+          }
+        }, keyboardType: TextInputType.name),
         height25(),
-        textField("Email", controller.emailController, Assets.email, keyboardType: TextInputType.emailAddress),
+        textField("Email", controller.emailController, Assets.email, validator: (v) {
+          if(v == null || v == "" ){
+            return "Enter Email";
+          }else{
+            return null;
+          }
+        }, keyboardType: TextInputType.emailAddress),
         height25(),
 
-        textField("Phone number", controller.phoneNumberController, Assets.call, keyboardType: TextInputType.phone),
+        textField("Phone number", controller.phoneNumberController, Assets.call, validator: (v) {
+          if(v == null || v == "" ){
+            return "Enter Phn Number";
+          }else{
+            return null;
+          }
+        }, keyboardType: TextInputType.phone),
         // CountryCodePicker(
         // onChanged: print,
         // boxDecoration: BoxDecoration(
@@ -55,6 +81,15 @@ Widget registerFields(RegisterController controller, BuildContext context){
         height25(),
         textField("Password", controller.passwordController, Assets.lock,
             keyboardType: TextInputType.visiblePassword,
+            validator: (v) {
+              if(v == null || v == "" ){
+                return "Enter Password";
+              }else if(v.length < 8){
+                return "password must be more than 8 character!";
+            }else{
+                return null;
+              }
+            },
             obscureText: controller.showPassword.value,
             suffix: Padding(
               padding: const EdgeInsets.all(15.0),
@@ -129,7 +164,11 @@ Widget registerFields(RegisterController controller, BuildContext context){
         ),
         height25(64),
         primaryButton("Register", () {
-          controller.create();
+          var v = controller.fromKey.currentState?.validate();
+          debugPrint("dddddd ====> $v");
+          if(v != null && v){
+            controller.create();
+          }
           // Get.offAllNamed(Routes.DASHBOARD);
 
         },textBlack,white),
