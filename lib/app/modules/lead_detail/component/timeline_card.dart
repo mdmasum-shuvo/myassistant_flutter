@@ -27,7 +27,7 @@ Widget timelineCard(LeadData d){
           height25(20),
           iconTextButton(Assets.profileCircle, "${d.firstName ?? ""} ${d.lastName ?? ""}", null, greyText),
           height25(10),
-          iconTextButton(Assets.dateWhite, formatDateTime(d.setRemainder), null, greyText),
+          iconTextButton(Assets.dateWhite, formatDateAndTime(d.setRemainder), null, greyText),
           height25(10),
           iconTextButton(Assets.edit, "Scheduled meeting with Lead at client office", null, greyText),
 
