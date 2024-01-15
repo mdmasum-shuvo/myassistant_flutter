@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
+import 'package:my_assistant/app/models/task/lead_wise_task_model.dart';
 import 'package:my_assistant/app/models/task/task_detail.dart';
 import 'package:my_assistant/app/models/task/task_list_model.dart';
 import 'package:my_assistant/app/utils/DefaultResponse.dart';
@@ -63,6 +64,31 @@ class TaskProvider extends GetConnect {
       print(response.body);
 
       return TaskDetail.fromJson(jsonDecode(response.bodyString!));
+    }
+  }
+
+  Future<LeadWiseTask> leadWiseTask(String id, String type) async {
+    var url = "${Constants.baseUrl}lead-wise-task-list?lead_list_id=$id&type=$type";
+
+    print("login url $url");
+    final response = await get(
+        url,
+        headers: Constants.headers);
+    if (response.status.hasError) {
+      String message = "Something went wrong!";
+      try {
+        message =
+        ErrorResponse.fromJson(jsonDecode(response.bodyString!)).message!;
+      } catch (e) {
+        print(e);
+      }
+
+      Utils.showProviderError(response.statusCode, message);
+      return Future.error(response.bodyString!);
+    } else {
+      print(response.body);
+
+      return LeadWiseTask.fromJson(jsonDecode(response.bodyString!));
     }
   }
 

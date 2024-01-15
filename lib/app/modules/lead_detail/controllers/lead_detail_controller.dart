@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:my_assistant/app/models/lead/lead_detail_model.dart';
+import 'package:my_assistant/app/models/task/lead_wise_task_model.dart';
 import 'package:my_assistant/app/providers/lead_provider.dart';
+import 'package:my_assistant/app/providers/task_provider.dart';
 
 import '../../../theme/Colors.dart';
 import '../../../utils/snackbar.dart';
@@ -27,8 +29,9 @@ class LeadDetailController extends GetxController {
 
   var isLoading = false.obs;
   final LeadProvider _provider = LeadProvider();
+  final TaskProvider _provider2 = TaskProvider();
 
-  Rx<Detail>? leadDetail;
+  var leadDetail = Detail().obs;
   getLeadDetail(String id){
     isLoading.value = true;
     EasyLoading.show();
@@ -39,7 +42,7 @@ class LeadDetailController extends GetxController {
       if (response.status == 200) {
         EasyLoading.dismiss();
         if(response.data != null){
-          leadDetail = response.data!.obs;
+          leadDetail.value = response.data!;
           Detail d = response.data!;
           firstNameController.text = d.firstName ?? "";
           lastNameController.text = d.lastName ?? "";
@@ -59,7 +62,37 @@ class LeadDetailController extends GetxController {
     });
   }
 
+  var upcomingList = <LeadData>[].obs;
+  var pastList = <LeadData>[].obs;
 
+  getLeadWiseTaskList(String id, String type){
+    // isLoading.value = true;
+    // EasyLoading.show();
+    _provider2
+        .leadWiseTask(id, type)
+        .then((response) async {
+      print(RxStatus.success().toString());
+      if (response.status == 200) {
+        // EasyLoading.dismiss();
+        if(response.data != null ){
+          if(type.contains("1")){
+            upcomingList.value = response.data!;
+          }else{
+            pastList.value = response.data!;
+          }
+        }else{
+        }
+        // isLoading.value = false;
+        // getxSnackbar("", "Successfully", Colors.green);
+      }else{
+        // EasyLoading.dismiss();
+        getxSnackbar("", "No Data Found!", red);
+        // isLoading.value = false;
+
+        Utils.showControllerError(response);
+      }
+    });
+  }
   @override
   void onInit() {
     super.onInit();
@@ -67,7 +100,10 @@ class LeadDetailController extends GetxController {
     if(ar != null){
       getLeadDetail(ar);
     }
-
+    if(true){
+      getLeadWiseTaskList("1", "1");
+      getLeadWiseTaskList("1", "2");
+    }
   }
 
 

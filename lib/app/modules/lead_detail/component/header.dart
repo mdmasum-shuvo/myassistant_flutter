@@ -11,10 +11,10 @@ Widget leadDetailHeader(LeadDetailController controller){
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      text_22_500_inter("${controller.leadDetail?.value.firstName ?? ""} ${controller.leadDetail?.value.lastName ?? ""}"),
+      text_22_500_inter("${controller.leadDetail.value.firstName ?? ""} ${controller.leadDetail.value.lastName ?? ""}"),
       height25(10),
-      text_16_300_inter(controller.leadDetail?.value.phoneNumber ?? ""),
-      text_16_300_inter(controller.leadDetail?.value.pickFromContactName ?? ""),
+      text_16_300_inter(controller.leadDetail.value.phoneNumber ?? ""),
+      text_16_300_inter(controller.leadDetail.value.pickFromContactName ?? ""),
       height25(30),
     ],
   ));

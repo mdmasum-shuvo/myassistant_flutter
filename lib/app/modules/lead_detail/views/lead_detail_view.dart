@@ -73,7 +73,7 @@ class LeadDetailView extends GetView<LeadDetailController> {
 
   Widget getView(bool v) {
     if (v) {
-      return timeline();
+      return timeline(controller);
     } else {
       return leadDetailInformationCard(controller);
     }

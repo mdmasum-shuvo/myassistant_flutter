@@ -1,13 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_assistant/app/global/convert_date_time.dart';
+import 'package:my_assistant/app/models/task/lead_wise_task_model.dart';
 import 'package:my_assistant/app/modules/task/components/task_item_card.dart';
 import 'package:my_assistant/app/theme/Colors.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
 import 'package:my_assistant/app/theme/text_theme.dart';
 import 'package:my_assistant/app/utils/assets.dart';
 
-Widget timelineCard(){
+Widget timelineCard(LeadData d){
   return Card(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(20.r)
@@ -23,9 +25,9 @@ Widget timelineCard(){
         children: [
           text_18_500_inter("Meeting With Lead"),
           height25(20),
-          iconTextButton(Assets.profileCircle, "Albert Flores", null, greyText),
+          iconTextButton(Assets.profileCircle, "${d.firstName ?? ""} ${d.lastName ?? ""}", null, greyText),
           height25(10),
-          iconTextButton(Assets.dateWhite, "27 Nov 2023, 5:23:06 PM", null, greyText),
+          iconTextButton(Assets.dateWhite, formatDateTime(d.setRemainder), null, greyText),
           height25(10),
           iconTextButton(Assets.edit, "Scheduled meeting with Lead at client office", null, greyText),
 
