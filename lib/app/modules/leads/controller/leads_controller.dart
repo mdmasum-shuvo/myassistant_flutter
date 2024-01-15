@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:my_assistant/app/models/lead/lead_list_model.dart';
@@ -13,6 +14,7 @@ import '../../task/components/buttons.dart';
 class LeadsController extends GetxController{
 
   TextEditingController searchController = TextEditingController();
+  CalendarWeekController calendarWeekController = CalendarWeekController();
   var horizontalButtonList = <Buttons>[
     Buttons(name: "All", isSelected: true.obs),
     Buttons(name: "New", isSelected: false.obs),
@@ -105,6 +107,7 @@ class LeadsController extends GetxController{
     getLeadList();
   }
 
+
   var searchQuery = "".obs;
   Rx<DateTime?>? date;
   var statusId = "".obs;
@@ -114,7 +117,7 @@ class LeadsController extends GetxController{
       {String? query, DateTime? dateTime, String? status}) {
     filteredList.value = leadList;
     searchQuery.value = query ?? "";
-    date?.value = dateTime;
+    date = dateTime.obs;
     statusId.value = status?.toLowerCase() ?? "";
 
     // Filter by search query (firstName, lastName, or taskTitile)
@@ -128,9 +131,23 @@ class LeadsController extends GetxController{
 
     // Filter by date
     if (date?.value != null) {
-      filteredList.value = filteredList
-          .where((task) => DateTime.parse(task.createdAt!).isAtSameMomentAs(date!.value!))
-          .toList(); //TODO: change date from createdAt
+      debugPrint("Enter date and date is: ${date!.value} and length is: ${filteredList.length}");
+
+      filteredList.value = filteredList.where((task) {
+        DateTime? taskDate = DateTime.tryParse(task.createdAt ?? '');
+
+        if (taskDate != null) {
+          // Extract date part without time
+          DateTime taskDateOnly = DateTime(taskDate.year, taskDate.month, taskDate.day);
+
+          // Compare only the date part
+          return taskDateOnly.isAtSameMomentAs(DateTime(date!.value!.year, date!.value!.month, date!.value!.day));
+        }
+
+        return false;
+      }).toList();
+
+      debugPrint("Data length: ${filteredList.length}");
     }
 
     // Filter by status
@@ -169,6 +186,7 @@ class LeadsController extends GetxController{
     }
     return s;
   }
+
 
 
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:my_assistant/app/global/calendar.dart';
 import 'package:my_assistant/app/modules/create_task/compoent/contact_list_dropdown.dart';
 import 'package:my_assistant/app/modules/create_task/compoent/link_lead_dropdown.dart';
 import 'package:my_assistant/app/modules/create_task/compoent/status_dropdown.dart';
@@ -62,6 +63,9 @@ class CreateTaskView extends GetView<CreateTaskController> {
                   },),
                 height25(20),
                 dropdownField(controller.text, "Due Date", "Add Due Date",
+                    onTapDown: (p0) {
+                      showDateTimeSelectionDialog(context);
+                    },
                     Icons.add_outlined),
                 height25(20),
                 reminderField(),

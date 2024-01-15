@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ import 'package:my_assistant/app/routes/app_pages.dart';
 
 import '../../../theme/const_sizing.dart';
 import '../../../theme/custom_appbar.dart';
+import '../../../theme/text_theme.dart';
 import '../../../utils/assets.dart';
 import '../../task/components/weekday.dart';
 import '../components/horizontal_list.dart';
@@ -31,6 +33,13 @@ class LeadsView extends GetView<LeadsController> {
           appBar: mainAppBar("Lead", "", false, true, () {
             controller.isVisibleCalender.value =
                 !controller.isVisibleCalender.value;
+            ///-------------------------------------------
+            // if(controller.isVisibleCalender.value){
+            //   controller.calendarWeekController = CalendarWeekController();
+            //
+            // }else{
+            //   // Get.delete<CalendarWeekController>();
+            // }
           }),
           floatingActionButton: InkWell(
               onTap: () {
@@ -59,9 +68,9 @@ class LeadsView extends GetView<LeadsController> {
                 height25(40),
                 controller.isVisibleCalender.value ? Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 0.w),
-                  child: leadWeekDay(controller),
+                  child: leadWeekDay(controller,),
                 ) : Container(),
-                Expanded(child: leadItemList(controller)),
+                controller.filteredList.isEmpty ? text_16_500("No Data") : Expanded(child: leadItemList(controller)),
               ]),
             ),
           )),

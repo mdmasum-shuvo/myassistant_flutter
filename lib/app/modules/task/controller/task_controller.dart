@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:my_assistant/app/global/status.dart';
@@ -11,6 +12,9 @@ import '../../../utils/snackbar.dart';
 import '../../../utils/utils.dart';
 
 class TaskController extends GetxController {
+
+  CalendarWeekController calendarWeekController = CalendarWeekController();
+
   var horizontalButtonList = <Buttons>[
     Buttons(name: "All", isSelected: true.obs),
     Buttons(name: "Pending", isSelected: false.obs),
@@ -101,7 +105,7 @@ class TaskController extends GetxController {
       {String? query, DateTime? dateTime, String? status}) {
      filteredList.value = taskList;
      searchQuery.value = query ?? "";
-     date?.value = dateTime;
+     date = dateTime.obs;
      statusId.value = status?.toLowerCase() ?? "";
 
     // Filter by search query (firstName, lastName, or taskTitile)
@@ -114,13 +118,36 @@ class TaskController extends GetxController {
     }
 
     // Filter by date
-    if (date?.value != null) {
-      filteredList.value = filteredList
-          .where((task) => DateTime.parse(task.setRemainder!).isAtSameMomentAs(date!.value!))
-          .toList();
-    }
+    // if (date?.value != null) {
+    //   debugPrint("Enter date and date is: ${date?.value} and length is: ${filteredList.length}");
+    //   filteredList.value = filteredList
+    //       .where((task) => DateTime.parse(task.setRemainder!).isAtSameMomentAs(date!.value!))
+    //       .toList();
+    //   debugPrint("Data length: ${filteredList.length}");
+    // }
+     if (date?.value != null) {
+       debugPrint("Enter date and date is: ${date!.value} and length is: ${filteredList.length}");
 
-    // Filter by status
+       filteredList.value = filteredList.where((task) {
+         DateTime? taskDate = DateTime.tryParse(task.setRemainder ?? '');
+
+         if (taskDate != null) {
+           // Extract date part without time
+           DateTime taskDateOnly = DateTime(taskDate.year, taskDate.month, taskDate.day);
+
+           // Compare only the date part
+           return taskDateOnly.isAtSameMomentAs(DateTime(date!.value!.year, date!.value!.month, date!.value!.day));
+         }
+
+         return false;
+       }).toList();
+
+       debugPrint("Data length: ${filteredList.length}");
+     }
+
+
+
+     // Filter by status
     if (statusId.value != null && statusId.value.isNotEmpty) {
       filteredList.value = filteredList
           .where((task) => task.taskStatus?.toLowerCase() == statusId.value.toLowerCase())

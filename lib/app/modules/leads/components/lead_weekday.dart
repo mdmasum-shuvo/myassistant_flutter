@@ -11,7 +11,7 @@ import 'package:my_assistant/app/modules/task/controller/task_controller.dart';
 import '../../../theme/Colors.dart';
 import '../../../theme/text_theme.dart';
 
-Widget leadWeekDay(LeadsController controller){
+Widget leadWeekDay(LeadsController controller, ){
   return Column(
     children: [
       CalendarWeek(
@@ -21,7 +21,7 @@ Widget leadWeekDay(LeadsController controller){
         height: 150.h,
         // minDate: DateTime.now(),
         minDate: DateTime.now().add(
-          Duration(days: -365),
+          const Duration(days: -365),
         ),
         maxDate: DateTime.now().add(Duration(days: 365)),
 

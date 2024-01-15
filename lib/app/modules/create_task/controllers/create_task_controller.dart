@@ -5,7 +5,7 @@ import 'package:my_assistant/app/models/contacts/contact_list_model.dart';
 import 'package:my_assistant/app/modules/create_task/compoent/task_status_model.dart';
 import 'package:my_assistant/app/modules/leads/controller/leads_controller.dart';
 import 'package:my_assistant/app/providers/task_provider.dart';
-
+import 'package:intl/intl.dart';
 import '../../../global/sucess_alert.dart';
 import '../../../models/lead/lead_list_model.dart';
 import '../../../theme/Colors.dart';
@@ -88,4 +88,20 @@ class CreateTaskController extends GetxController {
   }
 
   void increment() => count.value++;
+
+  RxBool isCalendarSelected = true.obs;
+  RxString selectedDateTime = ''.obs;
+
+  void toggleSelection(bool isCalendar) {
+    isCalendarSelected.value = isCalendar;
+    update();
+  }
+
+  void selectDateTime(DateTime dateTime) {
+    selectedDateTime.value = isCalendarSelected.value
+        ? DateFormat('dd MMM yyyy, h:mm:ss a').format(dateTime)
+        : DateFormat('h:mm:ss a').format(dateTime);
+
+    Get.back(); // Close the dialogue
+  }
 }

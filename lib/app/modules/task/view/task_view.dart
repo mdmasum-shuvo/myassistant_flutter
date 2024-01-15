@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -6,6 +7,7 @@ import 'package:my_assistant/app/modules/task/components/horizontal_list_buttons
 import 'package:my_assistant/app/modules/task/components/weekday.dart';
 import 'package:my_assistant/app/modules/task/controller/task_controller.dart';
 import 'package:my_assistant/app/theme/const_sizing.dart';
+import 'package:my_assistant/app/theme/text_theme.dart';
 import 'package:my_assistant/app/utils/assets.dart';
 import '../../../routes/app_pages.dart';
 import '../../../theme/custom_appbar.dart';
@@ -29,6 +31,12 @@ class TaskView extends GetView<TaskController> {
           appBar: mainAppBar("Task", "", false, true, () {
             controller.isVisibleCalender.value =
                 !controller.isVisibleCalender.value;
+            ///---------------------------------------------
+            // if(controller.isVisibleCalender.value){
+            //   controller.calendarWeekController = CalendarWeekController();
+            // }else{
+            //   // Get.delete<CalendarWeekController>();
+            // }
           }),
           floatingActionButton: InkWell(
               onTap: () {
@@ -67,7 +75,7 @@ class TaskView extends GetView<TaskController> {
                       height25(20),
                     ],
                   ),
-                  Expanded(child: taskItemList(context, controller))
+                  controller.filteredList.isEmpty ? text_16_500("No Data") : Expanded(child: taskItemList(context, controller))
                 ],
               ),
             ),

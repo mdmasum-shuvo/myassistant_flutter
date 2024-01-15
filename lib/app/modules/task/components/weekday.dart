@@ -20,9 +20,9 @@ Widget weekDay(TaskController controller){
         height: 150.h,
         // minDate: DateTime.now(),
         minDate: DateTime.now().add(
-          Duration(days: -365),
+          const Duration(days: -365),
         ),
-        maxDate: DateTime.now().add(Duration(days: 365)),
+        maxDate: DateTime.now().add(const Duration(days: 365)),
         onDatePressed: (DateTime datetime) {
           // Do something
           debugPrint("Date: pressed: $datetime");
